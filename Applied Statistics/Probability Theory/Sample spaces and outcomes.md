@@ -1,3 +1,6 @@
+---
+tags: [set theory, events]
+---
 # Sample spaces and outcomes
 
 ## Sample space

@@ -1,3 +1,6 @@
+---
+tags: [probability, independence]
+---
 # Conditional Probability
 
 The *conditional probability* of $A$ given $C$ is given by
