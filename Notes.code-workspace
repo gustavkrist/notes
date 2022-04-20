@@ -1,0 +1,24 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"cSpell.words": [
+			"bivariate",
+			"Chebyshev's",
+			"Cramér",
+			"Heteroscedasticity",
+			"homoscedasticity",
+			"Kolmogorov",
+			"Loglikelihood",
+			"multimodal",
+			"Quantile",
+			"quantiles",
+			"scatterplot",
+			"Smirnov",
+			"unbiasedness"
+		]
+	}
+}

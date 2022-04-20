@@ -1,0 +1,8 @@
+{
+    "MD041": false,
+    "MD001": false,
+    "MD038": false,
+    "MD013": false,
+    "MD033": false, // No inline html
+    "MD009": false // No trailing witespace    
+}
