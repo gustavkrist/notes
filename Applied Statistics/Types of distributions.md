@@ -6,9 +6,9 @@ The sum of two independent, normally distributed variables is also normally dist
 
 Estimator for $\mu$
 
-$$
+```math
 \mu = \overline{x}_n
-$$
+```
 
 Estimator for $\sigma$
 
