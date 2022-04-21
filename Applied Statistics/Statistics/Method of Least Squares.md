@@ -2,9 +2,9 @@
 
 ## The Method of Least Squares
 
-The true line has the formula\
-$ Y = \alpha + \beta x $  
-The line that we find is\
+The true line has the formula  
+$Y = \alpha + \beta x$  
+The line that we find is  
 $Y = \alpha + \beta x + N$  
 where N is some random noise.
 
@@ -13,6 +13,7 @@ $(x_1, y_1), \ldots, (x_n, y_n)$, where
 
 - $x_1, x_2, \ldots, x_n$ are non-random
 - $y_1, y_2, \ldots, y_n$ are realizations of $Y_1, Y_2, \ldots, Y_n$, where
+
   $$
   Y_i = \alpha + \beta x_i + \text{U}_i
   $$
@@ -35,32 +36,38 @@ the derivatives equal to 0.
 ![Residuals visualized](assets/residuals.png)
 
 ??? note Finding <i>α</i> and <i>β</i>
-    $$
+    
+    ```math
     \frac{\partial}{\partial \alpha} S(\alpha, \beta) = 0
     \Leftrightarrow
     \sum^{n}_{i=1}(y_i - \alpha - \beta x_i) = 0
-    $$
-    $$
+    ```
+    
+    ```math
     \frac{\partial}{\partial \beta} S(\alpha, \beta) = 0
     \Leftrightarrow
     \sum^{n}_{i=1}(y_i - \alpha - \beta x_i)x_i = 0
-    $$
+    ```
+    
     Which is equivalent to
-    $$
+    
+    ```math
     \begin{align*}
     n\alpha + \beta \sum^{n}_{i=1}x_i &= \sum^{n}_{i=1}y_i \\
     \alpha \sum^{n}_{i=1}x_i + \beta \sum^{n}_{i=1}x_i^2 &= \sum^{n}_{i=1}x_i y_i
     \end{align*}
-    $$
+    ```
+    
     These are two equations with two unknowns $\alpha$ and $\beta$.  
     In general, writing $\sum$ instead of $\sum^{n}_{i=1}$, we find the following formulas
     for the estimates $\hat{\alpha}$ (the *intercept*) and $\hat{\beta}$ (the *slope*):
-    $$
+    
+    ```math
     \begin{align*}
     \hat{\beta} &= \frac{n \sum x_i y_i - (\sum x_i) (\sum y_i)}{n \sum x_i^2 - (\sum x_i)^2} \\
     \hat{\alpha} &= \overline{y}_n - \hat{\beta} \bar{x}_n
     \end{align*}
-    $$
+    ```
     Since $S(\alpha, \beta)$ is an elliptic paraboloid (a "vase"), it follows that
     $(\hat{\alpha}, \hat{\beta})$ is the unique minimum of $S(\alpha, \beta)$
     (except when all $x_i$ are equal).

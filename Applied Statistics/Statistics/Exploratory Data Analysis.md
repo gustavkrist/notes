@@ -14,17 +14,23 @@ $$
 \def\abs#1{\lvert #1 \rvert}
 \text{height }B_i = \frac{\text{number of } x_j \text{in } B_i}{n\abs{B_i}}
 $$
+
+$$
+\def\abs#1{\lvert #1 \rvert}
+\text{height }B_i = \frac{\text{number of } x_j \text{in } B_i}{n\abs{B_i}}
+$$
+
 Good bin width for normally distributed data: $b = \displaystyle\frac{24\sqrt{n}^\frac{1}{3}s}{\sqrt[3]{n}}$
 
 ## Kernel Density Estimate
 
-Associate a *kernel* to each data point on the $x$ axis.\
+Associate a *kernel* to each data point on the $x$ axis.  
 A *kernel* is:
 
 - A function $K: \R \to \R$
 - $\displaystyle\int^{\infty}_{-\infty}K(x)dx = 1$
 - Symmetric
-- $K(x) = 0$ for $   x| > 1$ (usually)
+- $K(x) = 0$ for $|x| > 1$ (usually)
 
 The KDE has two parameters:
 
@@ -67,7 +73,7 @@ lines(density(data, ...))
 Empirical distribution function in R:
 
 ```R
-# Emperical distribution function
+# Empirical distribution function
 ecdf(data)
 
 # Plot ECDF
@@ -83,19 +89,22 @@ plot(ecdf(data))
 
 ## Numerical summaries
 
-**Sample mean**
+#### Sample mean
+
 $$
 \def\mean#1{\overline{#1}}
 \mean{x}_n = \frac{x_1 + \dots + x_n}{n} 
 $$
 
-**Sample variance**
+#### Sample variance
+
 $$
 \def\mean#1{\overline{#1}}
 \mean{s^2} = \frac{1}{n-1} \sum^{n}_{i=1}(x_i - \mean{x})^2
 $$
 
-**MAD (mean absolute deviation)**
+#### MAD (mean absolute deviation)
+
 $$
 \def\med{\operatorname{Med}}
 \def\abs#1{\lvert #1 \rvert}
@@ -120,6 +129,7 @@ $$
 
 $q_n(0.75)$ is the upper quantile and $q_n(0.25)$ is the lower quantile.
 The Inter Quantile Range is 
+
 $$
 \text{IQR} = q_n(0.75) - q_n(0.25)
 $$
@@ -138,15 +148,17 @@ If $F$ is the distribution function, we speak of a *random sample from* $F$.
     We randomly select 1000 men (or women) aged 18-24 and measure their height.
     We assume that the height follows a normal distribution $N(\mu, \sigma^2)$.  
     Using the 1000 measurements we can estimate
+    <!---->
     - $\mu$ by the sample mean $\overline{x}$
     - $\sigma^2$ by the sample variance
-    <!---->
+    
     If you mix men and women, who have a different mean and variance, the data would
     no longer be normally distributed, therefore the two are separated.
 
 !!! example Example: Making predictions
     A factory produces 1000 light bulbs each day. At quality control, 30 light bulbs were
     found to be faulty. What is the probability that there are more than 50 faulty light bulbs?
+    <!---->
     - Modeled by a binomial distribution $\operatorname{Bin}(n,p)$
     - $E[x] = np$ for $X \sim \operatorname{Bin}(n, p)$
     - $\displaystyle n = 1000, \; p = \frac{\overline{x}}{n} = \frac{30}{1000} = 0.03$

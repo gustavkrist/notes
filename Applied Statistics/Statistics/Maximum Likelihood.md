@@ -19,9 +19,11 @@ for the probability density function when we have a sample from a continuous dis
 
 The maximum likelihood principle tells us to estimate $\theta$ by the value where
 the function $L(\theta)$, given by
+
 $$
 L(\theta) = P(X_1 = x_1, \ldots, X_n = x_n) = p_{\theta}(x_1) \dots p_{\theta}(x_n)  
 $$
+
 is maximal. This value is called the maximum likelihood estimate of $\theta$.  
 The function $L(\theta)$ is called the *likelihood function*.
 
@@ -39,15 +41,18 @@ $$
 !!! note Maximum likelihood estimator
     The maximum likelihood estimate of $\theta$ is the value $t=h(x_1, x_2, \ldots, x_n)$ that 
     maximizes the likelihood function $L(\theta)$. The corresponding random variable 
-    $$
+    <!---->
+    ```math
     T = h(X_1, X_2, \ldots, X_n)
-    $$
+    ```
+
     is called the *likelihood estimator* for $\theta$.
 
 ??? example Example: Maximum likelihood estimator
     10 coin flips, with $\Omega_X = \{H, T\}$.
     The given outcome is $T, T, T, T, H, T, H, T, H, T$
-    $$
+
+    ```math
     \def\given{\,\vert\,}
     \begin{align*}
       P_p(x) &= \begin{cases}
@@ -60,7 +65,7 @@ $$
     P(\text{"seq"} \given \text{fair}) &= \left( \frac{1}{2} \right)^10 \approx 0.0010 \\
     P(\text{"seq"} \given \text{biased}) &= (0.2)^3 \cdot (0.8)^7 \approx 0.0017
     \end{align*}
-    $$
+    ```
 
 ### Loglikelihood
 
@@ -69,6 +74,7 @@ changes the product of terms involving $\theta$ into a *sum* of logarithms of th
 terms, which makes differentiating easier.  
 Because the logarithm is an increasing function, the likelihood function and the
 loglikelihood function have the same extreme values of $\theta$.
+
 $$
 \ell(\theta) = \ln L(\theta) = \ln p_{\theta}(x_1) + \dots + \ln p_{\theta}(x_n)
 $$
@@ -85,9 +91,11 @@ $$
     show that asymptotically, maximum likelihood estimators are unbiased.
     That is, if $T_n = h(X_1, X_2, \ldots, X_n)$ is the maximum likelihood estimator for
     $\theta$, then
+
     $$
     \lim_{n\to\infty} E[T_n] = \theta
     $$
+
 - **Asymptotic minimum variance**
   - The variance of an unbiased estimator for $\theta$ is always larger than or equal
     to a certain positive number, known as the Cramér-Rao lower bound.

@@ -48,13 +48,14 @@ Empirical bootstrap for the mean:
 
 <figure>
 <p align="center">
-  <img src="assets/kolmogorov.png" width=80%>
+  <img src="./assets/kolmogorov.png" width=80%>
 </p>
 <figcaption align="center">Kolmogorov-Smirnov distance</figcaption>
 </figure>
 
 !!! example KS distance in R
     #### KS distance on the software dataset
+    
     ```R
     software<- c(0,0,0,2,4,6,8,9,10,10,10,12,15,15,16,21,22,24,26,30,30,31,33,36,44,50,55,58,65,68,
                  75,77,79,81,88,91,97,100,108,108,
@@ -74,7 +75,6 @@ Empirical bootstrap for the mean:
     ```
     
     ![Software ECDF](assets/ecdf.png)
-    
     Is the exponential distribution with the estimated parameter really a good fit?
     
     ```R
@@ -83,17 +83,16 @@ Empirical bootstrap for the mean:
       max(abs(empirical_distribution(bootstrapped_data) - pexp(bootstrapped_data, rate = lambda)))
     }
     ks_estimate <- ks_distance_exp_distribution(software, lambda_estimate)
-    
+
     bootstrap_ks <- c()
     for (i in 1:1000) {
       bootstrap_sample <- rexp(length(software), lambda_estimate)
       bootstrap_lambda <- 1/mean(bootstrap_sample)
       bootstrap_ks <- c(bootstrap_ks, ks_distance_exp_distribution(bootstrap_sample, bootstrap_lambda))
     }
-    
+
     plot(density(bootstrap_ks), xlim=c(0,0.2))
     abline(v=ks_estimate, col='red')
     ```
     ![Bootstrap KS KDE Plot](assets/ks_kde.png)
-    
     Looks like it's not!

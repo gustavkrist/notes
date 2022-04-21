@@ -632,4 +632,9 @@
 		],
 		"description": "HTML Figure with caption"
 	},
+	"Empty comment": {
+		"prefix": ">!",
+		"body": ["<!---->"],
+		"description": "Insert empty comment"
+	},
 }

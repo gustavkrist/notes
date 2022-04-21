@@ -6,9 +6,9 @@ The sum of two independent, normally distributed variables is also normally dist
 
 Estimator for $\mu$
 
-```math
+$$
 \mu = \overline{x}_n
-```
+$$
 
 Estimator for $\sigma$
 
@@ -33,7 +33,7 @@ $$
 f(x) = \frac{\lambda^{\alpha}x^{\alpha-1}e^{-\lambda x}}{\Gamma(\alpha)}
 $$
 
-for  $x \geq 0$, where $\Gamma(\alpha)$ is a normalizing constant such that $f$
+for  $x \geq 0$, where $\Gamma(\alpha)$ is a normalizing constant such that $`f`$
 integrates to 1.
 
 - $\lambda > 0$ is called the *rate*
@@ -46,12 +46,16 @@ integrates to 1.
 
 A continuous random variable has a $t$-distribution with parameter $m$,
 where $m \geq 1$ is an integer, if its probability density function is given by
+
 $$
 f(x) = k_m \left( 1 + \frac{x^2}{m} \right)^{\frac{m + 1}{2}}
 $$
+
 for $-\infty < x < \infty$, where
+
 $$
 k_m = \frac{\Gamma\left( \frac{m+1}{2} \right)}{\Gamma \left( \frac{m}{2} \right) \sqrt{m \pi}}
 $$
+
 This distribution is denoted by $t(m)$ and is referred to as the $t$-distribution
 with $m$ degrees of freedom.
