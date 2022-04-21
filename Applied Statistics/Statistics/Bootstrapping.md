@@ -48,7 +48,7 @@ Empirical bootstrap for the mean:
 
 <figure>
 <p align="center">
-  <img src="./assets/kolmogorov.png" width=80%>
+  <img src="assets/kolmogorov.png" width=80%>
 </p>
 <figcaption align="center">Kolmogorov-Smirnov distance</figcaption>
 </figure>
@@ -56,7 +56,7 @@ Empirical bootstrap for the mean:
 !!! example KS distance in R
     #### KS distance on the software dataset
     
-    ```R
+    ```R title="ECDF in R"
     software<- c(0,0,0,2,4,6,8,9,10,10,10,12,15,15,16,21,22,24,26,30,30,31,33,36,44,50,55,58,65,68,
                  75,77,79,81,88,91,97,100,108,108,
                  112,113,114,115,120,122,129,134,138,143,
@@ -77,7 +77,7 @@ Empirical bootstrap for the mean:
     ![Software ECDF](assets/ecdf.png)
     Is the exponential distribution with the estimated parameter really a good fit?
     
-    ```R
+    ```R title="KS-Distance in R"
     ks_distance_exp_distribution <- function(bootstrapped_data, lambda) {
       empirical_distribution <- ecdf(bootstrapped_data)
       max(abs(empirical_distribution(bootstrapped_data) - pexp(bootstrapped_data, rate = lambda)))
