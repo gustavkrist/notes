@@ -8,19 +8,24 @@ output: pdf_document
 # 1. Maximum likelihood estimator for geometric random variables (Theory)
 
 The geometric random variable, as presented in the textbook, has the following probability mass function
-\[
+
+$$
    Pr[X = k] = (1-p)^{k-1}\cdot p
-\]
+$$
+
 which can be described as the probability of requiring $k$ trials to obtain the first success in a sequence of Bernoulli trials.
 For this random variable, we have seen that the maximum likelihood estimator for the parameter $p$ is
-\[
+
+$$
   \hat{p} = \frac{n}{\sum_{i=0}^n x_i} = \frac{1}{\bar{x}}
-\]
+$$
 
 However, in some contexts ^[Including the R implementation of the geometric random distribution] a slightly different definition of geometric random variable is used:
-\[
+
+$$
   Pr[X = k] = (1-p)^k\cdot p
-\]
+$$
+
 This second formulation can be described as the probability of experiencing $k$ consecutive failures before the first success.
 
 We shall see, with this exercise, that this small change leads to a different maximum likelihood estimator for $p$!
@@ -37,18 +42,18 @@ $$
 
  b. Compute the derivative $\ell'(p)$ of the loglikelihood function
 
-$$
+```math
 \begin{align*}
   \ell'(p) &= \sum_{i=0}^n{x_i} \overbrace{-1 \cdot \frac{1}{1 - p}}^{\text{chain rule}}
   + n \cdot \frac{1}{p} \\
   &= \sum_{i=0}^n{x_i} \frac{1}{p-1} + \frac{n}{p}
 \end{align*}
-$$
+```
 
  c. Show that the maximum likelihood estimator for $p$ is
-    \[
+    $$
       \hat{p} = \frac{n}{n+\sum_{i=0}^n{x_i}}
-    \]
+    $$
 
 Solve for $p$ in $\ell'(p) = 0$
 
@@ -75,9 +80,11 @@ Therefore, _pay attention_ to the distribution you are dealing with, always read
 
 The Pareto distribution is used in a wide variety of contexts, ranging from describing the size of meteorites to the error rates of disk drives.
 The expression of the probability density function of the Pareto distribution is
-\[
+
+$$
   f(x) = \frac{\alpha}{x^{\alpha + 1}} \quad\text{ for } x \ge 1
-\]
+$$
+
 Given the numerous applications, it is important to be able to estimate the value of $\alpha$ from random samples.
 In this exercise you will derive a maximum likelihood estimator for $\alpha$.
 
@@ -98,13 +105,17 @@ Let $U_i$ be random variables with expectation zero and variance $\sigma^2$.
 # 4. Maximum likelihood estimator for geometric random variables (R)
 
 In exercise 1, you did show that the geometric distribution defined as
-\[
+
+$$
   Pr[X=k] = (1-p)^k \cdot p
-\]
+$$
+
 has the following maximum likelihood estimator for $p$:
-\[
+
+$$
   \hat{p}^* = \frac{n}{n+\sum_{i=0}^n{x_i}}
-\]
+$$
+
 This definition of geometric random variable is the one use by R, as state at the beginning of the "Details" section of `help(rgeom)`.
 In this exercise you will verify that, in this case, using the inverse of the sample mean as the estimator for $p$ leads to heavily biased estimations.
 
