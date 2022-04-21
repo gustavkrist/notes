@@ -1,3 +1,6 @@
+---
+tags: [t-distribution]
+---
 # Types of random distributions
 
 ### Normal distribution

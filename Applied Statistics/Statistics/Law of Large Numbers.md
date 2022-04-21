@@ -1,3 +1,6 @@
+---
+tags: [central limit theorem]
+---
 # Law of Large Numbers
 
 ## Expectation and variance of an average

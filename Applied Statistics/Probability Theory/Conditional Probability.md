@@ -1,5 +1,5 @@
 ---
-tags: [probability, independence]
+tags: [probability, independence, conditional probability, given]
 ---
 # Conditional Probability
 

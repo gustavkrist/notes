@@ -1,3 +1,6 @@
+---
+tags: [histograms, KDE, models]
+---
 # Exploratory Data Analysis
 
 ## Histograms

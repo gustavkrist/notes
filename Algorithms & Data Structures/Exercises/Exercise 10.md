@@ -1,3 +1,6 @@
+---
+tags: [quicksort, radix, LSD, MSD]
+---
 # Exercise 10
 
 <span style="color:lightgreen;font-size:150%"> 2.3.2 </span>

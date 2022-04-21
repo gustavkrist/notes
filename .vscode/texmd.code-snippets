@@ -637,4 +637,9 @@
 		"body": ["<!---->"],
 		"description": "Insert empty comment"
 	},
+	"Header Boilerplate": {
+		"prefix": "mkhead",
+		"body": ["---", "tags: [$0]", "---"],
+		"description": "Markdown header boilerplate"
+	},
 }

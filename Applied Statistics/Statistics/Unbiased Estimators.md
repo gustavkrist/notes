@@ -1,3 +1,6 @@
+---
+tags: [bias, estimator]
+---
 ## Unbiased Estimators
 
 We want to estimate from parameter $\theta$ for realizations $x_1, \ldots, x_n$ from

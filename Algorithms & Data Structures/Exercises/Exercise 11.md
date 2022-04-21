@@ -1,3 +1,6 @@
+---
+tags: [BST, red-black BST, 2-3 tree]
+---
 # Exercise 11
 
 <span style="color:lightgreen;font-size:150%"> 3.2.9 </span>

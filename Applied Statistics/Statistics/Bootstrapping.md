@@ -1,3 +1,6 @@
+---
+tags: [ECDF, ks distance]
+---
 # Bootstrapping
 
 [Bootstrapping Statistics. What it is and why it’s used | Towards Data Science](https://towardsdatascience.com/bootstrapping-statistics-what-it-is-and-why-its-used-e2fa29577307)

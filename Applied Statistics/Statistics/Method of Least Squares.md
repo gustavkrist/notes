@@ -1,3 +1,6 @@
+---
+tags: [linear regression]
+---
 # Method of Least Squares
 
 ## The Method of Least Squares

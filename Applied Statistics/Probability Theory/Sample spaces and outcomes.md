@@ -1,5 +1,5 @@
 ---
-tags: [set theory, events]
+tags: [set theory, events, sample spaces]
 ---
 # Sample spaces and outcomes
 

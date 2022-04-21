@@ -1,3 +1,6 @@
+---
+tags: [loglikelihood]
+---
 ## Maximum Likelihood
 
 !!! note  Maximum Likelihood Principle
@@ -51,7 +54,7 @@ $$
 ??? example Example: Maximum likelihood estimator
     10 coin flips, with $\Omega_X = \{H, T\}$.
     The given outcome is $T, T, T, T, H, T, H, T, H, T$
-
+    
     ```math
     \def\given{\,\vert\,}
     \begin{align*}
