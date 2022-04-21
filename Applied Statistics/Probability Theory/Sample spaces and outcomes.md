@@ -111,8 +111,10 @@ If we consider two experiments with the same sample spaces $\Omega_1$ and $\Omeg
 *combined experiment* has the sample space
 
 $$
-\Omega = \Omega_1 \times \Omega_2 = \left\{ (w_1, w_2) \;|\; w_1 \in \Omega_1,\; w_2 \in \Omega_2 \right\} \\[0.5em]
-\Omega = \Omega_1 \times \Omega_2 \times \dots \times \Omega_n
+\begin{align*}
+  \Omega = \Omega_1 \times \Omega_2 &= \left\{ (w_1, w_2) \;|\; w_1 \in \Omega_1,\; w_2 \in \Omega_2 \right\} \\
+  \Omega &= \Omega_1 \times \Omega_2 \times \dots \times \Omega_n
+\end{align*}
 $$
 
 where each $\Omega_i$ is a copy of the original sample space for an experiment performed $n$ times.

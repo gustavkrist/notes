@@ -92,21 +92,21 @@ plot(ecdf(data))
 
 ## Numerical summaries
 
-#### Sample mean
+### Sample mean
 
 $$
 \def\mean#1{\overline{#1}}
 \mean{x}_n = \frac{x_1 + \dots + x_n}{n} 
 $$
 
-#### Sample variance
+### Sample variance
 
 $$
 \def\mean#1{\overline{#1}}
 \mean{s^2} = \frac{1}{n-1} \sum^{n}_{i=1}(x_i - \mean{x})^2
 $$
 
-#### MAD (mean absolute deviation)
+### MAD (mean absolute deviation)
 
 $$
 \def\med{\operatorname{Med}}
@@ -125,9 +125,11 @@ $$
 Empirical quantiles are an interpolation between order statistics, let $0 < p < 1$
 
 $$
-q_n(p) = x_{(k)} - \alpha(x_{(k+1)} - x_{(k)}) \\[0.5em]
-\text{where} \\[0.5em]
-k = \lfloor p(n_1) \rfloor \text{and } \alpha = p(n + 1) - k
+\begin{align*}
+  &q_n(p) = x_{(k)} - \alpha(x_{(k+1)} - x_{(k)}) \\
+  &\text{where} \\
+  &k = \lfloor p(n_1) \rfloor \text{ and } \alpha = p(n + 1) - k
+\end{align*}
 $$
 
 $q_n(0.75)$ is the upper quantile and $q_n(0.25)$ is the lower quantile.

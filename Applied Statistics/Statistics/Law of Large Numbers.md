@@ -57,9 +57,11 @@ For $n \geq 1$, let $Z_n$ be defined by
 
 $$
 \def\mean#1{\overline{#1}}
-Z_n = \sqrt{n}\frac{\mean{X}_n - \mu}{\sigma} \\[0.5em]
-\text{then for any number } a \\[0.5em]
-\lim_{n \to \infty} F_{Z_n}(a) = \Phi(a)
+\begin{align*}
+    &Z_n = \sqrt{n}\frac{\mean{X}_n - \mu}{\sigma} \\
+    &\text{then for any number } a \\
+    &\lim_{n \to \infty} F_{Z_n}(a) = \Phi(a)
+\end{align*}
 $$
 
 where $\Phi$ is the PDF of the $N(0,1)$ distribution. In other words, the distribution
