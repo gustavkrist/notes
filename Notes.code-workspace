@@ -21,6 +21,7 @@
 			"scatterplot",
 			"Smirnov",
 			"unbiasedness"
-		]
+		],
+		"markdown-preview-enhanced.enableScriptExecution": true
 	}
 }
