@@ -11,7 +11,20 @@ var katexMath = (function() {
     }
   }
 });
-setTimeout(function() {
-  katexMath()
-  console.log("math rendered")
-}, 4000)
+// setTimeout(function() {
+//   katexMath()
+//   console.log("math rendered")
+// }, 4000)
+let observer = new MutationObserver((mutations) => {
+  mutations.forEach((mutation) => {
+    if (!mutation.addedNodes) return
+    katexMath()
+  })
+})
+
+observer.observe(document.body, {
+  childList: true
+  , subtree: true
+  , attributes: false
+  , characterData: false
+})
