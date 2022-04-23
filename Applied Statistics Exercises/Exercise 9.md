@@ -47,7 +47,10 @@ sum(mins == 1) / length(mins)
 c. What is the probability that in the bootstrap sample exactly two elements are $\le 6$ and all the other are $\ge 15$?
 
 Y = 2 elements are $\leq 6$ and all other elements are $\geq 15$ 
-$$P(Y) = \left(\frac{3}{8}\right)^2 \left( \frac{2}{8} \right)^6 \binom{8}{2} = 0.000961$$
+
+$$
+P(Y) = \left(\frac{3}{8}\right)^2 \left( \frac{2}{8} \right)^6 \binom{8}{2} = 0.000961
+$$
 
 
 ```r
