@@ -14,7 +14,10 @@ a. What is the probability that the bootstrap sample mean is equal to 19?
 
 Each of the 8 samples are picked with equal probability $1/8$, because 
 we are picking from 8 i.i.d., and they all have to be 19 for the mean to be equal to 19.
-$$P(\bar{x}^* = 19) = \left(\frac{1}{8}\right)^8 = \frac{1}{16777216}$$
+
+$$
+P(\bar{x}^* = 19) = \left(\frac{1}{8}\right)^8 = \frac{1}{16777216}
+$$
 
 b. What is the probability that the minimum of the bootstrap dataset is 1?
 

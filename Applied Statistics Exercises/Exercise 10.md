@@ -1,6 +1,5 @@
 ---
-title: "Applied Statistics - Exercises 10"
-output: pdf_document
+tags: [maximum likelihood, linear models, regression]
 ---
 
 
