@@ -95,7 +95,7 @@
 
     :   Non-capturing group. Captures anything inside but does not save it.
 
-    `(?P<name>...)`
+    `(?P<name>...)` { #named-capture-group }
 
     :   Named capture group. Referenced by `(?P=name)`
 
