@@ -99,24 +99,24 @@
 
     :   Named capture group. Referenced by `(?P=name)`
 
-    `(?=...)`
+    `(?=...)` { #positive-lookahead }
 
     :   Positive lookahead. 0 length, match is discarded if lookahead does not match
 
-    `(?!...)`
+    `(?!...)` { #negative-lookahead }
 
     :   Negative lookahead. 0 length, match is discarded if lookahead matches
 
-    `(?<=...)`
+    `(?<=...)` { #positive-lookbehind }
 
     :   Positive lookbehind. 0 length, fixed width. Match is discarded if lookbehind
         does not match
 
-    `(?<!...)`
+    `(?<!...)` { #negative-lookbehind }
 
     :   Negative lookbehind. 0 length, fixed width. Match is discarded if lookbehind matches.
 
-    `Flags`
+    `Flags` { #flags }
 
     :   Pass as argument `flags=...` to `#!py re.compile()` or to the matching/substitution
         function if the pattern is not compiled.  
@@ -199,7 +199,7 @@
 
     :   Matches any character except `\n`
 
-    `\_.`
+    `\_.` { #single-line }
 
     :   Matches any character including `\n`
 
@@ -264,32 +264,32 @@
 
     :   Capture group. Can be references later by `\{i}` where `i` is the group number
 
-    `\%(...\)`
+    `\%(...\)` { #vim-non-capturing-group }
 
     :   Non-capturing group. Captures anything inside but does not save it.
 
-    `(?P<name>...)`
+    `(?P<name>...)` { #named-capture-group }
 
     :   ==Not supported==
 
-    `\(...\)\@=`
+    `\(...\)\@=` { #positive-lookahead }
 
     :   Positive lookahead. 0 length, match is discarded if lookahead does not match
 
-    `\(...\)\@!`
+    `\(...\)\@!` { #negative-lookahead }
 
     :   Negative lookahead. 0 length, match is discarded if lookahead matches
 
-    `\(...\)\@<=`
+    `\(...\)\@<=` { #positive-lookbehind }
 
     :   Positive lookbehind. 0 length, fixed width. Match is discarded if lookbehind
         does not match
 
-    `\(...\)\@<!`
+    `\(...\)\@<!` { #negative-lookbehind }
 
     :   Negative lookbehind. 0 length, fixed width. Match is discarded if lookbehind matches.
 
-    `Flags`
+    `Flags` { #flags }
 
     :   Flags are specified after the pattern `/pattern/<flags>`  
         They are applicable for the substitute command only
