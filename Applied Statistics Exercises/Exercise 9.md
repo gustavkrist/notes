@@ -86,9 +86,17 @@ _Hint_: you may need to use the _change of variable_ formula (cfr. Chapter 7 of 
 \end{align*}
 
 For $U(a, b)$, the distribution function is $f(x) = 1/(b-a)$, so in this case
-$$f(x) = \frac{1}{2\theta}$$
+
+$$
+f(x) = \frac{1}{2\theta}
+$$
+
 Change of variable formula
-$$\int_{-\infty}^{\infty} g(x)f(x) dx$$
+
+$$
+\int_{-\infty}^{\infty} g(x)f(x) dx
+$$
+
 In this case $g(x) = \lvert x \rvert$
 
 \begin{align*}
@@ -183,7 +191,9 @@ $M^*_n/m_n = 1$, and as such $T^*_n = 0$. Thus $Pr[T^*_n \leq 0] = Pr[M^*_n = m_
 
 We previously computed $Pr[M^*_n < m_n]$, this is the inverse, so
 
-\[Pr[T^*_n \leq 0] = Pr[M^*_n = m_n] = 1 - Pr[M^*_n < m_n] = 1 - \left(1 - \frac{1}{n}\right)^n\]
+\[
+Pr[T^*_n \leq 0] = Pr[M^*_n = m_n] = 1 - Pr[M^*_n < m_n] = 1 - \left(1 - \frac{1}{n}\right)^n
+\]
 
 c. Let $F_n(t) = Pr[T_n \le t]$ be the distribution function of $T_n$, and let $F_n^*(t) = Pr[T_n^* \le t]$ be the distribution function of the bootstrap statistic $T_n^*$.
 Using the result of point b, show that the Kolmogorov-Smirnov distance between the two distributions can be lower bounded as
