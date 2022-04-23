@@ -176,7 +176,9 @@ $$
 
 Assuming the frequency of the maximum is $1/n$:
 
-\[Pr[M^*_n < m_n] = \left(1 - \frac{1}{n} \right)^n\]
+\[
+Pr[M^*_n < m_n] = \left(1 - \frac{1}{n} \right)^n
+\]
 
 b. Argue that $Pr[T^*_n \le 0] = Pr[M_n^* = m_n]$ and then use the result from the previous point to show that
 
