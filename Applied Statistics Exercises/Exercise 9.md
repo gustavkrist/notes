@@ -264,7 +264,7 @@ kbl(I.bootstrapped, booktabs = T, format = 'latex', linesep = '') %>%
   kable_styling(latex_options = c('striped', 'hold_position'))
 ```
 
-<table class=" lightable-material-dark lightable-striped lightable-hover" style='font-family: "Source Sans Pro", helvetica, sans-serif; margin-left: auto; margin-right: auto;'>
+<table>
 <tbody>
   <tr>
    <td style="text-align:left;"> I1 </td>
