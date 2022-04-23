@@ -171,7 +171,7 @@ $$
 a. Compute $Pr[M^*_n < m_n]$.
 
 $$
-Pr[M^*_n < m_n] &= (1 - p(x_i^* = m_n))^n
+Pr[M^*_n < m_n] = (1 - p(x_i^* = m_n))^n
 $$
 
 Assuming the frequency of the maximum is $1/n$:
