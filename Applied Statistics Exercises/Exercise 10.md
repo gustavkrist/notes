@@ -4,7 +4,7 @@ tags: [maximum likelihood, linear models, regression]
 
 
 
-# 1. Maximum likelihood estimator for geometric random variables (Theory)
+## 1. Maximum likelihood estimator for geometric random variables (Theory)
 
 The geometric random variable, as presented in the textbook, has the following probability mass function
 
@@ -75,7 +75,7 @@ $$
     
 Therefore, _pay attention_ to the distribution you are dealing with, always read carefully the definitions and the documentation!
 
-# 2. Maximum likelihood estimators for the Pareto distribution (Theory)
+## 2. Maximum likelihood estimators for the Pareto distribution (Theory)
 
 The Pareto distribution is used in a wide variety of contexts, ranging from describing the size of meteorites to the error rates of disk drives.
 The expression of the probability density function of the Pareto distribution is
@@ -91,7 +91,7 @@ In this exercise you will derive a maximum likelihood estimator for $\alpha$.
  b. Compute the derivative $\ell'(\alpha)$ of the loglikelihood function
  c}. Derive the maximum likelihood estimator for $\alpha$
 
-# 3. Linear models (Theory)
+## 3. Linear models (Theory)
 
 In some situations we may know that the linear model should have some peculiarities, like having no slope, or having intercept equals to zero^[For instance we may know that when one quantity of the bivariate dataset is 0 then the other _must_ be zero.]. Answer to the two following separate questions (i.e. the answer to one doesn't depend on the answer to the other).
 Let $U_i$ be random variables with expectation zero and variance $\sigma^2$.
@@ -101,7 +101,7 @@ Let $U_i$ be random variables with expectation zero and variance $\sigma^2$.
  b. Consider the case $\beta=0$. The model is then $Y_i = \alpha + U_i$, for $i=1,2,\dots,n$.
     Find the least squares estimate $\hat{\alpha}$ for $\alpha$. 
 
-# 4. Maximum likelihood estimator for geometric random variables (R)
+## 4. Maximum likelihood estimator for geometric random variables (R)
 
 In exercise 1, you did show that the geometric distribution defined as
 
@@ -175,7 +175,7 @@ legend(
 
 The bias of $\hat{p}^*$ is consistently much lower than that of $\hat{p}$.
 
-# 5. Linear regression model and residuals (R)
+## 5. Linear regression model and residuals (R)
 
 Let us take a look at the `Cars93 (MASS)` data set.
 
@@ -226,7 +226,7 @@ plot(residuals(model))
 
 ![plot of chunk unnamed-chunk-6](ex10/unnamed-chunk-6-1.png)
 
-# 6. Diamond prices (R)
+## 6. Diamond prices (R)
 
 The `diamonds` dataset^[Note that this time the name is plural rather than singular. In a past exercise we used the `diamond` dataset, which contains far less information] (available by loading the `UsingR` package) contains prices of more than 50000 diamonds, along with other information like the carats, the clarity of the diamond, the cut, etc...
 
