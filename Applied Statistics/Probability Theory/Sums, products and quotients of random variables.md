@@ -28,7 +28,7 @@ $$
 
 ## Sum of continuous random variables
 
-!!! Note Sum of continuous random variables
+!!! Note "Sum of continuous random variables"
     Let X and Y be two independent continuous random variables, with probability density
     functions $f_X$ and $f_Y$. Then the probability density function $f_Z$ of $Z = X + Y$ is
     <!---->

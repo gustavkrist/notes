@@ -3,7 +3,7 @@ tags: [loglikelihood]
 ---
 ## Maximum Likelihood
 
-!!! note  Maximum Likelihood Principle
+!!! note "Maximum Likelihood Principle"
     Given a dataset, choose the parameter(s) of interest in such a way that the data
     are most likely
 
@@ -41,7 +41,7 @@ $$
 
 ### Maximum likelihood estimates
 
-!!! note Maximum likelihood estimator
+!!! note "Maximum likelihood estimator"
     The maximum likelihood estimate of $\theta$ is the value $t=h(x_1, x_2, \ldots, x_n)$ that 
     maximizes the likelihood function $L(\theta)$. The corresponding random variable 
     <!---->
@@ -51,7 +51,7 @@ $$
 
     is called the *likelihood estimator* for $\theta$.
 
-??? example Example: Maximum likelihood estimator
+??? example "Example: Maximum likelihood estimator"
     10 coin flips, with $\Omega_X = \{H, T\}$.
     The given outcome is $T, T, T, T, H, T, H, T, H, T$
     

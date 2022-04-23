@@ -38,7 +38,7 @@ the derivatives equal to 0.
 
 ![Residuals visualized](assets/residuals.png)
 
-??? note Finding <i>α</i> and <i>β</i>
+??? note "Finding $\alpha$ and $\beta$"
     
     ```math
     \frac{\partial}{\partial \alpha} S(\alpha, \beta) = 0
@@ -109,7 +109,7 @@ When a linear model is appropriate, the scatterplot of the residuals $r_i$ again
 $x_i$ should show truly random fluctuations around zero, in the sense that it should not
 exhibit any trend or pattern.
 
-!!! note Heteroscedasticity
+!!! note "Heteroscedasticity"
     The assumption of equal variance of the $U_i$ (and therefore the $Y_i$) is called
     *homoscedasticity*. In case the variance of $Y_i$ depends on the value of $x_i$, we
     speak of *heteroscedasticity*. For instance, it occurs when $Y_i$ with a large expected

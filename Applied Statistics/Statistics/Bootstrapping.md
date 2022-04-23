@@ -56,7 +56,7 @@ Empirical bootstrap for the mean:
 <figcaption align="center">Kolmogorov-Smirnov distance</figcaption>
 </figure>
 
-!!! example KS distance in R
+!!! example "KS distance in R"
     #### KS distance on the software dataset
     
     ```R title="ECDF in R"

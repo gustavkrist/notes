@@ -12,7 +12,7 @@ The *sample space* for an experiment is a **set** where
 
 The sample space is typically denoted by $\Omega$.
 
-!!! example Examples
+!!! example "Examples"
     Consider the experiment a subject is asked, which month their birthday falls in.
     Then the sample space is
     <!---->
@@ -78,7 +78,7 @@ $$
 \end{equation}
 $$
 
-??? note Proof
+??? note "Proof"
     We can write $A$ as a disjoint union
     <!---->
     ```math

@@ -11,7 +11,7 @@ $$
 
 provided that $P(C) > 0$.
 
-??? example Example
+??? example "Example"
     What is the probability that a family with two children has two boys, given that
     they have at least one boy?
     <!---->
@@ -38,7 +38,7 @@ $$
 P(A \cap C) = P(A \,   \, C) \cdot P(C)
 $$
 
-??? example Example
+??? example "Example"
     Assume that you draw two balls from an urn with 3 black balls and 7 red balls *without replacement*.  
     What is the probability of drawing *two black balls*?  
     Let $B_1$ be the event that we draw a black ball in the first draw.  
@@ -70,7 +70,7 @@ $$
 
 provided that $P(A) > 0$
 
-???+ example Example: COVID-19 Tests
+???+ example "Example: COVID-19 Tests"
     Imagine that we are testing a person for COVID-19.  
     There are two events:
     - B: the person has COVID

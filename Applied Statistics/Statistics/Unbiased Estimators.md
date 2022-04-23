@@ -51,7 +51,7 @@ $$
 \theta = \frac{2}{n}(X_1 + \dots + X_n)
 $$
 
-!!! example Example
+!!! example "Example"
     Finding an unbiased estimator for $\theta$
     
     ```math

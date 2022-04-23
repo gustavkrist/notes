@@ -149,7 +149,7 @@ $X_1, \ldots, X_n$ that
 
 If $F$ is the distribution function, we speak of a *random sample from* $F$.
 
-!!! example Example: Estimating parameters
+!!! example "Example: Estimating parameters"
     We randomly select 1000 men (or women) aged 18-24 and measure their height.
     We assume that the height follows a normal distribution $N(\mu, \sigma^2)$.  
     Using the 1000 measurements we can estimate
@@ -160,7 +160,7 @@ If $F$ is the distribution function, we speak of a *random sample from* $F$.
     If you mix men and women, who have a different mean and variance, the data would
     no longer be normally distributed, therefore the two are separated.
 
-!!! example Example: Making predictions
+!!! example "Example: Making predictions"
     A factory produces 1000 light bulbs each day. At quality control, 30 light bulbs were
     found to be faulty. What is the probability that there are more than 50 faulty light bulbs?
     <!---->
