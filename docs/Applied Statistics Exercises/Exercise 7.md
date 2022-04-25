@@ -3,8 +3,6 @@ tags: [sum product of variables, CLT, ]
 title: Exercise 7
 ---
 
-# Problems 
-
 T=Theoretical Exercise, R=R-Exercise
 
 ## 1. Sum of Bernoulli Distributed Variables (T)
@@ -123,7 +121,6 @@ $$
 
 Assume you have $n$ dice you throw simultaneously. The sum of outcomes can be characterized by the formula $X=X_1+X_2+...+X_n$. Simulate the sum for thousand times using a couple of different values for $n$. Plot the histogram of the outcomes (`hist`) for each values of $n$ you chose. What is the distribution like when $n=2$? What can you see when you increase $n$?  
 
-
 ```r
 sum.dice <- function(n) {
   return (sum(sample(1:6, n, replace=TRUE)))
@@ -145,7 +142,6 @@ The distribution tends towards a normal distribution. The sum of normal distribu
 
 ## 5. Michelson Experiment (R)
 
-
 ```r
 library(UsingR)
 ```
@@ -163,7 +159,6 @@ them are Michelson's measurements of the speed of light in km/sec. The "true" va
 
 (b) Make density plot of the measurements together with data together with the individual estimates and true speed of light.
 
-
 ```r
 DensityPlot(Michelson, do.legend=FALSE)
 abline(v=734.5, col="red", lty=2)
@@ -174,9 +169,7 @@ legend(x="topright", legend=c("velocity", "true value"),
 
 ![plot of chunk unnamed-chunk-4](ex7/unnamed-chunk-4-1.png)
 
-
 (c) Assume that the velocity estimates are independent and identically distributed. Compute an estimate for the speed of light and compare to the true value known today. Add the estimate to the plot.
-
 
 ```r
 avg <- mean(Michelson$velocity)
@@ -189,7 +182,6 @@ legend(x="topright", legend=c("velocity", "true value", "average value"),
 ```
 
 ![plot of chunk unnamed-chunk-5](ex7/unnamed-chunk-5-1.png)
-
 
 (d) Use Chebychev's inequality to find out an upper bound for the probability that the speed of light was equal or further away from the value known today. 
 
@@ -207,7 +199,6 @@ result
 ```
 ## [1] 0.4490995
 ```
-
 
 (e) After looking closer at the data set do you have any reservations about the assumptions made above?
 
@@ -254,11 +245,8 @@ var(std.avgs)
 ## [1] 0.9894427
 ```
 
-
-
 The standardized average should converge on the N(0,1) normal distribution, therefore the theoretical values for the sample mean and 
 variance for the standardized average is $\mu=0$ and $\sigma^2=1$. It is clear that the experimental data are close to the theoretical values.
-
 
 (b) Plot the histogram for the standardized average. How far are you from the theoretic density that you will get on the limit?
 
