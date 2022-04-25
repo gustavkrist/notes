@@ -1,6 +1,6 @@
 ---
 tags: [confidence intervals]
-wiki_base_url: Applied%20Statistics
+wiki_base_url: /Applied%20Statistics/
 ---
 ## Confidence intervals
 

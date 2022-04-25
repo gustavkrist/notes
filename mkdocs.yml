@@ -1,6 +1,6 @@
 site_name: Gustav's Notes
 site_url: https://gustavdocs.azurewebsites.com
-# use_directory_urls: false
+use_directory_urls: false
 theme:
   name: material
   custom_dir: theme

@@ -6,8 +6,8 @@
       tex;
 
     const macros = {
-      '\\x1n': 'x_1, \\ldots, x_n',
-      '\\X1n': 'X_1, \\ldots, X_n',
+      '\\xn': 'x_1, \\ldots, x_n',
+      '\\Xn': 'X_1, \\ldots, X_n',
       '\\mean': '\\overline{#1}',
       '\\med': '\\operatorname{Med}',
       '\\cov': '\\operatorname{Cov}',
