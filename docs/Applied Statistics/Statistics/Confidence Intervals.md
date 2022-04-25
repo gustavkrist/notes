@@ -143,3 +143,100 @@ $$
 
 has a distribution that only depends on $n$ and *not* on $\mu$ or $\sigma$.  
 This random variable has a *$t$-distribution* [[Types of distributions]]
+
+!!! note ""
+    For a random sample $\Xn$ from an $N(\mu, \sigma^2)$ distribution, the
+    *studentized mean*
+
+    $$
+    \frac{\mean{x}_n - \mu}{S_n / \sqrt{n}}
+    $$
+
+    has a $t(n-1)$ distribution, regardless of the values of $\mu$ and $\sigma$.  
+
+From this fact and using critical values of the $t$-distribution, we derive that
+
+$$
+\begin{align*}
+\P\left( -t_{n-1, \alpha/2} < \frac{\mean{X}_n - \mu}{S_n / \sqrt{n}} < t_{n-1, \alpha/2} \right) = 1 - \alpha,
+\end{align*}
+$$
+
+and it now follows that a 100$(1-\alpha)$% confidence interval for $\mu$ is given by
+
+$$
+\left( \mean{x}_n - t_{n-1, \alpha/2} \frac{s_n}{\sqrt{n}}, \mean{x}_n + t_{n-1, \alpha/2} \frac{s_n}{\sqrt{n}} \right)
+$$
+
+#### Bootstrap confidence intervals
+
+If we doubt the normality of the data and we do *not* have a large sample, usually
+the best thing to do is to bootstrap.
+
+!!! note "Empirical Bootstrap Simulation for the Studentized Mean"
+    Given a dataset $\xn$, determine its empirical distribution function $F_n$ as 
+    an estimate of $F$. The expectation corresponding to $F_n$ is $\mu^* = \mean{x}_n$.
+
+    1. Generate a bootstrap dataset $x_1^*, x_2^*, \ldots, x_n^*$ from $F_n$
+    2. Compute the studentized mean for the bootstrap dataset:
+       ```math
+       t^* = \frac{\mean{x}_n^* - \mean{x}_n}{s_n^* / \sqrt{n}}
+       ```
+       where $\mean{x}_n^*$ and $s_n^*$ are the sample mean and sample standard deviation
+       of $x_1^*, x_2^*, \ldots, x_n^*$
+    Repeat steps 1 and 2 many times.
+    
+From the bootstrap experiment we can determine $c_l^*$ and $c_u^*$ such that
+
+$$
+\P\left( c_l^* < \frac{\mean{X}_n^* - \mu^*}{S_n^* / \sqrt{n}} < c_u^* \right) \approx 1 - \alpha
+$$
+
+We can use these estimated critical values as bootstrap approximations to $c_l$
+and $c_u$:
+
+$$
+c_l \approx c^l^* \quad \text{ and } \quad c_u \approx c_u^*
+$$
+
+Therefore, we call
+
+$$
+\left( \mean{x}_n - c_u^* \frac{s_n}{\sqrt{n}}, \mean{x}_n - c_l^* \frac{s_n}{\sqrt{n}} \right)
+$$
+
+a 100$(1-\alpha)$% *bootstrap confidence interval for $\mu$*.
+
+##### Why the bootstrap may be better
+
+If the distribution is skewed, that is reflected in the bootstrap confidence interval.
+Whereas the $t$-interval is centered around the sample mean.
+In some sense, the bootstrap adapts to the shape of the distribution, and thus leads
+to more accurate confidence statements than using the method for normal data.
+
+#### Large samples
+
+A variant of the CLT states
+
+$$
+\begin{align*}
+\lim_{n \to \infty} \left( \frac{\mean{X}_n - \mu}{S_n / \sqrt{n}} \right) = \Phi(0,1)
+\end{align*}
+$$
+
+This fact is the basis for *large sample confidence intervals*.  
+If $n$ is large enough, we may use
+
+$$
+\begin{align*}
+\P\left( -a_{\alpha/2} < \frac{\mean{X}_n - \mu}{S_n/\sqrt{n}} < z_{\alpha/2} \right) \approx 1 - \alpha
+\end{align*}
+$$
+
+And then the we have that
+
+$$
+\left( \mean{x}_n - z_{\alpha/2} \frac{s_n}{\sqrt{n}}, \mean{x}_n + z_{\alpha/2} \frac{s_n}{\sqrt{n}} \right)
+$$
+
+is an approximate 100$(1-\alpha)$% confidence interval for $\mu$.
