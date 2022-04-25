@@ -20,7 +20,6 @@ university of Copenhagen.
 <!-- *[HTML]: Hyper Text Markup Language -->
 <!-- *[W3C]: World Wide Web Consortium -->
 
-
 <!-- [Subscribe to our newsletter](#){ .md-button .md-button--primary } -->
 
 <!-- ``` py title="bubble_sort.py" -->
@@ -31,7 +30,6 @@ university of Copenhagen.
 <!--                 items[j], items[j + 1] = items[j + 1], items[j] -->
 <!-- ``` -->
 
-
 <!-- ``` yaml -->
 <!-- theme: -->
 <!--   features: -->
@@ -41,7 +39,6 @@ university of Copenhagen.
 <!-- 1.  :man_raising_hand: I'm a code annotation! I can contain `code`, __formatted -->
 <!--     text__, images, ... basically anything that can be written in Markdown. -->
 
-
 <!-- The `#!python def function(*args, **kwargs)` function is used to generate a sequence of numbers. -->
 
 <!-- | Method      | Description                          | -->
@@ -49,7 +46,6 @@ university of Copenhagen.
 <!-- | `GET`       | :material-check:     Fetch resource  | -->
 <!-- | `PUT`       | :material-check-all: Update resource | -->
 <!-- | `DELETE`    | :material-close:     Delete resource | -->
-
 
 <!-- ``` mermaid -->
 <!-- sequenceDiagram -->
@@ -60,9 +56,9 @@ university of Copenhagen.
 <!--         John->>John: Fight against hypochondria -->
 <!--     end -->
 <!--     Note right of John: Rational thoughts <br/>prevail! -->
-<!--     John-->>Alice: Great! -->
+<!--     John--\>>Alice: Great! -->
 <!--     John->>Bob: How about you? -->
-<!--     Bob-->>John: Jolly good! -->
+<!--     Bob--\>>John: Jolly good! -->
 <!-- ``` -->
 
 <!-- - ==This was marked== -->
