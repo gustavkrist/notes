@@ -196,7 +196,7 @@ We can use these estimated critical values as bootstrap approximations to $c_l$
 and $c_u$:
 
 $$
-c_l \approx c^l^* \quad \text{ and } \quad c_u \approx c_u^*
+c_l \approx c_l^* \quad \text{ and } \quad c_u \approx c_u^*
 $$
 
 Therefore, we call
