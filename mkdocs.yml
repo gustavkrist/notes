@@ -70,6 +70,7 @@ markdown_extensions:
   - markdown.extensions.attr_list
   - markdown.extensions.def_list
   - markdown.extensions.md_in_html
+  - markdown.extensions.wikilinks
   - pymdownx.snippets
   - pymdownx.keys
 extra_css:
