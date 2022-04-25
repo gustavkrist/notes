@@ -1,5 +1,6 @@
 ---
 tags: [joint distribution, variance, covariance]
+title: Exercise 6
 ---
 
 # Problems
@@ -43,46 +44,11 @@ To investigate the relations between hair color and eye colour, the hair color a
 
 (a) Determine the joint and marginal probability distributions of $X$ and $Y$.
 
-<!-- $$
-\begin{center}
-\begin{tabular}{c c c c}
-  & & \textbf{Hair color} \\
-  & Fair/Red | 1 & Medium | 2 & Dark/Black | 3 \\
-  \textbf{Eye color} \\
-  \hline
-  \rule{0pt}{1.2em}
-  Light | 1 & $\frac{1168}{5383}$ & $\frac{825}{5383}$ & $\frac{305}{5383}$ \\
-  \rule{0pt}{1.2em}
-  Dark | 2 & $\frac{573}{5383}$ & $\frac{1312}{5383}$ & $\frac{1200}{5383}$
-\end{tabular}
-\end{center}
-$$ -->
-
-<table>
-    <tr>
-        <td></td>
-        <td></td>
-        <td> **Hair color** </td>
-    </tr>
-    <tr>
-        <td></td>
-        <td>Fair/Red | 1</td>
-        <td>Medium | 2</td>
-        <td>Dark/Black | 3</td>
-    </tr>
-    <tr>
-        <td>Light | 1</td>
-        <td> $\frac{1168}{5383}$ </td>
-        <td> $\frac{825}{5383}$ </td>
-        <td> $\frac{305}{5383}$ </td>
-    </tr>
-    <tr>
-        <td>Dark | 2</td>
-        <td> $\frac{573}{5383}$ </td>
-        <td> $\frac{1312}{5383}$ </td>
-        <td> $\frac{1200}{5383}$ </td>
-    </tr>
-</table>
+|            |                     | **Hair color**      |                     |
+| ---------- | ------------------- | ------------------- | ------------------- |
+|            | Fair/Red \| 1       | Medium \| 2         | Dark/Black \| 3     |
+| Light \| 1 | $\frac{1168}{5383}$ | $\frac{825}{5383}$  | $\frac{305}{5383}$  |
+| Dark \| 2  | $\frac{573}{5383}$  | $\frac{1312}{5383}$ | $\frac{1200}{5383}$ |
 
 \begin{center}
 \begin{tabular}{c | c c c | c}
@@ -101,30 +67,47 @@ $$ -->
 \end{center}
 
 
+|            |               | **Hair color** |                 |         |
+| ---------- | ------------- | -------------- | --------------- | ------- |
+|            | Fair/Red \| 1 | Medium \| 2    | Dark/Black \| 3 | $P_Y$   |
+| Light \| 1 | $0.217$       | $0.153$        | $0.057$         | $0.427$ |
+| Dark \| 2  | $0.106$       | $0.245$        | $0.223$         | $0.574$ |
+| $P_X$      | $0.323$       | $0.398$        | $0.280$         |         |
+
 (b) Find out whether $X$ and $Y$ are dependent or independent. 
 
 Independent if $P(X = x, Y = y) = P(X = x)P(Y = y)$ for all x and y.
 Check for $x = y = 1$:
 
+$$
 \begin{align*}
   P(X=1, Y=1) &= 0.217 \\
   P(X=1)P(Y=1) &= 0.323 \cdot 0.427 \\
   &= 0.138
 \end{align*}
+$$
 
 Since $P(X = x, Y = y) \neq P(X = x)P(Y = y)$, X and Y are dependent.
 
 ## 2. Joint distribution (T)
 
 Let X and Y be continuous random variables with the joint probability density function
+
+$$
 \begin{equation}
-  f(x,y)=\left\{\begin{tabular}{ll} $cx+1$ & if $x,y\geq0,x+y<1$ \\ 0 & otherwise. \end{tabular}\right.
+  f(x,y)=
+  \begin{cases}
+    cx+1 & \text{if } x,y\geq 0,x+y<1 \\ 
+    0 & \text{otherwise}
+    \end{cases}
 \end{equation}
+$$
 
 (a) Find the constant c. 
 
 Integrate out x and y. Fix x at a value between 0 and 1, and integrate y from 0 to that value.
 
+$$
 \begin{align*}
   \int_0^1\int_0^{1-x}cx+1\;dy\;dx &= \int_0^1\left[ cxy+y \right]_0^{1-x}\;dx \\
   &= \int_0^1 cx(1-x) + (1-x) \; dx \\
@@ -133,62 +116,75 @@ Integrate out x and y. Fix x at a value between 0 and 1, and integrate y from 0 
   &= -\frac{c}{3} + \frac{c}{2} - \frac{1}{2} + 1 \\
   &= \frac{c}{6} + \frac{1}{2}
 \end{align*}
+$$
 
-We can now isolate c, as we konw the integral integrates to 1.
+We can now isolate c, as we know the integral integrates to 1.
 
+$$
 \begin{align*}
   \frac{c}{6} + \frac{1}{2} &= 1 \\
   \frac{c}{6} &= \frac{1}{2} \\
   c &= 3
 \end{align*}
+$$
 
 (b) Compute the marginal distribution $f_X(x)$.
 
 Integrate over the joint distribution function with respect to y in the interval $[0, 1-x]$, since $y+x<1$.
 
+$$
 \begin{align*}
   \int_0^{1-x} 3x+1 \; dy &= \left[ 3xy + y \right]_0^{1-x} \\
   &= 3x(1-x) + (1-x) \\
   &= -3x^2 + 2x + 1
 \end{align*}
+$$
 
 (c) Compute $P(Y<2X^2)$.
 
 Find the intersection between $y=2x^2$ and $1-x$
-\[2x^2 = 1-x \Leftrightarrow x = 0.5\]
+
+\[
+2x^2 = 1-x \Leftrightarrow x = 0.5
+\]
+
+$$
 \begin{align*}
   \int_0^0.5 \int_0^{2x^2} 3x+1 \; dy \; dx &= 0.177 \\
   \int_0.5^1 \int_0^{1-x} 3x+1 \; dy \; dx &= 0.375 \\
   P(Y<2X^2) &= 0.177 + 0.375 = 0.552
 \end{align*}
+$$
 
 ## 3. Covariance and Correlation (T)
 
 Show that the correlation between X and Y is simply the covariance of the corresponding standardised scores, i.e, 
+
+$$
 \begin{equation}
 \rho(X,Y) = \mathrm{Cov}\left [\frac{X-E[X]}{ \sqrt{\mathrm{Var}[X]}}, \frac{Y-E[Y]}{ \sqrt{\mathrm{Var}[Y]}} \right].
 \end{equation}
+$$
 
 Let X and Y be two continuous random variables. 
+
+$$
 \begin{align*}
 \text{Cor}(rX+s, vY+u) &= rv\text{Cov(X,Y)} \\
 \frac{1}{\sqrt{\text{Var}(X)}}\frac{1}{\sqrt{\text{Var}(Y)}} &= \frac{\text{Cov}(X,Y)}{\sqrt{\text{Var}(X)\text{Var}(Y)}} \\
 \frac{1}{\sqrt{\text{Var}(X)}} &- \frac{E[X]}{\sqrt{text{Var}(X)}}
 \end{align*}
+$$
 
 ## 4. Correlation Coefficient (R)
 
-
-
-
 (a) The data set `normtemp (UsingR)` contains body measurements for 130 healthy, randomly selected individuals. The variable `temperature` measures normal body temperature, and the variable `hr` measures resting heart rate. Make a scatter plot of the two variables. What does the plot show you? Find the Pearson correlation coefficient. How does the estimate relate to the scatter plot?
-
 
 ```r
 plot(x=normtemp$temperature, y=normtemp$hr)
 ```
 
-![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3-1.png)
+![plot of chunk unnamed-chunk-3](ex6/unnamed-chunk-3-1.png)
 
 ```r
 cor.test(x = normtemp$temperature, y=normtemp$hr, method="p")
@@ -196,7 +192,7 @@ cor.test(x = normtemp$temperature, y=normtemp$hr, method="p")
 
 ```
 ## 
-## 	Pearson's product-moment correlation
+##  Pearson's product-moment correlation
 ## 
 ## data:  normtemp$temperature and normtemp$hr
 ## t = 2.9668, df = 128, p-value = 0.003591
@@ -214,12 +210,11 @@ Does not seem to be much correlation in the scatter plot, and the Pearson correl
 
 I would expect the finishing times to increase with age.
 
-
 ```r
 plot(x=nym.2002$age, y=nym.2002$time)
 ```
 
-![plot of chunk unnamed-chunk-4](figure/unnamed-chunk-4-1.png)
+![plot of chunk unnamed-chunk-4](ex6/unnamed-chunk-4-1.png)
 
 ```r
 cor.test(x=nym.2002$age, y=nym.2002$time, method="p")
@@ -227,7 +222,7 @@ cor.test(x=nym.2002$age, y=nym.2002$time, method="p")
 
 ```
 ## 
-## 	Pearson's product-moment correlation
+##  Pearson's product-moment correlation
 ## 
 ## data:  nym.2002$age and nym.2002$time
 ## t = 6.1092, df = 998, p-value = 1.433e-09
@@ -241,9 +236,7 @@ cor.test(x=nym.2002$age, y=nym.2002$time, method="p")
 
 There does not seem to be much correlation between age and finishing time, which was not the expected outcome.
 
-
 (c) The `batting` set (`UsingR`) data set contains baseball statistics for the 2002 Major League Baseball season. What is the correlation between the number of strikeouts (`SO`) and the number of home runs (`HR`)? Make a scatter plot to see whether there is any trend. Does the data suggest that in order to hit a lot of home runs one should strike out a lot?
-
 
 ```r
 cor.test(x=batting$SO, y=batting$HR, method="p")
@@ -251,7 +244,7 @@ cor.test(x=batting$SO, y=batting$HR, method="p")
 
 ```
 ## 
-## 	Pearson's product-moment correlation
+##  Pearson's product-moment correlation
 ## 
 ## data:  batting$SO and batting$HR
 ## t = 20.961, df = 436, p-value < 2.2e-16
@@ -267,27 +260,28 @@ cor.test(x=batting$SO, y=batting$HR, method="p")
 plot(x=batting$SO, y=batting$HR)
 ```
 
-![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5-1.png)
+![plot of chunk unnamed-chunk-5](ex6/unnamed-chunk-5-1.png)
 
 There is a fair correlation between the two variables.
 
-
 ## 5. Sampling from a Joint Probability Distribution (R)
 
-Let $X$ and be $Y$ be continuous random variables with the joint probability density function $f(x,y)$. In general, one can draw samples $(x^{(n)},y^{(n)})$ from the joint probability density of two random variables factoring the probabity density as $f(x,y)=f(y|x) f(x)$ and first drawing a sample $x^{(n)}$ for $X$ from the marginal density $f(x)$ and then the sample $y^{(n)}$ for $Y$ from the conditional density $f(y|x)$ conditioned on $x=x^{(n)}$.
+Let $X$ and be $Y$ be continuous random variables with the joint probability density function $f(x,y)$. In general, one can draw samples $(x^{(n)},y^{(n)})$ from the joint probability density of two random variables factoring the probability density as $f(x,y)=f(y|x) f(x)$ and first drawing a sample $x^{(n)}$ for $X$ from the marginal density $f(x)$ and then the sample $y^{(n)}$ for $Y$ from the conditional density $f(y|x)$ conditioned on $x=x^{(n)}$.
 
 Now, assume that $f(x)=1$ for $0<x<1$, $f(x)=0$ otherwise; and 
+
+$$
 \begin{equation}
-f(y|x)=  \left\{ \begin{tabular}{ll}
-                  $y - x+ 1$ & if $-1+ x \leq y < x$ \\
-                  $-y + x + 1$ & if $x \leq y < 1+x$ \\
-                  0 & otherwise.
-               \end{tabular}\right.
+f(y|x)=  \begin{cases}
+                  y - x+ 1 & \text{if } -1+ x \leq y < x \\
+                  -y + x + 1 & \text{if } x \leq y < 1+x \\
+                  0 & \text{otherwise}
+         \end{cases}
 \end{equation}
+$$
 
  Implement a computer program that draws samples from $f(x,y)$ by using the random number generator for uniformly distributed random variables in R. 
  
-\newpage
 
 ```r
 f.yx <- function(x, y) {
@@ -309,45 +303,44 @@ sample.joint <- function (n) {
 samples <- sample.joint(1000)
 ```
 
-![plot of chunk unnamed-chunk-6](figure/unnamed-chunk-6-1.png)
+![plot of chunk unnamed-chunk-6](ex6/unnamed-chunk-6-1.png)
 
 ```r
 hist(samples)
 ```
 
-![plot of chunk unnamed-chunk-6](figure/unnamed-chunk-6-2.png)
+![plot of chunk unnamed-chunk-6](ex6/unnamed-chunk-6-2.png)
  
-
 ## 6. Covariance, Correlatedness and Independence (R)
 
 Load the data set by copying the data file from course webpage to your working directory and typing `load("mypnts.Rdata")`. 
-
 
 ```r
 load("mypnts.Rdata")
 ```
 
-
 (a) Make a scatter plot of the points. Are the $x$ and $y$ coordinates correlated?
-
 
 ```r
 plot(mypnts)
 ```
 
-![plot of chunk unnamed-chunk-8](figure/unnamed-chunk-8-1.png)
+![plot of chunk unnamed-chunk-8](ex6/unnamed-chunk-8-1.png)
 
 The x and y coordinates seem to be strongly correlated.
 
 (b) Estimate the *covariance matrix* of the data set. It is a $2 \times 2$ matrix containing the all the pairwise covariances, i.e., 
+
+$$
 \begin{equation}
 \mathbf{C} = 
 \begin{pmatrix} \mathrm{Cov}(X,X)\quad \mathrm{Cov}(X,Y)\\
                 \mathrm{Cov}(Y,X)\quad \mathrm{Cov}(Y,Y)
 \end{pmatrix}
 \end{equation}
-What can you see from the covariance matrix estimate?
+$$
 
+What can you see from the covariance matrix estimate?
 
 ```r
 cov(mypnts)
@@ -362,38 +355,39 @@ cov(mypnts)
 x and y are negatively correlated with a covariance of -162.
 
 (c) Apply the mapping
+
+$$
 \begin{equation}
 x' = a x + b y \quad \text{and} \quad y'=c x + d y,
 \end{equation}
-to the points where $a=0.07$, $b=0$, $c=1$,and $d=0.42$. This process is called *whitening*. 
+$$
 
+to the points where $a=0.07$, $b=0$, $c=1$,and $d=0.42$. This process is called *whitening*. 
 
 ```r
 xp <- 0.07 * mypnts$x
 yp <- mypnts$x + 0.42 * mypnts$y
 ```
 
-
 (d) Plot the mapped points (use the option 'asp=1' that gives unity aspect ratio), and their marginal distributions (`densityplot`) on both $x'$ and $y'$ axis. Compute the covariance matrix estimate for the mapped points. Are the mapped points uncorrelated? How about independent? Can you see why the mapping is called whitening?
-
 
 ```r
 plot(xp, yp, asp=1)
 ```
 
-![plot of chunk unnamed-chunk-11](figure/unnamed-chunk-11-1.png)
+![plot of chunk unnamed-chunk-11](ex6/unnamed-chunk-11-1.png)
 
 ```r
 densityplot(xp)
 ```
 
-![plot of chunk unnamed-chunk-11](figure/unnamed-chunk-11-2.png)
+![plot of chunk unnamed-chunk-11](ex6/unnamed-chunk-11-2.png)
 
 ```r
 densityplot(yp)
 ```
 
-![plot of chunk unnamed-chunk-11](figure/unnamed-chunk-11-3.png)
+![plot of chunk unnamed-chunk-11](ex6/unnamed-chunk-11-3.png)
 
 ```r
 cov(data.frame(xp, yp))
@@ -404,19 +398,22 @@ cov(data.frame(xp, yp))
 ## xp 0.334197555 0.001034248
 ## yp 0.001034248 0.316283824
 ```
+
 The mapped points have a much lower covariance than before.
 They are also not independent, as the covariance is not 0.
 When you know x, you can narrow down the possible values of y.
 
-
 (e) Apply rotation to the mapped points 
+
+$$
 \begin{equation}
 x'' = cos(\alpha) x' - sin(\alpha) y' \quad \text{and} \quad y''=sin(\alpha) x' +  cos(\alpha)y',
 \end{equation}
+$$
+
 where $\alpha=-\pi/6$.
 
 Plot the rotated, mapped points, and the marginals on the new axes. Are the rotated, mapped coordinates uncorrelated? How about independent? 
-
 
 ```r
 alpha <- -pi/6
@@ -425,7 +422,7 @@ ypp <- sin(alpha) * xp + cos(alpha) * yp
 plot(xpp, ypp, asp=1)
 ```
 
-![plot of chunk unnamed-chunk-12](figure/unnamed-chunk-12-1.png)
+![plot of chunk unnamed-chunk-12](ex6/unnamed-chunk-12-1.png)
 
 ```r
 cov(data.frame(xpp, ypp))
@@ -437,9 +434,9 @@ cov(data.frame(xpp, ypp))
 ## ypp -0.007239749  0.319866571
 ```
 
-The variables are still fairly uncorrelated but not independant. 
+The variables are still fairly uncorrelated but not independent. 
 The covariance is in the same order of magnitude as before the rotation.
 
-(f) What did you learn from this exercise? Does the result generalise?
+(f) What did you learn from this exercise? Does the result generalize?
 
 Transforming a highly correlated and dependant dataset into an (almost) independant, uncorrelated one.

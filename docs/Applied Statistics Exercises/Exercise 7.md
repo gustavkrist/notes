@@ -1,5 +1,6 @@
 ---
 tags: [sum product of variables, CLT, ]
+title: Exercise 7
 ---
 
 # Problems 
