@@ -1,6 +1,8 @@
 ---
 tags: [confidence intervals]
-wiki_base_url: /Applied%20Statistics/
+wiki_base_url: http://example.com/
+wiki_end_url: .html
+wiki_html_class:
 ---
 ## Confidence intervals
 
@@ -142,7 +144,7 @@ $$
 $$
 
 has a distribution that only depends on $n$ and *not* on $\mu$ or $\sigma$.  
-This random variable has a *$t$-distribution* [[Types of distributions]]
+This random variable has a *$t$-distribution* ([Types of distributions](../Types of distributions.md#t-distribution))
 
 !!! note ""
     For a random sample $\Xn$ from an $N(\mu, \sigma^2)$ distribution, the
@@ -168,7 +170,7 @@ $$
 \left( \mean{x}_n - t_{n-1, \alpha/2} \frac{s_n}{\sqrt{n}}, \mean{x}_n + t_{n-1, \alpha/2} \frac{s_n}{\sqrt{n}} \right)
 $$
 
-#### Bootstrap confidence intervals
+### Bootstrap confidence intervals
 
 If we doubt the normality of the data and we do *not* have a large sample, usually
 the best thing to do is to bootstrap.
@@ -207,14 +209,14 @@ $$
 
 a 100$(1-\alpha)$% *bootstrap confidence interval for $\mu$*.
 
-##### Why the bootstrap may be better
+#### Why the bootstrap may be better
 
 If the distribution is skewed, that is reflected in the bootstrap confidence interval.
 Whereas the $t$-interval is centered around the sample mean.
 In some sense, the bootstrap adapts to the shape of the distribution, and thus leads
 to more accurate confidence statements than using the method for normal data.
 
-#### Large samples
+### Large samples
 
 A variant of the CLT states
 

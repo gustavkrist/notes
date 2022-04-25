@@ -49,7 +49,7 @@ markdown_extensions:
       permalink: ""
       title: On this page
       slugify: !!python/name:pymdownx.slugs.uslugify
-      toc_depth: 3
+      toc_depth: 4
   - pymdownx.arithmatex:
       generic: true
   - admonition
