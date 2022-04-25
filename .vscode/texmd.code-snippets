@@ -4,16 +4,16 @@
 		"body": "\n\\item ",
 		"description": "\\item on a newline"
 	},
-	// "subscript": {
-	// 	"prefix": "__",
-	// 	"body": "_{${1:${TM_SELECTED_TEXT}}}",
-	// 	"description": "subscript"
-	// },
-	// "superscript": {
-	// 	"prefix": "**",
-	// 	"body": "^{${1:${TM_SELECTED_TEXT}}}",
-	// 	"description": "superscript"
-	// },
+	"subscript": {
+		"prefix": "__",
+		"body": "_{${1:${TM_SELECTED_TEXT}}}",
+		"description": "subscript"
+	},
+	"superscript": {
+		"prefix": "**",
+		"body": "^{${1:${TM_SELECTED_TEXT}}}",
+		"description": "superscript"
+	},
 	"etc": {
 		"prefix": "...",
 		"body": "\\dots",
@@ -624,7 +624,7 @@
 		"prefix": "figcap",
 		"body": [
 			"<figure>",
-			"<p align=\"center\"",
+			"<p align=\"center\">",
 			"\t<img src=\"assets/$1\" width=${2:100}%>",
 			"</p>",
 			"<figcaption align=\"center\">$3</figcaption>",
