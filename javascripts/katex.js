@@ -13,7 +13,8 @@
       '\\cov': '\\operatorname{Cov}',
       '\\var': '\\operatorname{Var}',
       '\\abs': '\\lvert #1 \\rvert',
-      '\\given': '\\,\\vert\\,'
+      '\\given': '\\,\\vert\\,',
+      '\\P': '\\operatorname{P}'
     }
 
     for (var i = 0; i < maths.length; i++) {
