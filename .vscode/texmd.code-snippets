@@ -580,31 +580,31 @@
 		"body": ["\\ldots"],
 		"description": "Low dots"
 	},
-	"Variance": {
-		"prefix": "Define var macro",
-		"body": ["\\def\\var{\\operatorname{Var}}"],
-		"description": "Var macro definition"
-	},
-	"Covariance": {
-		"prefix": "dcov",
-		"body": ["\\def\\cov{\\operatorname{Cov}}"],
-		"description": "Cov macro definition"
-	},
-	"Median": {
-		"prefix": "dmed",
-		"body": ["\\def\\med{\\operatorname{Med}}"],
-		"description": "Med macro definition"
-	},
-	"Absolute": {
-		"prefix": "dabs",
-		"body": ["\\def\\abs#1{\\lvert #1 \\rvert}"],
-		"description": "Abs macro definition"
-	},
-	"Given": {
-		"prefix": "dgiven",
-		"body": ["\\def\\given{\\,\\vert\\,}"],
-		"description": "Given macro definition"
-	},
+	// "Variance": {
+	// 	"prefix": "Define var macro",
+	// 	"body": ["\\def\\var{\\operatorname{Var}}"],
+	// 	"description": "Var macro definition"
+	// },
+	// "Covariance": {
+	// 	"prefix": "dcov",
+	// 	"body": ["\\def\\cov{\\operatorname{Cov}}"],
+	// 	"description": "Cov macro definition"
+	// },
+	// "Median": {
+	// 	"prefix": "dmed",
+	// 	"body": ["\\def\\med{\\operatorname{Med}}"],
+	// 	"description": "Med macro definition"
+	// },
+	// "Absolute": {
+	// 	"prefix": "dabs",
+	// 	"body": ["\\def\\abs#1{\\lvert #1 \\rvert}"],
+	// 	"description": "Abs macro definition"
+	// },
+	// "Given": {
+	// 	"prefix": "dgiven",
+	// 	"body": ["\\def\\given{\\,\\vert\\,}"],
+	// 	"description": "Given macro definition"
+	// },
 	"Mean": {
 		"prefix": "dmean",
 		"body": ["\\def\\mean#1{\\overline{#1}}"],
