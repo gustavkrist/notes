@@ -96,6 +96,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://gustavdocs.azurewebsites.com/FYP%20Project%203/N-gram%20Language%20Modelling.html</loc>
+         <lastmod>2022-04-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://gustavdocs.azurewebsites.com/General%20Programming/Regex.html</loc>
          <lastmod>2022-04-26</lastmod>
          <changefreq>daily</changefreq>
