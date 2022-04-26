@@ -242,3 +242,4 @@ $$
 $$
 
 is an approximate 100$(1-\alpha)$% confidence interval for $\mu$.
+
