@@ -12,6 +12,7 @@
 			"ECDF",
 			"Heteroscedasticity",
 			"homoscedasticity",
+			"Kneser",
 			"Kolmogorov",
 			"Kristensen's",
 			"Loglikelihood",
@@ -21,7 +22,9 @@
 			"scatterplot",
 			"Smirnov",
 			"studentized",
-			"unbiasedness"
+			"unbiasedness",
+			"Witten",
+			"Zipf's"
 		],
 		"markdown-preview-enhanced.enableScriptExecution": true
 	}

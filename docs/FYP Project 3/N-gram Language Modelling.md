@@ -80,7 +80,7 @@ N-Gram: sequence of $n$ tokens in a text.
 
 A 4-gram model is a 3rd order Markov model.
 
-!!! example ""
+!!! example "Example"
     $$
     \underbrace{\stackrel{1}{\text{in}}\quad\stackrel{2}{\text{the}}}_{\stackrel{\text{bigram}}{\text{2-gram}}}
     \qquad p(\text{the} \given \underbrace{\phantom{text}\text{in}\phantom{text}}_{\text{firstorder MM}})
@@ -96,7 +96,7 @@ Use *log-probabilities* instead:
 - Multiplication becomes addition
 - Do this *whenever* you use probabilities!
 
-### Perplexity
+#### Perplexity
 
 !!! note ""
     Commonly used to compare language models:
@@ -116,3 +116,67 @@ going to do after every step.
 
 Typical for language models is $\approx100$ PPL.
 
+#### Notation
+
+- \#tokens(w~1~, w~2~): Probability of n-gram w~1~w~2~
+- \#tokens(w~1~, $\bullet$): Probability of n-gram starting with w~1~
+- \#types(w~1~, $\bullet$): Amount of different of n-grams starting with w~1~
+
+#### Maximum likelihood estimation
+
+$$
+p(w_3 \given w_1, w_2) = \frac{\text{\#tokens}(w_1w_2w_3)}{\text{\#tokens}(w_1w_2\bullet)}
+$$
+
+`<s>` Star light , ==star bright== , first ==star I== see tonight ! `</s>`
+
+$$
+\begin{align*}
+p(\text{bright} \given \text{star}) = \frac{\text{\#tokens(star bright)}}{\text{\#tokens}(\text{star }\bullet)}
+= \frac{1}{2} = 0.5
+\end{align*}
+$$
+
+##### Problems with maximum likelihood estimation
+
+- Underestimates n-grams that have not been seen. Estimates them with a probability 0.
+- Overestimates n-grams that have been seen only a few times.
+- We get good estimates of very frequent tokens, but per Zipf's law,
+  *most tokens are __not__ frequent*
+
+#### Smoothing
+
+!!! note "Add-one estimate (Laplace smoothing)"
+    Add one to each count to avoid zero counts.
+    
+    ```math
+    \begin{align*}
+    p(w_3 \given w_1, w_2) &= \frac{\text{\#tokens}(w_1w_2w_3)+1}{\sum_{w\in V}\left(\#\text{tokens}(w_1w_2w) + 1\right)}
+    &= \frac{\text{\#tokens}(w_1w_2w_3) + 1}{\text{\#tokens}(w_1w_2\bullet) + \abs{V}}
+    \end{align*}
+    ```
+
+    Advantage: Really simple, gets rid of 0 probabilities.  
+    Issue: Significantly overestimates unseen events.
+
+##### General principle
+
+- Take away probability mass from the n-grams we have seen by *discounting*
+  their estimates.
+- Assign this probability mass to n-grams we have not seen.
+- The total probability still sums to 1 *for each context*
+
+##### (improved) Kneser-Ney smoothing
+
+- Contexts we don't know correspond to *backoff situations*
+- Uses different distributions for *higher-order* and *backoff* distributions
+
+- One of the best-performing smoothing models for natural language
+- Based on absolute discounting with clever backoff distribution
+- For sequences with few infrequent tokens, estimation may fail!
+
+##### Witten-Bell smoothing
+
+- Good method for sequences that don't meet Kneser-Key smoothing.
+- Uses the number of different continuations of an n-gram to estimate
+  how likely yet another new continuation will be
