@@ -153,7 +153,7 @@ If $F$ is the distribution function, we speak of a *random sample from* $F$.
     We randomly select 1000 men (or women) aged 18-24 and measure their height.
     We assume that the height follows a normal distribution $N(\mu, \sigma^2)$.  
     Using the 1000 measurements we can estimate
-    <!---->
+    
     - $\mu$ by the sample mean $\overline{x}$
     - $\sigma^2$ by the sample variance
     
@@ -163,7 +163,7 @@ If $F$ is the distribution function, we speak of a *random sample from* $F$.
 !!! example "Example: Making predictions"
     A factory produces 1000 light bulbs each day. At quality control, 30 light bulbs were
     found to be faulty. What is the probability that there are more than 50 faulty light bulbs?
-    <!---->
+    
     - Modeled by a binomial distribution $\operatorname{Bin}(n,p)$
     - $E[x] = np$ for $X \sim \operatorname{Bin}(n, p)$
     - $\displaystyle n = 1000, \; p = \frac{\overline{x}}{n} = \frac{30}{1000} = 0.03$

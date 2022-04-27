@@ -44,10 +44,10 @@ $$
 !!! note "Maximum likelihood estimator"
     The maximum likelihood estimate of $\theta$ is the value $t=h(x_1, x_2, \ldots, x_n)$ that 
     maximizes the likelihood function $L(\theta)$. The corresponding random variable 
-    <!---->
-    ```math
+    
+    $$
     T = h(X_1, X_2, \ldots, X_n)
-    ```
+    $$
 
     is called the *likelihood estimator* for $\theta$.
 
@@ -55,7 +55,7 @@ $$
     10 coin flips, with $\Omega_X = \{H, T\}$.
     The given outcome is $T, T, T, T, H, T, H, T, H, T$
     
-    ```math
+    $$
     \def\given{\,\vert\,}
     \begin{align*}
       P_p(x) &= \begin{cases}
@@ -68,7 +68,7 @@ $$
     P(\text{"seq"} \given \text{fair}) &= \left( \frac{1}{2} \right)^10 \approx 0.0010 \\
     P(\text{"seq"} \given \text{biased}) &= (0.2)^3 \cdot (0.8)^7 \approx 0.0017
     \end{align*}
-    ```
+    $$
 
 ### Loglikelihood
 

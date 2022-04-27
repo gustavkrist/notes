@@ -6,11 +6,11 @@
     Let X and Y be two independent discrete random variables, with probability
     mass functions $p_X$ and $p_Y$. then the probability mass function $p_Z$ of
     $Z = X + Y$ satisfies
-    <!---->
-    ```math
+    
+    $$
     p_Z(c) = \sum_{j} p_X(c-b_j)p_Y(b_j)
-    ```
-    <!---->
+    $$
+    
     where the sum runs over all possible values $b_j$ of Y.
 
 Sum of two geometrically distributed random variables $X$ and $Y$ for $k\geq 2$
@@ -31,10 +31,10 @@ $$
 !!! Note "Sum of continuous random variables"
     Let X and Y be two independent continuous random variables, with probability density
     functions $f_X$ and $f_Y$. Then the probability density function $f_Z$ of $Z = X + Y$ is
-    <!---->
-    ```math
+    
+    $$
     f_Z(z) = \int_{-\infty}^{\infty} f_X(z-y)f_Y(y) \; dy
-    ```
+    $$
 
 Sum of two exponentially distributed random variables with parameter $\lambda$
 

@@ -181,9 +181,11 @@ the best thing to do is to bootstrap.
 
     1. Generate a bootstrap dataset $x_1^*, x_2^*, \ldots, x_n^*$ from $F_n$
     2. Compute the studentized mean for the bootstrap dataset:
-       ```math
+
+       $$
        t^* = \frac{\mean{x}_n^* - \mean{x}_n}{s_n^* / \sqrt{n}}
-       ```
+       $$
+
        where $\mean{x}_n^*$ and $s_n^*$ are the sample mean and sample standard deviation
        of $x_1^*, x_2^*, \ldots, x_n^*$
     Repeat steps 1 and 2 many times.
