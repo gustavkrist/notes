@@ -1,0 +1,27 @@
+{
+    "id": "7236B30C",
+    "path": "~/ast/ex5/Exercise5.Rmd",
+    "project_path": "Exercise5.Rmd",
+    "type": "r_markdown",
+    "hash": "2942965147",
+    "contents": "",
+    "dirty": false,
+    "created": 1646739891934.0,
+    "source_on_save": true,
+    "relative_order": 1,
+    "properties": {
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "236,17",
+        "scrollLine": "222",
+        "marks": "<:99,3\n>:99,85"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1646837193,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1646837193985,
+    "read_only": false,
+    "read_only_alternatives": []
+}

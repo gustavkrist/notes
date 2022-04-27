@@ -1,0 +1,27 @@
+{
+    "id": "B73ADA2F",
+    "path": "~/ast/ex4/ex4.rmd",
+    "project_path": "ex4.rmd",
+    "type": "r_markdown",
+    "hash": "1698749772",
+    "contents": "",
+    "dirty": false,
+    "created": 1646083615514.0,
+    "source_on_save": true,
+    "relative_order": 1,
+    "properties": {
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "244,1",
+        "scrollLine": "241",
+        "marks": "<:241,0\n>:241,0"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1646230902,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1646230902849,
+    "read_only": false,
+    "read_only_alternatives": []
+}

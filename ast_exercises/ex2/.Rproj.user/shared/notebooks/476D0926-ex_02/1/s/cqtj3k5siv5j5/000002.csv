@@ -1,0 +1,7 @@
+"0","Name <- c('Astrid', 'Lea', 'Sarina', 'Remon', 'Letizia', 'Babice', 'Jonas', 'Wendy', 'Niveditha', 'Gioia')"
+"0","Sex <- c('F', 'F', 'F', 'M', 'F', 'F', 'M', 'F', 'F', 'F')"
+"0","Age <- c(30, 25, 25, 29, 22, 22, 35, 19, 32, 21)"
+"0","Superhero <- c('Batman', 'Superman', 'Batman', 'Spiderman', 'Batman', 'Antman', 'Batman', 'Superman', 'Maggott', 'Superman')"
+"0","Tattoos <- c(11, 15, 12, 5, 65, 3, 9, 13, 900, 0)"
+"0","pirate_df = data.frame(Name, Sex, Age, Superhero, Tattoos)"
+"0","pirate_df"

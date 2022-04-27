@@ -1,0 +1,27 @@
+{
+    "id": "86DBDD46",
+    "path": "~/ast/ex8/ex8.Rmd",
+    "project_path": "ex8.Rmd",
+    "type": "r_markdown",
+    "hash": "3104748081",
+    "contents": "",
+    "dirty": false,
+    "created": 1648596368111.0,
+    "source_on_save": true,
+    "relative_order": 1,
+    "properties": {
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "249,135",
+        "scrollLine": "7",
+        "marks": "<:0,0\n>:0,0"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1648646736,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1649186816409,
+    "read_only": false,
+    "read_only_alternatives": []
+}

@@ -1,0 +1,240 @@
+---
+title: "Applied Statistics - Exercise 11"
+output:
+  pdf_document: default
+  html_document: default
+header-includes:
+  - \newcommand\mean[1]{\overline{#1}}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## 1. Bags of potatoes (Theory)
+
+You bought 10 very large bags of potatoes.
+Assume that the 10 weights can be viewed as a realization of a random sample from a normal distribution with unknwown parameters.
+Your measures give you the following data:
+
+- Sample mean: 14.5 kg
+- Sample standard deviation: 0.3 kg
+
+Construct a 95% confidence interval for the expected weight of a bag.
+
+We can construct a 100$(1-\alpha)$% confidence interval using the formula
+
+$$
+\left( \mean{x}_n - z_{\alpha/2} \frac{\sigma}{\sqrt{n}}, \mean{x}_n + z_{\alpha/2} \frac{\sigma}{\sqrt{n}} \right)
+$$
+
+In this case, $\alpha=0.05$, so we are finding $z_{0.05/2}=z_{0.0025}=2.8$
+
+Thus, the confidence interval is
+
+$$
+\begin{align*}
+  \left( 14.5 - 2.8 \frac{0.3}{\sqrt{10}}, 14.5 + 2.8 \frac{0.3}{\sqrt{10}} \right) &= 
+  \left( 14.5 - 0.266, 14.5 + 0.266 \right) \\
+  &= (14.234, 14.766) 
+\end{align*}
+$$
+
+## 2. How many samples do we need? (Theory)
+
+Assume that we measure a person's height (in meters) and that the measurements are normal distributed with standard deviation $\sigma = 0.01$. How many measurements do we to make, if we want a 99% confidence interval no wider than 0.001 meters for the mean $\mu$?
+Please explain how you find the number of required measurements.
+
+The confidence interval for a normally distributed variable has the range
+
+$$
+2 z_{\alpha/2} \frac{\sigma}{\sqrt{n}}
+$$
+
+So we must find the smallest $n$ that satisfies
+
+$$
+2 z_{\alpha/2} \frac{\sigma}{\sqrt{n}} \leq w
+$$
+
+or
+
+$$
+n \geq \left( \frac{z_{\alpha/2}\sigma}{w} \right)^2
+$$
+
+Inserting the numbers $\alpha = 0.01$, thus $z_{0.005}=2.58$, $\sigma=0.01$ and $w=0.001$ we get
+
+$$
+\begin{align*}
+  n &\geq \left( \frac{2.58 \cdot 0.01}{0.001} \right)^2 \\
+  &= 665.64
+\end{align*}
+$$
+
+Hence we need to make at least 666 measurements to have a 99% confidence interval no 
+wider than 0.001 meters for the mean $\mu$.
+
+## 3. Tomato sauce (Theory)
+
+A team of scientists is analyzing samples from bottles of tomato sauce, looking for traces of pesticides.
+They take a random sample of 10 bottles, 
+with the assumption is that the samples are drawn from a normal distribution with unknown mean and standard deviation.
+The scientsts find that the sample mean is $\bar{x}_{10} = 1.05655721956321$ parts per million (ppm), with a sample standard deviation $s_{10} = 0.200131346424344$.
+The maximum limit prescribed by the law is 1.15 ppm.
+
+a. The team of scientists wants to derive a _one sided_ 90% confidence interval for the mean concentration of pesticides in the bottles, because they want to sue the tomato brand for having too many pesticides in their product. Which type of one sided interval should they use? Derive such an interval.
+
+They should use a one-sided confidence interval for normally distributed data with unknown variance:
+
+$$
+\left( \infty, \mean{x}_n + t_{n-1, \alpha/2} \frac{s_n}{\sqrt{n}} \right)
+$$
+
+Inserting $t_{9, 0.05} = 1.83$ and the other provided numbers:
+
+$$
+\left( \infty, 1.05.. + 1.833113 \frac{0.200..}{\sqrt{10}} \right) = (\infty, 1.17257)
+$$
+
+b. The tomato brand defends itself by deriving, from the very same data, another one sided 90% confidence interval. Which one? Compute it.
+
+The lower bound?
+
+$$
+\left(1.05.. - 1.833113 \frac{0.200..}{\sqrt{10}}, \infty \right) = (0.9405448, \infty)
+$$
+
+c. Which conclusions can be derived from these intervals?
+d. The scientists are not yet convinced, therefore they perform a second experiment. 
+   This time they take a random sample of 100 bottles, finding the sample mean $\bar{x}_{100} = 1.14376626794198$ and the sample standard deviation $s_{100} = 0.173021605092371$. Recompute the confidence intervals of points a. and b. Is the tomato brand still able to defend itself?
+
+$$
+\left( \infty, \mean{x}_{100} + t_{99, 0.05} \frac{s_{100}}{\sqrt{100}} \right) = (\infty, 1.172495)
+$$
+
+$$
+\left( \mean{x}_{100} - t_{99, 0.05} \frac{s_{100}}{\sqrt{100}}, \infty \right) = (1.115038, \infty)
+$$
+
+## 4. Simulating confidence intervals (R)
+
+In this first exercise you will build confidence intervals from different samples of a normal random variable.
+
+a. Define a function `confidence_interval_normal` that accepts two parameters: a sample of elements and a confidence level. Under the assumption of normality of the input data, build the confidence interval using the formula for normal variable with unknown mean and variance. The function should return the interval as a two element vector: `c(lower, upper)`.
+To get the quantiles of the t-distribution you can use the `qt` function: `qt(0.95, 19)` return the 0.95 quantile of the t-distribution with 19 degrees of liberty. See `help(qt)` for more details.
+
+```{r}
+confidence_interval_normal <- function(x, gamma) {
+  alpha <- 1 - gamma
+  t <- qt(1 - alpha / 2, length(x) - 1)
+  lower <- mean(x) - t * (sd(x) / sqrt(length(x)))
+  upper <- mean(x) + t * (sd(x) / sqrt(length(x)))
+  return(c(lower, upper))
+}
+```
+
+b. Perform the following simulation: run 100 iterations, in each iteration take a sample of 10 elements using `rnorm(10, 150, 50)`. For each such sample, use the function developed in the previous point to compute a 0.9 confidence interval relative to the data. Count the number of intervals that _do not_ contain the true mean of the distribution we are sampling from, that is `150`. Is the result in line with your expectations?
+
+```{r}
+contain_true_mean <- 0
+for (i in 1:100) {
+  x <- rnorm(10, 150, 50)
+  interval <- confidence_interval_normal(x, 0.9)
+  if (interval[1] < 150 && 150 < interval[2]) {
+    contain_true_mean <- contain_true_mean + 1
+  }
+}
+print(contain_true_mean)
+```
+
+c. Try to change the confidence level, setting it to 0.8 and 0.95. How does the result change?
+
+```{r}
+contain_true_mean <- 0
+for (i in 1:100) {
+  x <- rnorm(10, 150, 50)
+  interval <- confidence_interval_normal(x, 0.8)
+  if (interval[1] < 150 && 150 < interval[2]) {
+    contain_true_mean <- contain_true_mean + 1
+  }
+}
+print(contain_true_mean)
+```
+
+
+```{r}
+contain_true_mean <- 0
+for (i in 1:100) {
+  x <- rnorm(10, 150, 50)
+  interval <- confidence_interval_normal(x, 0.95)
+  if (interval[1] < 150 && 150 < interval[2]) {
+    contain_true_mean <- contain_true_mean + 1
+  }
+}
+print(contain_true_mean)
+```
+
+Higher confidence interval means more cases where the interval covers the true mean.
+
+## 5. Cats & confidence (R)
+
+```{r include=FALSE}
+library(UsingR)
+```
+
+The `cats` data set (available in `UsingR`) contains the bodyweight and heart weight of adult cats, along with their sex.
+
+(a) Compute the mean and the $90\%$ confidence intervals for the body weight and heart weight assuming normality of the samples. Do the computation separately for the female and male cats. (So you have to compute 4 confidence intervals). Is there any difference between the results?
+You can use the `confidence_interval_normal` function that you defined in the previous exercise.
+
+```{r}
+male_bwt <- confidence_interval_normal(subset(cats, Sex == "M")$Bwt, 0.9)
+female_bwt <- confidence_interval_normal(subset(cats, Sex == "F")$Bwt, 0.9)
+male_hwt <- confidence_interval_normal(subset(cats, Sex == "M")$Hwt, 0.9)
+female_hwt <- confidence_interval_normal(subset(cats, Sex == "F")$Hwt, 0.9)
+print(male_bwt)
+print(female_bwt)
+print(male_hwt)
+print(female_hwt)
+```
+
+(b) Compute the one-sided 95% confidence intervals for the mean body weight of male cats and compare to the results you obtained at (a).
+
+The one-sided confidence interval is found with the formula
+
+$$
+\left( \mean{x}_n - t_{n-1, \alpha/2} \frac{s_n}{\sqrt{n}}, \infty \right)
+$$
+
+```{r}
+x <- subset(cats, Sex == "M")$Bwt
+lower <- mean(x) - qt(1 - 0.0025, length(x) - 1) * (sd(x) / sqrt(length(x)))
+print(c(lower, Inf))
+```
+
+The lower bound is lower than the one obtained in (a).
+
+## 6. Bootstrapping confidence intervals (R)
+
+Consider again the `cats` dataset of the previous exercise.
+Construct the 90% confidence intervals for the mean body weight of male cats by empirical bootstrap, using 500 bootstrap repetitions. Compare the result to those you got in Problem 1.  
+How do they compare with the intervals you found in the previous exercise?
+
+```{r}
+T <- c() # nolint
+male_bwt <- subset(cats, Sex == "M")$Bwt
+for (i in 1:500) {
+  bootstrap <- sample(male_bwt, length(male_bwt), replace = TRUE)
+  t <- (mean(bootstrap) - mean(male_bwt)) / (sd(bootstrap) / sqrt(length(bootstrap))) # nolint
+  T <- c(T, t) # nolint
+}
+T_distribution <- ecdf(T) # nolint
+lower <- mean(male_bwt) - quantile(T_distribution, 0.95) * (sd(male_bwt) / sqrt(length(male_bwt))) # nolint
+upper <-  mean(male_bwt) - quantile(T_distribution, 0.05) * (sd(male_bwt) / sqrt(length(male_bwt))) # nolint
+print(unname(c(lower, upper)))
+```
+
+The interval is quite close to the interval $(2.821165, 2.978835)$ obtained in
+the previous exercise.

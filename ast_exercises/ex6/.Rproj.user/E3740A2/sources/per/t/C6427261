@@ -1,0 +1,27 @@
+{
+    "id": "C6427261",
+    "path": "~/ast/ex6/Exercise6.Rmd",
+    "project_path": "Exercise6.Rmd",
+    "type": "r_markdown",
+    "hash": "3028536609",
+    "contents": "",
+    "dirty": false,
+    "created": 1647373887658.0,
+    "source_on_save": true,
+    "relative_order": 1,
+    "properties": {
+        "source_window_id": "",
+        "Source": "Source",
+        "marks": "<:277,-1\n>:277,0",
+        "cursorPosition": "289,40",
+        "scrollLine": "272"
+    },
+    "folds": "0|3|7|0|\n13|29|76|0|\n17|18|29|0|\n77|28|124|0|\n125|36|138|0|\n139|33|176|0|\n177|56|214|0|\n",
+    "lastKnownWriteTime": 1647441934,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1647981679910,
+    "read_only": false,
+    "read_only_alternatives": []
+}

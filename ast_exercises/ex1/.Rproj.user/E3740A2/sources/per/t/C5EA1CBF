@@ -1,0 +1,26 @@
+{
+    "id": "C5EA1CBF",
+    "path": "~/ast/ex1/ex1.rmd",
+    "project_path": "ex1.rmd",
+    "type": "r_markdown",
+    "hash": "2835912991",
+    "contents": "",
+    "dirty": false,
+    "created": 1644159121574.0,
+    "source_on_save": true,
+    "relative_order": 1,
+    "properties": {
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "110,23",
+        "scrollLine": "98"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1644405432,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1644405432155,
+    "read_only": false,
+    "read_only_alternatives": []
+}

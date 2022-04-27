@@ -1,0 +1,5 @@
+"0","length(filter(starwars, species == 'Droid'))"
+"1","[1]"
+"1"," 14"
+"1","
+"

@@ -1,0 +1,265 @@
+---
+title: "Exercise 5"
+subtitle: "Applied Statistics, IT University of Copenhagen"
+output:
+  pdf_document: default
+documentclass: article
+classoption: a4paper
+---
+```{r, include=FALSE}
+library(dplyr)
+```
+
+T=Theoretical exercise, R=R exercise
+
+# Preparation
+
+* Read pages 33--44, 50--55, and 60--61 from @Verzani2014.
+
+# Problems
+
+## 1. Octrahedral Die (T)
+
+Let $T$ be the outcome of roll of fair octahedral die. 
+
+(a) Describe the probability distribution of $T$, that is, list the outcomes and the corresponding probabilities.  
+
+\begin{center}
+\begin{tabular}{c | c | c | c | c | c | c | c | c}
+  X & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
+  \hline
+  p(X) & 1/8 & 1/8 & 1/8 & 1/8 & 1/8 & 1/8 & 1/8 & 1/8
+\end{tabular}
+\end{center}
+
+(b) Determine the expected value and variance of $T$.
+\begin{align*}
+E[x] &= \sum_{i=1}^8 X_ip(X_i) \\
+&= (1^2 + 2^2 + \ldots + 8^2)\frac{1}{8} = 4.5 \\
+\text{Var}(x) &= E[x^2] - (E[x])^2 \\
+&= (1^2 + 2^2 + \ldots + 8^2)\frac{1}{8} - 4.5^2 \\
+&= 25.5 - 20.25 = 5.25
+\end{align*}
+
+## 2. Expectation and Variance of a Continuous Random Variable (T)
+
+Let $X$ be a continuous random variable with the density function
+
+\begin{equation}
+  f_X(x) = \left\{ \begin{tabular}{ll}
+                  $x + 1$ & if $- 1 \leq x < 0$ \\
+                  $-x + 1$ & if $0 \leq x < 1$ \\
+                  0 & otherwise.
+               \end{tabular}
+  \right.
+\end{equation}
+Compute the expectation and variance of $X$. 
+
+\begin{align*}
+E[x] &= \int_{-\infty}^{\infty}xf(x)\;dx \\
+&= \int_{-\infty}^{-1} 0 \;dx + \int_{-1}^0 x (x+1) \;dx + \int_0^1 x (-x+1) \;dx + \int_1^{\infty} 0 \;dx \\
+&= \int_{-1}^0 x (x+1) \;dx + \int_0^1 x (-x+1) \;dx \\
+&= \int_{-1}^0 x^2 + x \;dx + \int_0^1 -x^2 + x \;dx \\
+&= \left[ \frac{x^3}{3} + \frac{x^2}{2} \right]_{-1}^0 + \left[ \frac{-x^3}{3} + \frac{x^2}{2} \right]_0^1 \\
+&= \left( 0 - \left(\frac{-1}{3} + \frac{1}{2}\right) \right) + \left( \left( \frac{-1}{3} + \frac{1}{2} \right) - 0 \right) \\
+&= \frac{1}{3} - \frac{1}{2} - \frac{1}{3} + \frac{1}{2} \\
+&= 0
+\end{align*}
+
+\begin{align*}
+E[x^2] &= \int_{-\infty}^{\infty} x^2 f(x) \;dx \\
+&= \int_{-1}^0 x^2 (x+1) \;dx + \int_0^1 x^2 (-x+1) \;dx \\
+&= \int_{-1}^0 x^3 + x^2 \;dx + \int_0^1 -x^3 + x^2 \;dx \\
+&= \left[ \frac{x^4}{4} + \frac{x^3}{3} \right]_{-1}^0 + \left[ \frac{-x^4}{4} + \frac{x^3}{3} \right]_0^1 \\
+&= \left( 0 - \left( \frac{1}{4} + \frac{-1}{3} \right) \right) + \left( \left( \frac{-1}{4} + \frac{1}{3} \right) - 0 \right) \\
+&= -\frac{1}{4} + \frac{1}{3} - \frac{1}{4} + \frac{1}{3} \\
+&= \frac{2}{3} - \frac{2}{4} \\
+&= \frac{8}{12} - \frac{6}{12} \\
+&= \frac{2}{12} = \frac{1}{6}
+\end{align*}
+
+\begin{align*}
+\sigma^2 &= E[x^2] - (E[x])^2 \\
+&= \frac{1}{6} - 0^2 = \frac{1}{6}
+\end{align*}
+
+## 3. Linearity of the Expectation Operator (T)
+
+Show that the expectation operator is linear;
+that is, for functions $f,g: \mathbb{R} \rightarrow\mathbb{R}$, applied on the random variable $X$, and any scalars $\alpha,\beta \in \mathbb{R}$, 
+\begin{equation}
+  \mathrm{E} \left[ \alpha f(X) + \beta g(X) \right] = \alpha\, \mathrm{E} \left[  f(X) \right] + \beta\, \mathrm{E} \left[ g(X) \right].
+\end{equation} 
+
+Consider the cases where
+
+(a) $X$ is a discrete random variable taking values $a_1,a_2,\ldots \in \mathbb{R}$,
+
+\begin{align*}
+E[\alpha f(X) + \beta g(X)] &= \sum_{i=1}^{\infty} p(X_i)(\alpha f(X_i) + \beta g(X_i)) \\
+&= \sum_{i=1}^{\infty} \alpha p(X_i)f(X_i) + \sum_{i+1}^{\infty} \beta p(X_i)g(X_i) \\
+&= \alpha \sum_{i=1}^{\infty} p(X_i)f(X_i) + \beta \sum_{i+1}^{\infty} p(X_i)g(X_i) \\
+&= \alpha E[f(X)] + \beta E[g(X)] \qquad \Box
+\end{align*}
+
+(b) $X$ is a continuous random variable taking values on the real axis.
+
+\begin{align*}
+E[\alpha f(X) + \beta g(X)] &= \int_{-\infty}^{\infty} p(X) (\alpha f(X) + \beta g(X)) dX \\
+&= \int_{-\infty}^{\infty} \alpha p(X) f(X) dX + \int_{-\infty}^{\infty} \beta p(X) g(X) dX \\
+&= \alpha \int_{-\infty}^{\infty} p(X) f(X) dX + \beta \int_{-\infty}^{\infty} p(X) g(X) dX \\
+&= \alpha E[f(X)] + \beta E[g(X)] \qquad \Box
+\end{align*}
+
+## 4. Transforming a Random Variable (T)
+
+Given is a random variable $X$ with the probability density function $f$ given by $f(x)=0$ for $x<0$, and for $x>1$, and $f(x)=4x-4x^3$ for $0 \leq x \leq 1$. 
+
+(a) Determine the distribution function $F_X$.
+
+$$
+f(x) = \begin{cases}
+4x-4x^3 &\text{if } 0 \leq x \leq 1 \\
+0 &\text{else }
+\end{cases}
+$$
+\begin{align*}
+  \int_0^b 4x-4x^2 \; dx &= 4\left[ \frac{x^2}{2} - \frac{x^4}{4} \right]_0^b \\
+  &= 2b^2 - b^4
+\end{align*}
+
+$$
+F_X(b) = \begin{cases}
+0 &\text{if } X < 0 \\
+2b^2 - b^4 &\text{if } 0 \leq X \leq 1 \\
+1 &\text{if } 1 < X
+\end{cases}
+$$
+
+(b) Let $Y=\sqrt{X}$. Determine the distribution function $F_Y$.
+
+$$
+F_Y(b) = F_X(b^2)
+$$
+Apply transformation $Y=\sqrt(X)$ to all ranges in $F_X$.
+
+$$
+F_Y(B) = \begin{cases}
+0 &\text{if } b < 0 \\
+2(b^2)^2 - (b^2)^4 &\text{if } 0 \leq b \leq 1 \\
+1 &\text{if } 1 \leq b
+\end{cases}
+$$
+
+(c) Determine the probability density of Y. 
+
+$$(2b^4 - b^8)' = 8b^3 - 8b^7$$
+$$
+f_Y(b) = \begin{cases}
+8b^3 - 8b^7 &\text{if } 0 \leq y \leq 1 \\
+0 &\text{else}
+\end{cases}
+$$
+
+## 5. Accessing Data and Numeric Summaries (R)
+
+(a) Take ```Cars93``` (MASS) data set. What is the type of the Cylinders variable? What does the summary command do for the Cylinders variable? Get the names of the cars having 8 cylinders. What is the mean horsepower of the cars having 8 cylinders, how about standard deviation? How about those for the cars having 6 cylinders? Is the result what you expect?
+
+```{r, echo=-4}
+library(MASS)
+cars <- Cars93
+summary(cars$Cylinder)
+print("Types are integers and a string")
+cars$Cylinder
+subset(cars, cars$Cylinder == 8)[c("Manufacturer","Model")]
+cyl8 <- subset(cars, cars$Cylinder == 8)
+mean(cyl8$Horsepower)
+sd(cyl8$Horsepower)
+cyl6 <- subset(cars, cars$Cylinder == 6)
+mean(cyl6$Horsepower)
+sd(cyl6$Horsepower)
+```
+The numbers got lower, as expected. 
+
+(b) For the ```precip``` data set, find the mean and standard deviation of the rain fall over cities. Find all the cities with the average annual rain fall exceeding 50 inches. Which cities are the dryest? Does this match your expectation?
+
+```{r}
+mean(precip)
+sd(precip)
+subset(precip, precip > 50)
+subset(precip, precip == min(precip))
+```
+
+
+(c) The ```rivers``` contains the lengths of the 141 major rivers in North America. Compare the mean and 25% trimmed mean on the data set. What does the result tell you? How big is the standard deviation?
+
+```{r}
+mean(rivers)
+mean(rivers, 25)
+sd(rivers)
+```
+
+
+## 6. Flight Overbooking (R)
+
+To maximise the seats occupied during flights, the airlines has the customs to overbook them. Assume that the total number of seats on a flight is 150 and the number of people showing up at the airport is a random variable $X \in {1,2,\ldots,M}$, where all the outcomes are equally probable, and $M$ is the number of bookings made. Assume that each passenger onboard means $500$ EUR cash inflow for the airline whereas each refused passenger implies $1000$ EUR penalty to the airline. Operating the plane costs $40000$ EUR. For how many bookings would you advice the airline to take?
+
+Calculating lower and higher points of breaking even
+$$40000/500 = 80$$
+$$150 + \frac{150 \cdot 500 - 40000}{1000} = 185$$
+There will be a loss when number of bookings is outside the range 80-185.
+
+```{r, eval=FALSE, include=FALSE}
+profit.chance <- function(n) {
+  if (n < 81) {
+#    loss <- 1
+    profit <- 0
+  } else if (n < 185) {
+#    loss <- sum(dunif(1:80, 1, n))
+    profit <- sum(dunif(81:n, 1, n))
+  } else {
+#    loss <- sum(dunif(1:80, 1, n)) + sum(dunif(185:n, 1, n))
+    profit <- sum(dunif(81:184, 1, n))
+  }
+  return (profit)
+}
+```
+
+```{r}
+profit.chance <- function(n) {
+  if (n < 81) {
+    profit <- 0
+  } else if (n < 185) {
+    profit <- sum(dunif(81:n, 1, n))
+  } else {
+    profit <- sum(dunif(81:184, 1, n))
+  }
+  return (profit)
+}
+```
+Function above calculates the chance of getting a profit given a number of bookings.
+```{r}
+bookings <- 1:300
+profits <- sapply(bookings, profit.chance)
+result <- data.frame(bookings, profits)
+subset(result, result$profits == max(result$profits))
+plot(result)
+```
+184 bookings gives the highest chance of profit at $56.8\%$.
+
+Less risk-adverse method to maximize profit:
+
+```{r}
+profit <- function(x) {
+  return (min(x, 150) * 500 - (x - min(x, 150)) * 1000 - 40000)
+}
+expected <- function(n) {
+  return (1/n * sum(sapply(0:n, profit)))
+}
+bookings <- 0:300
+profits <- sapply(bookings, expected)
+result <- data.frame(bookings, profits)
+subset(result, result$profits == max(result$profits))
+plot(result)
+```
+
