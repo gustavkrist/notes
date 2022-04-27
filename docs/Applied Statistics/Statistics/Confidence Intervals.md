@@ -191,7 +191,9 @@ the best thing to do is to bootstrap.
 From the bootstrap experiment we can determine $c_l^*$ and $c_u^*$ such that
 
 $$
+\begin{align*}
 \P\left( c_l^* < \frac{\mean{X}_n^* - \mu^*}{S_n^* / \sqrt{n}} < c_u^* \right) \approx 1 - \alpha
+\end{align*}
 $$
 
 We can use these estimated critical values as bootstrap approximations to $c_l$
@@ -242,4 +244,3 @@ $$
 $$
 
 is an approximate 100$(1-\alpha)$% confidence interval for $\mu$.
-
