@@ -1,5 +1,6 @@
 ---
 tags: [n-gram, language modelling]
+title: N-Gram Language Modelling
 ---
 
 ## Language models
@@ -180,4 +181,3 @@ $$
 - Good method for sequences that don't meet Kneser-Key smoothing.
 - Uses the number of different continuations of an n-gram to estimate
   how likely yet another new continuation will be
-

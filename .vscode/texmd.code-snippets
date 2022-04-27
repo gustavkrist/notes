@@ -615,9 +615,14 @@
 		"body": ["\\displaystyle"],
 		"description": "Display Style Inline"
 	},
+	// "Color Heading": {
+	// 	"prefix": "chead",
+	// 	"body": ["<span style=\"color:$1;font-size:${2:150}%\"> $0 </span>"],
+	// 	"description": ""
+	// },
 	"Color Heading": {
-		"prefix": "chead",
-		"body": ["<span style=\"color:$1;font-size:${2:150}%\"> $0 </span>"],
+		"prefix": "\\ch",
+		"body": ["{ style=\"color:${1|lightgreen,gold,tomato|}\" }"],
 		"description": ""
 	},
 	"Captioned Figure": {
