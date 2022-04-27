@@ -3,7 +3,7 @@ tags: [BST, red-black BST, 2-3 tree]
 ---
 # Exercise 11
 
-<span style="color:lightgreen;font-size:150%"> 3.2.9 </span>
+## 3.2.9 { style="color:lightgreen" }
 
 Possible shapes of BST of size N
 
@@ -13,13 +13,13 @@ N=4 can also be mirrored.
 
 ![BSTs of size 4](assets/bst_n4.png)
 
-<span style="color:lightgreen;font-size:150%"> 3.3.2 </span>
+## 3.3.2 { style="color:lightgreen" }
 
 2-3 tree that results from inserting Y L P M X H C R A E S
 
 ![Trace of 2-3 insertion](assets/2-3_trace.png)
 
-<span style="color:lightgreen;font-size:150%"> 3.3.3 </span>
+## 3.3.3 { style="color:lightgreen" }
 
 Insertion order of S E A R C H X M that results in a 2-3 tree of height 1.
 
@@ -27,17 +27,17 @@ E R A C H M S X
 
 ![2-3 tree of height 1](assets/2-3_height1.png)
 
-<span style="color:lightgreen;font-size:150%"> 3.3.11 </span>
+## 3.3.11 { style="color:lightgreen" }
 
 Draw red-black BST resulting from inserting Y L P M X H C R A E S
 
-<span style="color:gold;font-size:150%"> 3.2.11 </span>
+## 3.2.11 { style="color:gold" }
 
 There are $2^{N-1}$ different binary tree shapes of $N$ nodes with height $N-1$.
 
 Same amount of different ways to insert $N$ keys that results in a BST of height $N-1$.
 
-<span style="color:gold;font-size:150%"> 3.2.15 </span>
+## 3.2.15 { style="color:gold" }
 
 ![Tree for exercise](assets/3.2.15_tree.png)
 
@@ -55,9 +55,9 @@ In parenthesis: size(x.left/x.right)
 
 `keys("D", "T")` will examine E, D, Q, J, M, T.
 
-<span style="color:gold;font-size:150%"> 3.2.20 </span>
+## 3.2.20 { style="color:gold" }
 
-<span style="color:gold;font-size:150%"> 3.2.22 </span>
+## 3.2.22 { style="color:gold" }
 
 In a BST, all nodes greater than a given node must be in its right subtree.
 The predecessor of a node in a BST is the rightmost node in the left subtree.
@@ -68,7 +68,7 @@ no longer be the rightmost node. It also cannot be larger than the node of inter
 as it would then no longer reside in the left subtree. The same can be proven by symmetry
 for the successor having no left child.
 
-<span style="color:gold;font-size:150%"> 3.3.13 </span>
+## 3.3.13 { style="color:gold" }
 
 If you insert keys in increasing order into a red-black BST, the tree height is not
 monotonically increasing.
@@ -80,6 +80,6 @@ than the red-black BST.
 
 ![Red-Black BST](assets/3.3.13_redblack.png)
 
-<span style="color:tomato;font-size:150%"> Counting keys </span>
+## Counting keys { style="color:tomato" }
 
-<span style="color:tomato;font-size:150%"> Counting odd keys </span>
+## Counting odd keys { style="color:tomato" }
