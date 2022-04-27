@@ -11,7 +11,6 @@ header-includes:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-
 ## 1. Bags of potatoes (Theory)
 
 You bought 10 very large bags of potatoes.
@@ -23,21 +22,22 @@ Your measures give you the following data:
 
 Construct a 95% confidence interval for the expected weight of a bag.
 
-We can construct a 100$(1-\alpha)$% confidence interval using the formula
+We can construct a 100$(1-\alpha)$% confidence interval using the formula for
+unknown variance:
 
 $$
-\left( \mean{x}_n - z_{\alpha/2} \frac{\sigma}{\sqrt{n}}, \mean{x}_n + z_{\alpha/2} \frac{\sigma}{\sqrt{n}} \right)
+\left( \mean{x}_n - t_{n-1,\alpha/2} \frac{S_n}{\sqrt{n}}, \mean{x}_n + t_{n-1,\alpha/2} \frac{S_n}{\sqrt{n}} \right)
 $$
 
-In this case, $\alpha=0.05$, so we are finding $z_{0.05/2}=z_{0.0025}=2.8$
+In this case, $\alpha=0.05$, so we are finding $t_{n-1,0.05/2}=t_{n-1,0.025}=2.26$
 
 Thus, the confidence interval is
 
 $$
 \begin{align*}
-  \left( 14.5 - 2.8 \frac{0.3}{\sqrt{10}}, 14.5 + 2.8 \frac{0.3}{\sqrt{10}} \right) &= 
-  \left( 14.5 - 0.266, 14.5 + 0.266 \right) \\
-  &= (14.234, 14.766) 
+  \left( 14.5 - 2.26 \frac{0.3}{\sqrt{10}}, 14.5 + 2.26 \frac{0.3}{\sqrt{10}} \right) &= 
+  \left( 14.5 - 0.21, 14.5 + 0.21 \right) \\
+  &= (14.29, 14.71) 
 \end{align*}
 $$
 
@@ -61,19 +61,19 @@ $$
 or
 
 $$
-n \geq \left( \frac{z_{\alpha/2}\sigma}{w} \right)^2
+n \geq \left( \frac{2z_{\alpha/2}\sigma}{w} \right)^2
 $$
 
 Inserting the numbers $\alpha = 0.01$, thus $z_{0.005}=2.58$, $\sigma=0.01$ and $w=0.001$ we get
 
 $$
 \begin{align*}
-  n &\geq \left( \frac{2.58 \cdot 0.01}{0.001} \right)^2 \\
-  &= 665.64
+  n &\geq \left( \frac{2 \cdot 2.58 \cdot 0.01}{0.001} \right)^2 \\
+  &= 2662.56
 \end{align*}
 $$
 
-Hence we need to make at least 666 measurements to have a 99% confidence interval no 
+Hence we need to make at least 2663 measurements to have a 99% confidence interval no 
 wider than 0.001 meters for the mean $\mu$.
 
 ## 3. Tomato sauce (Theory)
@@ -88,35 +88,50 @@ a. The team of scientists wants to derive a _one sided_ 90% confidence interval 
 
 They should use a one-sided confidence interval for normally distributed data with unknown variance:
 
-$$
-\left( \infty, \mean{x}_n + t_{n-1, \alpha/2} \frac{s_n}{\sqrt{n}} \right)
-$$
-
-Inserting $t_{9, 0.05} = 1.83$ and the other provided numbers:
+They should find the lower bound
 
 $$
-\left( \infty, 1.05.. + 1.833113 \frac{0.200..}{\sqrt{10}} \right) = (\infty, 1.17257)
+\left( \infty, \mean{x}_n + t_{n-1, \alpha} \frac{s_n}{\sqrt{n}}, \infty \right)
+$$
+
+Inserting $t_{9, 0.1} = 1.38$ and the other provided numbers:
+
+$$
+\left( \infty, 1.05.. - 1.383029 \frac{0.200..}{\sqrt{10}} \right) = (0.9690293, \infty)
 $$
 
 b. The tomato brand defends itself by deriving, from the very same data, another one sided 90% confidence interval. Which one? Compute it.
 
-The lower bound?
+The upper bound
 
 $$
-\left(1.05.. - 1.833113 \frac{0.200..}{\sqrt{10}}, \infty \right) = (0.9405448, \infty)
+\left( - \infty, \mean{x}_n + t_{n-1, \alpha} \frac{s_n}{\sqrt{n}} \right)
 $$
+
+$$
+\left( \infty, 1.05.. + 1.383029 \frac{0.200..}{\sqrt{10}} \right) = (0, 1.144085)
+$$
+
 
 c. Which conclusions can be derived from these intervals?
+
+The scientists do not have evidence for a case, as the tomato brand can say with
+90% confidence that the ppm is 1.144 or under.
+
 d. The scientists are not yet convinced, therefore they perform a second experiment. 
    This time they take a random sample of 100 bottles, finding the sample mean $\bar{x}_{100} = 1.14376626794198$ and the sample standard deviation $s_{100} = 0.173021605092371$. Recompute the confidence intervals of points a. and b. Is the tomato brand still able to defend itself?
 
+
 $$
-\left( \infty, \mean{x}_{100} + t_{99, 0.05} \frac{s_{100}}{\sqrt{100}} \right) = (\infty, 1.172495)
+\left( \mean{x}_{100} - t_{99, 0.1} \frac{s_{100}}{\sqrt{100}}, \infty \right) = (0.1214437, \infty)
 $$
 
 $$
-\left( \mean{x}_{100} - t_{99, 0.05} \frac{s_{100}}{\sqrt{100}}, \infty \right) = (1.115038, \infty)
+\left( \infty, \mean{x}_{100} + t_{99, 0.1} \frac{s_{100}}{\sqrt{100}} \right) = (0, 0.1660888)
 $$
+
+Now the scientists can say that there is a 90% chance that the ppm might be under
+0.166, that is above 1.15.
 
 ## 4. Simulating confidence intervals (R)
 
@@ -142,11 +157,11 @@ contain_true_mean <- 0
 for (i in 1:100) {
   x <- rnorm(10, 150, 50)
   interval <- confidence_interval_normal(x, 0.9)
-  if (interval[1] < 150 && 150 < interval[2]) {
+  if (interval[1] <= 150 && 150 <= interval[2]) {
     contain_true_mean <- contain_true_mean + 1
   }
 }
-print(contain_true_mean)
+print(sprintf("%d, %f%s", contain_true_mean, contain_true_mean / 150, "%"))
 ```
 
 c. Try to change the confidence level, setting it to 0.8 and 0.95. How does the result change?
@@ -156,11 +171,11 @@ contain_true_mean <- 0
 for (i in 1:100) {
   x <- rnorm(10, 150, 50)
   interval <- confidence_interval_normal(x, 0.8)
-  if (interval[1] < 150 && 150 < interval[2]) {
+  if (interval[1] <= 150 && 150 <= interval[2]) {
     contain_true_mean <- contain_true_mean + 1
   }
 }
-print(contain_true_mean)
+print(sprintf("%d, %f%s", contain_true_mean, contain_true_mean / 150, "%"))
 ```
 
 
@@ -169,11 +184,11 @@ contain_true_mean <- 0
 for (i in 1:100) {
   x <- rnorm(10, 150, 50)
   interval <- confidence_interval_normal(x, 0.95)
-  if (interval[1] < 150 && 150 < interval[2]) {
+  if (interval[1] <= 150 && 150 <= interval[2]) {
     contain_true_mean <- contain_true_mean + 1
   }
 }
-print(contain_true_mean)
+print(sprintf("%d, %f%s", contain_true_mean, contain_true_mean / 150, "%"))
 ```
 
 Higher confidence interval means more cases where the interval covers the true mean.
@@ -202,16 +217,22 @@ print(female_hwt)
 
 (b) Compute the one-sided 95% confidence intervals for the mean body weight of male cats and compare to the results you obtained at (a).
 
-The one-sided confidence interval is found with the formula
+The one-sided confidence intervals are found with the formulas
 
 $$
-\left( \mean{x}_n - t_{n-1, \alpha/2} \frac{s_n}{\sqrt{n}}, \infty \right)
+\left( \mean{x}_n - t_{n-1, \alpha} \frac{s_n}{\sqrt{n}}, \infty \right)
+$$
+
+$$
+\left( -\infty, \mean{x}_n - t_{n-1, \alpha} \frac{s_n}{\sqrt{n}} \right)
 $$
 
 ```{r}
 x <- subset(cats, Sex == "M")$Bwt
-lower <- mean(x) - qt(1 - 0.0025, length(x) - 1) * (sd(x) / sqrt(length(x)))
+lower <- mean(x) - qt(1 - 0.05, length(x) - 1) * (sd(x) / sqrt(length(x)))
+upper <- mean(x) + qt(1 - 0.05, length(x) - 1) * (sd(x) / sqrt(length(x)))
 print(c(lower, Inf))
+print(c(0, upper))
 ```
 
 The lower bound is lower than the one obtained in (a).
@@ -223,16 +244,19 @@ Construct the 90% confidence intervals for the mean body weight of male cats by 
 How do they compare with the intervals you found in the previous exercise?
 
 ```{r}
-T <- c() # nolint
+T <- c()
 male_bwt <- subset(cats, Sex == "M")$Bwt
 for (i in 1:500) {
   bootstrap <- sample(male_bwt, length(male_bwt), replace = TRUE)
-  t <- (mean(bootstrap) - mean(male_bwt)) / (sd(bootstrap) / sqrt(length(bootstrap))) # nolint
-  T <- c(T, t) # nolint
+  t <- (mean(bootstrap) - mean(male_bwt)) /
+        (sd(bootstrap) / sqrt(length(bootstrap)))
+  T <- c(T, t)
 }
-T_distribution <- ecdf(T) # nolint
-lower <- mean(male_bwt) - quantile(T_distribution, 0.95) * (sd(male_bwt) / sqrt(length(male_bwt))) # nolint
-upper <-  mean(male_bwt) - quantile(T_distribution, 0.05) * (sd(male_bwt) / sqrt(length(male_bwt))) # nolint
+T_distribution <- ecdf(T)
+lower <- (mean(male_bwt) - quantile(T_distribution, 0.95)
+          * (sd(male_bwt) / sqrt(length(male_bwt))))
+upper <- (mean(male_bwt) - quantile(T_distribution, 0.05)
+           * (sd(male_bwt) / sqrt(length(male_bwt))))
 print(unname(c(lower, upper)))
 ```
 
