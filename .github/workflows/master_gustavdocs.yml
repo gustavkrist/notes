@@ -30,9 +30,7 @@ jobs:
         run: pip install -r requirements.txt
         
       - name: Build Site
-        run: |
-          python format.py
-          mkdocs build
+        run: mkdocs build
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
