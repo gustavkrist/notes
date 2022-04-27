@@ -3,7 +3,7 @@ tags: [quicksort, radix, LSD, MSD]
 ---
 # Exercise 10
 
-<span style="color:lightgreen;font-size:150%"> 2.3.2 </span>
+## 2.3.2 { style="color:lightgreen" }
 
 Show in the style of the quicksort trace in SW 2.3, how quicksort sorts the array $\texttt{E A S Y Q U E S T I O N}$.
 
@@ -16,15 +16,15 @@ Show in the style of the quicksort trace in SW 2.3, how quicksort sorts the arra
 - Sorts subarray 5-7.
 - Sorts subarray 9-10
 
-<span style="color:lightgreen;font-size:150%"> 2.3.3 </span>
+## 2.3.3 { style="color:lightgreen" }
 
 During a quicksort execution, the largest item can be exchanged at most $\lg N$ times for an array of length $N$.
 
-<span style="color:lightgreen;font-size:150%"> 2.3.8 </span>
+## 2.3.8 { style="color:lightgreen" }
 
 For an array of $N$ equal items, quicksort will make $N\lg N$ compares. Each partition divides the array in half $\pm1$.
 
-<span style="color:lightgreen;font-size:150%"> 5.1.2 </span>
+## 5.1.2 { style="color:lightgreen" }
 
 Trace of LSD string sort for keys: $\texttt{no is th ti fo al go pe to co to th ai of th pa}$
 
@@ -70,7 +70,7 @@ Final sorted array:
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | ai  | al  | co  | fo  | go  | is  | no  | of  | pa  | pe  | th  | th  | th  | ti  | to  | to  |
 
-<span style="color:lightgreen;font-size:150%"> 5.1.3 </span>
+## 5.1.3 { style="color:lightgreen" }
 
 Trace of MSD string sort for keys: $\texttt{no is th ti fo al go pe to co to th ai of th pa}$
 
@@ -111,14 +111,14 @@ Final sorted array:
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | ai  | al  | co  | fo  | go  | is  | no  | of  | pa  | pe  | th  | th  | th  | ti  | to  | to  |
 
-<span style="color:lightgreen;font-size:150%"> 2.3.5 </span>
+## 2.3.5 { style="color:lightgreen" }
 
 With $N$ extra space, create an auxiliary array. Scan through the array to be sorted, put the smallest key in the aux array
 starting from left to right, and put the largest key into the aux array from right to left.
 
 In-place: Do a partition with an element between the two distinct keys.
 
-<span style="color:gold;font-size:150%"> 2.3.4 </span>
+## 2.3.4 { style="color:gold" }
 
 6 examples of 10-length arrays in different order that yield worst-case number of compares in quicksort without the inital shuffle:
 
@@ -136,7 +136,7 @@ Without the initial random shuffle, both ascending and descending order gives wo
 | 0   | 1   | 2   | 3   | 4   | 5   | 10  | 9   | 8   | 7   | 6   |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 
-<span style="color:gold;font-size:150%"> 2.3.13 </span>
+## 2.3.13 { style="color:gold" }
 
 The worst case recursive depth of quicksort is $N-1$. If the largest or smallest key is chosen in every recursive call.
 
@@ -144,9 +144,9 @@ The best case recursive depth is $\lg N$ when the middle item is chosen each rec
 
 The average case is somewhere in between, but probably closest to the best case.
 
-<span style="color:gold;font-size:150%"> 5.1.17 </span>
+## 5.1.17 { style="color:gold" }
 
-<span style="color:gold;font-size:150%"> Old exam set 120531: 3(d-j) </span>
+## Old exam set 120531: 3(d-j) { style="color:gold" }
 
 In the following questions, consider the sequences of integers,
 
@@ -167,6 +167,6 @@ Which is which?
   <li> MSD after sorting by the first digit.
 </ol>
 
-<span style="color:tomato;font-size:150%"> 2.3.17 </span>
+## 2.3.17 { style="color:tomato" }
 
-<span style="color:tomato;font-size:150%"> 2.3.15 </span>
+## 2.3.15 { style="color:tomato" }
