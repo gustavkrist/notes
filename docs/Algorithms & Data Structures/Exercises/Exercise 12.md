@@ -60,6 +60,8 @@ Prim's: Use a max-PQ instead of a min-PQ.
 
 Kruskal's: Sort the edges in descending order instead.
 
+Nice way: Multiply all weights by $-1$
+
 ## 4.3.12 { style="color:lightgreen" }
 
 Suppose that a graph has distinct edge weights. Does its shortest edge have to
@@ -74,9 +76,10 @@ to be put in the MST, so it will always belong to the MST.
 The longest edge can belong to the MST, if removing it from the graph would result
 in the graph no longer being connected.
 
-Again by extension of the proof of correctness of Kruskal's algorithm, it will
-add to the MST the edges of any cycle in order from lowest to highest weight.
-As a result, the min-weight edge on every cycle has to belong to the MST.
+The min-weight edge in every cycle does not have to be in the MST.  
+Counter-example:
+
+![Cycle counter-example](assets/Exercise%2012_2022-04-28-14-32-14.png){ width="50%" }
 
 ## 4.3.3 { style="color:gold" }
 
@@ -95,11 +98,18 @@ Counterexample:
 
 ![Counterexample](assets/Exercise%2012_2022-04-27-22-25-28.png){ width="50%" }
 
+However if the graph is already a tree, it will have a unique MST despite
+identical edge weights.
+
 ## 4.3.14 { style="color:gold" }
 
 Given an MST for an edge-weighted graph G, suppose that an edge in G that does
 not disconnect G is deleted. Describe how to find an MST of the new graph in
 time proportional to E.
+
+DFS or BFS to find a connected components in the MST.
+Go through all edges in the graph and find the minimum edge that connects the two parts
+of the MST.
 
 ## Exam 190820 4.A { style="color:gold" }
 
