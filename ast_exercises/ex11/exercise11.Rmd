@@ -14,7 +14,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ## 1. Bags of potatoes (Theory)
 
 You bought 10 very large bags of potatoes.
-Assume that the 10 weights can be viewed as a realization of a random sample from a normal distribution with unknwown parameters.
+Assume that the 10 weights can be viewed as a realization of a random sample from a normal distribution with unknown parameters.
 Your measures give you the following data:
 
 - Sample mean: 14.5 kg
