@@ -2,7 +2,7 @@
 tags: [data annotation]
 ---
 
-![Data Annotation](assets/Data%20Annotation_2022-04-28-11-23-15.png)
+![Data Annotation](assets/Data%20Annotation_2022-04-28-11-23-15.png){ width="80%" }
 
 ## Task definition
 
