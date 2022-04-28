@@ -16,7 +16,7 @@ A-B
 B-C
 C-D
 D-E
-A-D
+# A-D
 ```
 
 ### Kruskal's algorithm
@@ -26,7 +26,7 @@ D-E
 B-C
 C-D
 A-B
-A-D
+# A-D
 ```
 
 ### Dijkstra's algorithm
@@ -36,7 +36,7 @@ A-B
 A-D
 D-E
 B-C
-C-D
+# C-D
 ```
 
 ## 4.3.1 { style="color:lightgreen" }
