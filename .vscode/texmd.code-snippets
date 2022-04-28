@@ -647,4 +647,9 @@
 		"body": ["---", "tags: [$0]", "---"],
 		"description": "Markdown header boilerplate"
 	},
+	"Admonition": {
+		"prefix": "admon",
+		"body": ["${1:!!!} ${2|note,example|} \"$3\"","\t${TM_SELECTED_TEXT}"],
+		"description": ""
+	},
 }
