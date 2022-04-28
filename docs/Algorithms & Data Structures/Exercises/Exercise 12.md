@@ -109,7 +109,7 @@ time proportional to E.
 
 DFS or BFS to find a connected components in the MST.
 Go through all edges in the graph and find the minimum edge that connects the two parts
-of the MST.
+of the MST. Could just consider all outgoing edges from one cut.
 
 ## Exam 190820 4.A { style="color:gold" }
 
@@ -145,4 +145,20 @@ tree of G that contains all the edges in S.
 Run a modified version of Kruskal's algorithm that first examines the edges in
 S and then examines the remaining edges in the graph in sorted order.
 
+Implementation-agnostic: Set all edges in $S$ to the lowest possible number
+and add 1 to all other edges.
+
 ## Exam 190820 4.B { style="color:tomato" }
+
+Nodes: Grass and water.
+
+Weights: 0 between grass, max between water.
+
+Kruskal MST: Stop after amount of grass nodes at start have been added
+to the MST.
+
+Find the maximum edge in the MST.
+
+Running time is upper bounded by Kruskal's $O(E \lg(E))$, where there are
+$V = RC$ vertices in the worst case and $E \approx 6V = 6RC$, so the
+running time is $O(RC \lg (RC)$.

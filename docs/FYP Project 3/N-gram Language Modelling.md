@@ -150,12 +150,12 @@ $$
 !!! note "Add-one estimate (Laplace smoothing)"
     Add one to each count to avoid zero counts.
     
-    ```math
+    $$
     \begin{align*}
     p(w_3 \given w_1, w_2) &= \frac{\text{\#tokens}(w_1w_2w_3)+1}{\sum_{w\in V}\left(\#\text{tokens}(w_1w_2w) + 1\right)}
     &= \frac{\text{\#tokens}(w_1w_2w_3) + 1}{\text{\#tokens}(w_1w_2\bullet) + \abs{V}}
     \end{align*}
-    ```
+    $$
 
     Advantage: Really simple, gets rid of 0 probabilities.  
     Issue: Significantly overestimates unseen events.
