@@ -246,3 +246,25 @@ $$
 $$
 
 is an approximate 100$(1-\alpha)$% confidence interval for $\mu$.
+
+### One-sided confidence intervals
+
+Find the confidence interval using the same formula as for the two-sided interval,
+but do not halve alpha. For example, the two-sided confidence interval for
+normally distributed data with known variance is
+
+$$
+\left( \mean{x}_n - z_{\alpha/2} \frac{\sigma}{\sqrt{n}}, \mean{x}_n + z_{\alpha/2} \frac{\sigma}{\sqrt{n}} \right)
+$$
+
+then the one-sided lower interval is
+
+$$
+\left(-\infty, \mean{x}_n + z_\alpha \frac{\sigma}{\sqrt{n}} \right)
+$$
+
+And the one-sided upper interval is
+
+$$
+\left( \mean{x}_n - z_\alpha \frac{\sigma}{\sqrt{n}}, \infty \right)
+$$
