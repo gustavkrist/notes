@@ -315,10 +315,20 @@
 		"body": "\\alpha",
 		"description": "alpha"
 	},
+	"math alpha": {
+		"prefix": "!a",
+		"body": ["$\\alpha$"],
+		"description": "Inline math alpha"
+	},
 	"beta": {
 		"prefix": "@b",
 		"body": "\\beta",
 		"description": "beta"
+	},
+	"math beta": {
+		"prefix": "!b",
+		"body": ["$\\beta$$"],
+		"description": "Inline math beta"
 	},
 	"chi": {
 		"prefix": "@c",
@@ -565,6 +575,16 @@
 		"body": ["$\\gamma$"],
 		"description": "Gamma in inline math"
 	},
+	"Null hypothesis": {
+		"prefix": "h0",
+		"body": ["\\$H_0$"],
+		"description": "Null hypothesis"
+	},
+	"Alternative hypothesis": {
+		"prefix": "h1",
+		"body": ["\\$H_1$"],
+		"description": "Alternative hypothesis"
+	},
 	"Display math": {
 		"prefix": "DM",
 		"body": ["$$", "$0", "$$"],
@@ -605,11 +625,11 @@
 	// 	"body": ["\\def\\given{\\,\\vert\\,}"],
 	// 	"description": "Given macro definition"
 	// },
-	"Mean": {
-		"prefix": "dmean",
-		"body": ["\\def\\mean#1{\\overline{#1}}"],
-		"description": "Mean macro definition"
-	},
+	// "Mean": {
+	// 	"prefix": "dmean",
+	// 	"body": ["\\def\\mean#1{\\overline{#1}}"],
+	// 	"description": "Mean macro definition"
+	// },
 	"Display Style": {
 		"prefix": "ds",
 		"body": ["\\displaystyle"],
