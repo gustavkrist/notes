@@ -1,7 +1,7 @@
 ---
 tags: [n-gram, language modelling]
-title: N-Gram Language Modelling
 ---
+# N-Gram Language Modelling
 
 ## Language models
 

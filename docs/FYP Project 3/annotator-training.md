@@ -1,6 +1,8 @@
 ---
 tags: [annotator, training]
 ---
+# Annotator Training
+
 - Let two or more annotators work in parallel
 
 - We usually can't afford double annotation for the whole dataset
