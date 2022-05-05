@@ -1,13 +1,12 @@
 ---
 tags: [joint distribution, variance, covariance]
-title: Exercise 6
 ---
 
-# Problems
+# Exercise 6
 
 T = Theoretical Exercise, R = R Exercise
 
-## 1. Hair vs. Eye Colour (T)
+## 1. Hair vs. Eye Color (T)
 
 To investigate the relations between hair color and eye colour, the hair color and eye color of 5383 was recorded. The data are given in Table 1. Eye color is encoded by the values 1 (Light) and 2 (Dark), and hair color by 1 (Fair/red), 2 (Medium), and 3 (Dark/black). By dividing the numbers in the table by 5383, the table is turned into a joint probability distribution for random variables X (hair color) taking values 1 to 3 and Y (eye color) taking values 1 and 2.
 

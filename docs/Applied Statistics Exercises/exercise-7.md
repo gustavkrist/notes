@@ -1,9 +1,7 @@
 ---
 tags: [sum product of variables, CLT, ]
-title: Exercise 7
 ---
-
-T=Theoretical Exercise, R=R-Exercise
+# Exercise 7
 
 ## 1. Sum of Bernoulli Distributed Variables (T)
 

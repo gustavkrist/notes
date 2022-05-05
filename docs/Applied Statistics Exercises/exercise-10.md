@@ -1,8 +1,7 @@
 ---
 tags: [maximum likelihood, linear models, regression]
 ---
-
-
+# Exercise 10
 
 ## 1. Maximum likelihood estimator for geometric random variables (Theory)
 

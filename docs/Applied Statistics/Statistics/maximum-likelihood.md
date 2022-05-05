@@ -1,7 +1,7 @@
 ---
 tags: [loglikelihood]
 ---
-## Maximum Likelihood
+# Maximum Likelihood
 
 !!! note "Maximum Likelihood Principle"
     Given a dataset, choose the parameter(s) of interest in such a way that the data
@@ -39,7 +39,7 @@ $$
 L(\theta) = f_{\theta}(x_1)f_{\theta}(x_2)\dots f_{\theta}(x_n)   
 $$
 
-### Maximum likelihood estimates
+## Maximum likelihood estimates
 
 !!! note "Maximum likelihood estimator"
     The maximum likelihood estimate of $\theta$ is the value $t=h(x_1, x_2, \ldots, x_n)$ that 
@@ -70,7 +70,7 @@ $$
     \end{align*}
     $$
 
-### Loglikelihood
+## Loglikelihood
 
 Differentiating $L(\theta)$ can be tedious. Considering the logarithm of $L(\theta)$
 changes the product of terms involving $\theta$ into a *sum* of logarithms of these
@@ -82,26 +82,26 @@ $$
 \ell(\theta) = \ln L(\theta) = \ln p_{\theta}(x_1) + \dots + \ln p_{\theta}(x_n)
 $$
 
-### Properties of maximum likelihood estimators
+## Properties of maximum likelihood estimators
 
 - **Invariance principle**
-  - If $T$ is the maximum likelihood estimator of a parameter $\theta$ and $g(\theta)$
-    is an invertible function of $\theta$, then $g(T)$ is the maximum likelihood
-    estimator for $g(\theta)$
+    - If $T$ is the maximum likelihood estimator of a parameter $\theta$ and $g(\theta)$
+      is an invertible function of $\theta$, then $g(T)$ is the maximum likelihood
+      estimator for $g(\theta)$
 - **Asymptotic unbiasedness**
-  - The maximum likelihood estimator $T$ may be biased, however under mild conditions
-    on the distribution of the random variables $X_i$ under consideration, one can
-    show that asymptotically, maximum likelihood estimators are unbiased.
-    That is, if $T_n = h(X_1, X_2, \ldots, X_n)$ is the maximum likelihood estimator for
-    $\theta$, then
+    - The maximum likelihood estimator $T$ may be biased, however under mild conditions
+      on the distribution of the random variables $X_i$ under consideration, one can
+      show that asymptotically, maximum likelihood estimators are unbiased.
+      That is, if $T_n = h(X_1, X_2, \ldots, X_n)$ is the maximum likelihood estimator for
+      $\theta$, then
 
-    $$
-    \lim_{n\to\infty} E[T_n] = \theta
-    $$
+      $$
+      \lim_{n\to\infty} E[T_n] = \theta
+      $$
 
 - **Asymptotic minimum variance**
-  - The variance of an unbiased estimator for $\theta$ is always larger than or equal
-    to a certain positive number, known as the Cramér-Rao lower bound.
-    Under mild conditions one can show that maximum likelihood estimators have
-    asymptotically the smallest variance among unbiased estimators. Asymptotically,
-    the variance of the maximum likelihood estimator attains the Cramér-Rao lower bound.
+    - The variance of an unbiased estimator for $\theta$ is always larger than or equal
+      to a certain positive number, known as the Cramér-Rao lower bound.
+      Under mild conditions one can show that maximum likelihood estimators have
+      asymptotically the smallest variance among unbiased estimators. Asymptotically,
+      the variance of the maximum likelihood estimator attains the Cramér-Rao lower bound.

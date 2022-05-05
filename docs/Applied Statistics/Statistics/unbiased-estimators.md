@@ -1,7 +1,7 @@
 ---
 tags: [bias, estimator]
 ---
-## Unbiased Estimators
+# Unbiased Estimators
 
 We want to estimate from parameter $\theta$ for realizations $x_1, \ldots, x_n$ from
 random variables $X_1, \ldots, X_n$.
@@ -31,21 +31,21 @@ To find the bias of an estimator, sample from a model distribution where the par
 of interest is known. Then compare the expected value of the estimator to the value
 of the parameter of interest.
 
-### Examples of unbiased estimators
+## Examples of unbiased estimators
 
-#### Estimator for the mean
+### Estimator for the mean
 
 $$
 \overline{X} = \frac{x_1, \ldots, x_n}{n} 
 $$
 
-#### Estimator for the variance
+### Estimator for the variance
 
 $$
 S^2 = \frac{1}{n-1} \sum^{n}_{i=1} (X_i - \overline{X})^2
 $$
 
-#### Estimator for uniform distribution $U(0,\theta)$
+### Estimator for uniform distribution $U(0,\theta)$
 
 $$
 \theta = \frac{2}{n}(X_1 + \dots + X_n)
@@ -62,7 +62,7 @@ $$
     \end{align*}
     ```
 
-### Good estimators
+## Good estimators
 
 Properties of a good estimator $T$ for some parameter $\theta$:
 
@@ -70,9 +70,9 @@ Properties of a good estimator $T$ for some parameter $\theta$:
 - Unbiased: $E[T] = \theta$
 - Efficient: $\operatorname{Var}(T)$ is as low as possible
 - Invariant to transformation of the parameter $\theta$:
-  - If the distribution was parametrized in terms of $g(\theta)$ then $g(T)$ would be
-    a good estimator for $g(\theta)$
-  - This is not always the case, if $T$ is an unbiased estimator for $\theta$, then
-    $g(T)$ does not have to be an unbiased estimator for $g(\theta)$
-  - Unbiasedness carries over in the case of $g(T) = aT+b$  
-    $E[aT + B] = aE[T] + b = a\theta + b$
+    - If the distribution was parametrized in terms of $g(\theta)$ then $g(T)$ would be
+      a good estimator for $g(\theta)$
+    - This is not always the case, if $T$ is an unbiased estimator for $\theta$, then
+      $g(T)$ does not have to be an unbiased estimator for $g(\theta)$
+    - Unbiasedness carries over in the case of $g(T) = aT+b$  
+      $E[aT + B] = aE[T] + b = a\theta + b$

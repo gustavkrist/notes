@@ -1,6 +1,7 @@
 ---
 tags: [bootstrap, unbiased estimators]
 ---
+# Exercise 9
 
 ## 1. Basic bootstrapping (Theory)
 

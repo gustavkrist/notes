@@ -1,10 +1,7 @@
 ---
 tags: [confidence intervals]
-wiki_base_url: http://example.com/
-wiki_end_url: .html
-wiki_html_class:
 ---
-## Confidence intervals
+# Confidence intervals
 
 Suppose a dataset $x_1, \ldots, x_n$ is given, modelled as a realization of random
 variables $X_1, \ldots, X_n$. Let $\theta$ be the parameter of interest, and
@@ -42,9 +39,9 @@ $$
 
 where $c$ is a number near 2 or 3.
 
-### Normally distributed data
+## Normally distributed data
 
-#### Critical values
+### Critical values
 
 The *critical value* $z_p$ of an $N(0,1)$ distribution is the number that
 has right tail probability $p$, defined by
@@ -76,7 +73,7 @@ For example, $z_{0.975} = -z_{0.025} = -1.96$
 <figcaption align="center">Critical values of the standard normal distribution</figcaption>
 </figure>
 
-#### Variance known
+### Variance known
 
 If $\Xn$ is a random sample from an $N(\mu, \sigma^2)$ distribution, then
 $\mean{X}_n$ is an $N(\mu, \sigma^2/n)$ distribution, and form the properties
@@ -134,7 +131,7 @@ is a 100$\gamma$% confidence interval for $\mu$.
     In this case, even division of $\alpha$ between the tails is chosen due to
     it leading to the shortest confidence interval.
 
-#### Variance unknown
+### Variance unknown
 
 When the variance is unknown, we can substitute the estimator $S_n$ for $\sigma$,
 and the resulting random variable
@@ -170,7 +167,7 @@ $$
 \left( \mean{x}_n - t_{n-1, \alpha/2} \frac{s_n}{\sqrt{n}}, \mean{x}_n + t_{n-1, \alpha/2} \frac{s_n}{\sqrt{n}} \right)
 $$
 
-### Bootstrap confidence intervals
+## Bootstrap confidence intervals
 
 If we doubt the normality of the data and we do *not* have a large sample, usually
 the best thing to do is to bootstrap.
@@ -213,14 +210,14 @@ $$
 
 a 100$(1-\alpha)$% *bootstrap confidence interval for $\mu$*.
 
-#### Why the bootstrap may be better
+### Why the bootstrap may be better
 
 If the distribution is skewed, that is reflected in the bootstrap confidence interval.
 Whereas the $t$-interval is centered around the sample mean.
 In some sense, the bootstrap adapts to the shape of the distribution, and thus leads
 to more accurate confidence statements than using the method for normal data.
 
-### Large samples
+## Large samples
 
 A variant of the CLT states
 
@@ -247,7 +244,7 @@ $$
 
 is an approximate 100$(1-\alpha)$% confidence interval for $\mu$.
 
-### One-sided confidence intervals
+## One-sided confidence intervals
 
 Find the confidence interval using the same formula as for the two-sided interval,
 but do not halve alpha. For example, the two-sided confidence interval for

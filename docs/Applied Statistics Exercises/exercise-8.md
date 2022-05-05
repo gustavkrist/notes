@@ -1,6 +1,7 @@
 ---
 tags: [sample mean median, sample statistics]
 ---
+# Exercise 8
 
 ## 1. Mean and median of two datasets (Theory)
 

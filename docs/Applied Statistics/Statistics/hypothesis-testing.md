@@ -1,6 +1,8 @@
 ---
 tags: [hypothesis testing]
 ---
+# Hypothesis Testing
+
 ## Null hypothesis testing
 
 Given two competing propositions, one is called the *null hypothesis*,

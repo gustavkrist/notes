@@ -9,8 +9,8 @@ A histogram has properties:
 
 - Data $x_1, \ldots, x_n$ with $x_i \in \R$
 - Define bins $B_1, \dots, B_m$
-  - $B_i = \left[l_i, r_i \right) \subseteq \R$
-  - $\lvert{B_i}\rvert$ denotes the length of the interval
+    - $B_i = \left[l_i, r_i \right) \subseteq \R$
+    - $\lvert{B_i}\rvert$ denotes the length of the interval
 - The height of each bin is such that the total area of the histogram is 1
 
 $$

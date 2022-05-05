@@ -1,6 +1,7 @@
 ---
 tags: [MST, prims, kruskal]
 ---
+# Exercise 12
 
 ## 1 { style="color:lightgreen" }
 

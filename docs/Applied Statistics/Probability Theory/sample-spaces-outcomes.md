@@ -64,7 +64,7 @@ $$
 
 ![Disjoint and implied sets](assets/disjoint_implies.png)
 
-#### DeMorgan's law
+### DeMorgan's law
 
 $$
 (A \cup B)^C = A^C \cap B^C \quad \text{and} \quad (A \cap B)^C = A^C \cup B^C

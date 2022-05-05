@@ -30,7 +30,7 @@ provided that $P(C) > 0$.
     P(E \,|\, F) = \frac{P(E \cap F}{P(F)} = \frac{1/4}{3/4} = \frac{1}{3}
     $$
 
-### The multiplication rule
+## The multiplication rule
 
 For any events $A$ and $C$
 
@@ -49,7 +49,7 @@ $$
     P(B_1 \cap B_2) = P(B_2 \,|\, B_1)P(B_1) = \frac{2}{9}\frac{3}{10} = \frac{1}{15}
     $$
 
-#### The law of total probability
+### The law of total probability
 
 Suppose $C_1, \ldots, C_m$ are ***disjoint*** events such that $C_1 \cup \dots \cup C_m = \Omega$.
 
@@ -60,7 +60,7 @@ $$
 P(A) = P(A \given C_1)P(C_1) + \dots + P(A \given C_m)P(C_m)
 $$
 
-##### Bayes' rule
+#### Bayes' rule
 
 For events $A$ and $B$ the conditional probability of $B$ given $A$ can be expressed as
 

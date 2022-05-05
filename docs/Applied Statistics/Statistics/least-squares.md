@@ -3,8 +3,6 @@ tags: [linear regression]
 ---
 # Method of Least Squares
 
-## The Method of Least Squares
-
 The true line has the formula  
 $Y = \alpha + \beta x$  
 The line that we find is  
@@ -75,7 +73,7 @@ the derivatives equal to 0.
     $(\hat{\alpha}, \hat{\beta})$ is the unique minimum of $S(\alpha, \beta)$
     (except when all $x_i$ are equal).
 
-### Estimators for $\alpha$ and $\beta$
+## Estimators for $\alpha$ and $\beta$
 
 We denote the least squares *estimates* by $\hat{\alpha}$ and $\hat{\beta}$. It is also
 quite common to denote the least squares *estimators* by $\hat{\alpha}$ and $\hat{\beta}$.
@@ -88,7 +86,7 @@ $$
 $\hat{\alpha}$ is an unbiased estimator for $\alpha$ and $\hat{\beta}$ is an unbiased
 estimator for $\beta$.
 
-### Unbiased estimator for $\sigma^2$
+## Unbiased estimator for $\sigma^2$
 
 In the simple linear regression model the random variable
 
@@ -96,7 +94,7 @@ $$
 \hat{\sigma}^2 = \frac{1}{n-2}\sum^{n}_{i=1}(Y_i - \hat{\alpha} - \hat{\beta}x_i)^2
 $$
 
-### Residuals
+## Residuals
 
 The $i$th residual $r_i$ is defined as the vertical distance between the $i$th point
 and the estimated regression line:

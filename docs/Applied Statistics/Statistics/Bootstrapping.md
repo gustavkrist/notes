@@ -42,7 +42,7 @@ Empirical bootstrap for the mean:
 - We can use the estimates $\theta$ of the parameters to get an estimated distribution $F_{\hat{\theta}}$ 
 - Sample $x_1^*, \ldots, x_n^*$ from $F_{\hat{\theta}}$ 
 
-#### Does our model fit the data?
+## Does our model fit the data?
 
 - Calculate the Kolmogorov-Smirnov distance
 - $\displaystyle t_{ks} = \sup_{a \in \R} | F_n(a) - F_{\hat{\theta}} |$

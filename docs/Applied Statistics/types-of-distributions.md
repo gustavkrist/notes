@@ -1,9 +1,9 @@
 ---
 tags: [t-distribution]
 ---
-# Types of random distributions
+# Types of Random Distributions
 
-### Normal distribution
+## Normal distribution
 
 The sum of two independent, normally distributed variables is also normally distributed.
 
@@ -19,7 +19,7 @@ $$
 \sigma = \sqrt{\frac{1}{n}\sum^{n}_{i=1}(x_i - \overline{x}_n)^2}
 $$
 
-### Exponential distribution
+## Exponential distribution
 
 Sum of two exponentially distributed random variables with parameter $\lambda$
 
@@ -27,7 +27,7 @@ $$
 f_Z(z) = \lambda^2 ze^{-\lambda z}
 $$
 
-### Gamma distribution
+## Gamma distribution
 
 *Gamma distributions* have parameters $\alpha > 0$ and $\lambda > 0$ and
 PDF $f(x) = 0$ for $x < 0$ and
@@ -45,7 +45,7 @@ integrates to 1.
 - $\mu = \alpha \theta$
 - $\sigma^2 = \alpha \theta^2$
 
-### T-Distribution
+## T-Distribution
 
 A continuous random variable has a $t$-distribution with parameter $m$,
 where $m \geq 1$ is an integer, if its probability density function is given by

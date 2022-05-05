@@ -1,3 +1,5 @@
+# Regex
+
 ## Lookup table for regex syntax
 
 === "Python"
