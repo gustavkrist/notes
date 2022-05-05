@@ -1,0 +1,207 @@
+---
+title: "Exercise 12"
+output:
+  pdf_document: default
+header-includes:
+  - \renewcommand{\P}{\operatorname{P}}
+---
+
+```{r, message=FALSE, include=FALSE}
+require(UsingR)
+```
+
+## 1. Born Babies (T)
+
+On average, the number of babies born in Cleveland, Ohio, in the month of September
+is 1472. On January 26, 1977 the city was immobilized by a blizzard.
+Nine months later, in September 1977, the recorded number of births was 1718.
+Can the increase of 246 be attributed to chance? To investigate this,
+the number of births in the month of September is modelled by a Poisson
+distributed random variable $T$ with parameter $\mu$, and we test $H_0:\mu=1472$.
+
+$$
+\begin{aligned}
+  \mu_0 &= 1472 \\
+  t &= 1718 \\
+  H_0 &: \mu = \mu_0 \\
+  H_1 &: \mu > \mu_0
+\end{aligned}
+$$
+
+(a) What would you choose as the alternative hypothesis? 
+
+$H_1:\mu > 1472$
+
+(b) In which direction do values of $T$ provide evidence against $H_0$ (and in favour of $H_1$)?
+
+Right. Higher numbers for the mean provides evidence against $H_0$ and in favour of $H_1$  
+Number to the left also provide evidence against $H_0$ but even more against $H_1$.
+
+(c) Compute the $p$-value corresponding to $t=1718$. 
+
+<!-- $$
+\begin{align*}
+  p &= \P(\mu \geq 1718) \\
+  &= `r 1 - ppois(1718, lambda=1472)`
+\end{align*}
+$$ -->
+
+$$
+\begin{aligned}
+  p &= \P(\mu \geq 1718) \\
+  &= `r pnorm(1718, mean = 1472, sd = sqrt(1472), lower.tail = FALSE)`
+\end{aligned}
+$$
+
+Calculating the upper-tail p-value in R:  
+`#!r pnorm(1718, mean = 1472, sd = sqrt(1472), lower.tail = FALSE)`
+
+(d) What is your conclusion about whether the increase in births was attributed to chance?
+
+The p-value is very low so there is grounds for rejecting the null hypothesis
+in favor of the alternative hypothesis.
+
+Hint: you may use the fact that the Poisson distribution of $T$ can be approximated by an $N(\mu,\mu)$ distribution. 
+
+## 2. Type I and II errors (T)
+
+Let $T$ be a random variable following an $N(\mu,1)$ distribution. Assume testing the hypothesis $H_0: \mu=0$ against the alternative hypothesis $H_1: \mu \neq 0$ using the test statistic $T$.
+
+(a) With the decision to reject the null hypothesis if the realization $|t|>1$ what is the probability of committing a type I error?
+
+Find two-tailed p-value for $|t| > 1$
+
+$$
+\begin{aligned}
+  p &= \P(|t| > 1) = 2\P(t < -1) \\
+  &= `r 2 * pnorm(-1, mean=0, sd=1)`
+\end{aligned}
+$$
+
+(`#!r 2 * pnorm(-1, mean = 0, sd = 1)`)
+
+(b) Assuming that the true value of $\mu$ is 1, what is the probability of committing a type II error? 
+
+$$
+\begin{aligned}
+  \P(|t| < 1) &= \P(-1 < t < 1) = \P(t < 1) - \P(t < -1) \\
+  &= `r pnorm(1, mean=1, sd=1) - pnorm(-1, mean=1, sd=1)`
+\end{aligned}
+$$
+
+(`#!r pnorm(1, mean=1, sd=1) - pnorm(-1, mean = 1, sd = 1)`)
+
+
+## 3. Coin flipping (T)
+
+Assume that you flipped a coin $N=11$ times. You got tails 7 times and heads 4 times, after which the coin fell into a well and you lost it. After the experiment you started to wonder whether the coin was fair. 
+
+(a) Formulate test statistic, the null hypothesis and alternative hypothesis for testing the fairness of the coin. 
+
+$$
+\begin{aligned}
+  p &: \text{Probability of tails} \\
+  H_0 &: p = 0.5 \\
+  H_1 &: p \neq 0.5 \\
+  p_0 &= \frac{7}{11} = `r 7/11`
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+  p-val &= 2\P(t \geq 7/11) \\
+  &= `r 2 * pbinom(6, 11, p=0.5, lower.tail=F)`
+\end{aligned}
+$$
+
+`pbinom(..., lower.tail=F)` is non-inclusive, hence using 6 instead of 7.  
+(`#!r 2 * pbinom(6, 11, p = 0.5, lower.tail = FALSE)`)
+
+Could use `binom.test`
+
+```{r}
+test <- binom.test(x = 7, n = 11, p = 0.5, alternative = "two.sided")
+test$p.value
+```
+
+(b) Was the coin fair? Assume 0.05 risk level.
+
+We assume the coin is fair, as the p-value is within the risk level.
+
+## 4. Insurance (R)
+
+In the United States in 1998, the proportion of adults age 21-24 who had no
+medical insurance was 34.4 percent, according to the Employee Benefit Research
+Institute. A survey of 75 recent college graduates in this age range finds that 40 are
+without insurance. Does this support a difference from the nationwide proportion?
+Perform a test of significance and report the $p$-value. Is it significant?
+
+```{r}
+prop.test(x = 40, n = 70, p = 0.344, alternative = "two.sided", correct = FALSE)
+```
+
+The $p$-value is significant.
+
+Could also use a binomial test, since there are only two possible outcomes.  
+
+```{r}
+toll_binom <- binom.test(x = 5731, n = 5760, p = 0.999, alternative = "less")
+toll_binom
+```
+
+This gives a much lower p-value. Because n is low, the normal distribution is
+not a great approximation for the binomial distribution.
+
+
+##  5. Highway Toll (R)
+
+On a number of highways a toll is collected for permission to travel on the
+roadway. To lessen the burden on drivers, electronic toll-collection systems are often
+used. An engineer wishes to check the validity of one such system. She arranges to
+survey a collection unit for single day, finding that of 5,760 transactions, the system
+accurately read 5,731. Perform a one-sided significance test to see if this is consistent
+with a 99.9% accuracy rating at the 0.05 significance level. (Do you have any doubts that
+the normal approximation to the binomial distribution should apply here?)
+
+```{r}
+toll_test <- prop.test(x = 5731, n = 5760, p = 0.999,
+                       alternative = "less", correct = FALSE)
+toll_test
+```
+
+This is not consistent with the 99.9% accuracy rating at the 0.05 significance level.
+The p-value is $`r toll_test$p.value`$, which is highly significant.
+
+Could also use a binomial test, since there are only two possible outcomes.  
+Doesn't change anything though because the p-value is still very low.
+
+```{r}
+toll_binom <- binom.test(x = 5731, n = 5760, p = 0.999, alternative = "less")
+toll_binom
+```
+
+## 6. Car Problems (R)
+
+Historically, a car from a given company has a 10% chance of having a significant
+mechanical problem during its warranty period. A new model of the car is being sold. Of
+the first 25,000 sold, 2,700 have had an issue. Perform a test of significance to see
+whether the proportion of these new cars that will have a problem is more than 10%.
+What is the p-value?
+
+```{r}
+car_test <- prop.test(x = 2700, n = 25000, p = 0.1,
+                      alternative = "greater", correct = FALSE)
+car_test
+```
+
+The p-value is $`r car_test$p.value`$.
+
+Try binomial test because there are only two possible outcomes.
+
+```{r}
+toll_binom <- binom.test(x = 5731, n = 5760, p = 0.999, alternative = "less")
+toll_binom
+```
+
+Difference is small, because n is large so normal distribution is a good
+approximation for the binomial distribution.
