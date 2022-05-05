@@ -3,8 +3,6 @@ tags: [n-gram, language modelling]
 ---
 # N-Gram Language Modelling
 
-## Language models
-
 !!! note ""
     Learns a probability distribution over a sequence of words
 
@@ -30,7 +28,7 @@ It is more reasonable to look at *local* dependencies.
 - *the* strongly flavors a following noun (or adjective)
 - After a full stop, we are likely to see a capital letter
 
-### Markov assumption
+## Markov assumption
 
 !!! note ""
     Each element of the sequence depends only on the immediately preceding element
@@ -64,14 +62,14 @@ In a realistic language model:
 - $n \approx 30$ to $80$
 - $k \approx 2$ to $5$
 
-### Sequence padding
+## Sequence padding
 
 Add special symbols to mark the start and end of each sentence.
 Makes the model learn good start/end of sentences.
 
 Use for example `<s>` and `</s>` or `BOS` and `EOS`.
 
-### N-Gram language model
+## N-Gram language model
 
 Markov models for language modelling.
 
@@ -97,7 +95,7 @@ Use *log-probabilities* instead:
 - Multiplication becomes addition
 - Do this *whenever* you use probabilities!
 
-#### Perplexity
+### Perplexity
 
 !!! note ""
     Commonly used to compare language models:
@@ -117,13 +115,13 @@ going to do after every step.
 
 Typical for language models is $\approx100$ PPL.
 
-#### Notation
+### Notation
 
 - \#tokens(w~1~, w~2~): Probability of n-gram w~1~w~2~
 - \#tokens(w~1~, $\bullet$): Probability of n-gram starting with w~1~
 - \#types(w~1~, $\bullet$): Amount of different of n-grams starting with w~1~
 
-#### Maximum likelihood estimation
+### Maximum likelihood estimation
 
 $$
 p(w_3 \given w_1, w_2) = \frac{\text{\#tokens}(w_1w_2w_3)}{\text{\#tokens}(w_1w_2\bullet)}
@@ -138,14 +136,14 @@ p(\text{bright} \given \text{star}) = \frac{\text{\#tokens(star bright)}}{\text{
 \end{align*}
 $$
 
-##### Problems with maximum likelihood estimation
+#### Problems with maximum likelihood estimation
 
 - Underestimates n-grams that have not been seen. Estimates them with a probability 0.
 - Overestimates n-grams that have been seen only a few times.
 - We get good estimates of very frequent tokens, but per Zipf's law,
   *most tokens are __not__ frequent*
 
-#### Smoothing
+### Smoothing
 
 !!! note "Add-one estimate (Laplace smoothing)"
     Add one to each count to avoid zero counts.
@@ -160,14 +158,14 @@ $$
     Advantage: Really simple, gets rid of 0 probabilities.  
     Issue: Significantly overestimates unseen events.
 
-##### General principle
+#### General principle
 
 - Take away probability mass from the n-grams we have seen by *discounting*
   their estimates.
 - Assign this probability mass to n-grams we have not seen.
 - The total probability still sums to 1 *for each context*
 
-##### (improved) Kneser-Ney smoothing
+#### (improved) Kneser-Ney smoothing
 
 - Contexts we don't know correspond to *backoff situations*
 - Uses different distributions for *higher-order* and *backoff* distributions
@@ -176,8 +174,28 @@ $$
 - Based on absolute discounting with clever backoff distribution
 - For sequences with few infrequent tokens, estimation may fail!
 
-##### Witten-Bell smoothing
+#### Witten-Bell smoothing
 
 - Good method for sequences that don't meet Kneser-Key smoothing.
 - Uses the number of different continuations of an n-gram to estimate
   how likely yet another new continuation will be
+
+## Data Augmentation and Self-Training
+
+- Add more data to the training set to make the classifier perform well more broadly
+- Enforce desired model symmetries to reduce overfitting
+    - In computer vision: Translational or rotational invariance
+    - In NLP: Upper-/lowercasing, punctiation normalization
+    - Can be more easily addressed in pre-processing
+- More relevant: **Increase coverage of vocabulary and contexts**
+
+![Data Augmentation and Self-Training](assets/n-gram-modelling_2022-05-05-11-28-15.png)
+
+## N-gram models for data selection
+
+- N-gram models can measure closeness to a "model" text type
+- We can find examples that are similar to the training corpus by extracting
+  the items with the lowest perplexity under a model trained on your reference corpus
+- How to get annotations?
+    - Manual annotation: Reliable but time-consuming
+    - Self-training: Use classifier to get annotations
