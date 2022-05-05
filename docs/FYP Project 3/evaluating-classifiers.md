@@ -100,7 +100,7 @@ $$
 
 ### F-score behaviour
 
-![F-score behaviour](assets/evaluating-classifiers_2022-05-05-10-52-47.png)
+![F-score behaviour](assets/evaluating-classifiers_2022-05-05-10-52-47.png){ width="60%" align="center"}
 
 ### Micro-averaging
 
