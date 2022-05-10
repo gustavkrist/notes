@@ -17,6 +17,16 @@ probability distribution of $T$ is the *same* as that of the studentized mean.
 
 Values of $T$ close to 0 are in favor of $H_0: \mu = \mu_0$.
 
+$$
+\begin{align*}
+p-\text{value} = \begin{cases}
+    \P(T \leq t \given H_0) & H_A : \mu < \mu_0 \\
+    \P(T \geq t \given H_0) & H_A : \mu > \mu_0 \\
+    \P(\abs{T - \mu_0} \leq \abs{t - \mu_0} \given H_0) & H_A : \mu \neq \mu_0
+\end{cases}
+\end{align*}
+$$
+
 ## The one-sample *t*-test
 
 ### Normal data

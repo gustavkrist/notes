@@ -78,11 +78,13 @@ Precision and Recall can be gamed!
 
 - Return only the one example you're most certain of
 
+<!-- markdownlint-disable MD036 -->
 *100% Recall*
 
 - Return the entire dataset
 
 *But you can't game both of them at the same time*
+<!-- markdownlint-enable MD036 -->
 
 ## F-score (or F-measure)
 

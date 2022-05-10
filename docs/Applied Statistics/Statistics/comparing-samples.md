@@ -155,7 +155,7 @@ Same steps as the process for same variance, except substitute
 
 $$
 \begin{align*}
-t_s^* = \frac{(\mean{x}_n^* - \mean{y}_m^*) - (\mean{x}_n - \mean{y}_m)}{s_d^*}
+t_d^* = \frac{(\mean{x}_n^* - \mean{y}_m^*) - (\mean{x}_n - \mean{y}_m)}{s_d^*}
 \end{align*}
 $$
 
