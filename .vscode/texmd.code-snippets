@@ -648,11 +648,9 @@
 	"Captioned Figure": {
 		"prefix": "figcap",
 		"body": [
-			"<figure>",
-			"<p align=\"center\">",
-			"\t<img src=\"assets/$1\" width=${2:100}%>",
-			"</p>",
-			"<figcaption align=\"center\">$3</figcaption>",
+			"<figure markdown>",
+			"\t![$1](assets/$2)",
+			"\t<figcaption align=\"center\">$3</figcaption>",
 			"</figure>"
 		],
 		"description": "HTML Figure with caption"
@@ -671,5 +669,10 @@
 		"prefix": "admon",
 		"body": ["${1:!!!} ${2|note,example|} \"$3\"","\t${TM_SELECTED_TEXT}"],
 		"description": ""
+	},
+	"Smaller Centered Image": {
+		"prefix": "scimg",
+		"body": ["{ style=\"display:block;margin-left:auto;margin-right:auto;width:${1:60}%\" }"],
+		"description": "Insert attr.list to reduce img size and center"
 	},
 }

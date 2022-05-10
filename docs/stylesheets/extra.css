@@ -4,3 +4,7 @@
 .md-footer__inner {
   display: none;
 }
+
+.md-typeset :is(.admonition, details) {
+  font-size: 0.8rem;
+}

@@ -2,7 +2,11 @@
     "cSpell.words": [
         "backoff",
         "Bigram",
+        "ECDF",
         "Kruskal's",
+        "Nonnormal",
+        "nonpooled",
+        "quantiles",
         "Unigram"
     ]
 }
