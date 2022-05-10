@@ -45,11 +45,11 @@ $$
 f(t) = \frac{1}{n \cdot h} \sum^{n}_{i=1}K \left( \frac{t-x_i}{h} \right)
 $$
 
-<figure>
-<p align="center">
-  <img src="assets/kerneltypes.png" width=90%>
-</p>
-<figcaption align="center">Examples of well-known kernels K</figcaption>
+<figure markdown>
+  ![Kernel types](assets/kerneltypes.png)
+  { style="display:block;margin-left:auto;margin-right:auto;width:90%" }
+
+  <figcaption align="center">Examples of well-known kernels K</figcaption>
 </figure>
 
 KDEs in R:
@@ -66,11 +66,9 @@ plot(density(data, ...))
 lines(density(data, ...))
 ```
 
-<figure>
-<p align="center">
-  <img src="assets/kerneldensityr.png" width=100%>
-</p>
-<figcaption align="center">Plot outputs of plot and lines commands in R</figcaption>
+<figure markdown>
+  ![Kernel Density in R](assets/kerneldensityr.png)
+  <figcaption align="center">Plot outputs of plot and lines commands in R</figcaption>
 </figure>
 
 Empirical distribution function in R:
@@ -83,11 +81,11 @@ ecdf(data)
 plot(ecdf(data))
 ```
 
-<figure>
-<p align="center">
-  <img src="assets/empiricaldistfunc.png" width=80%>
-</p>
-<figcaption align="center">Empirical distribution function in R</figcaption>
+<figure markdown>
+  ![Emperical Distribution Function](assets/empiricaldistfunc.png)
+  { style="display:block;margin-left:auto;margin-right:auto;width:80%" }
+
+  <figcaption align="center">Empirical distribution function in R</figcaption>
 </figure>
 
 ## Numerical summaries
@@ -95,14 +93,12 @@ plot(ecdf(data))
 ### Sample mean
 
 $$
-\def\mean#1{\overline{#1}}
 \mean{x}_n = \frac{x_1 + \dots + x_n}{n} 
 $$
 
 ### Sample variance
 
 $$
-\def\mean#1{\overline{#1}}
 \mean{s^2} = \frac{1}{n-1} \sum^{n}_{i=1}(x_i - \mean{x})^2
 $$
 

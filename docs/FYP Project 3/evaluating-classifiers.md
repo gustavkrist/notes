@@ -98,9 +98,10 @@ $$
 - By maximizing F-score, we emphasize balanced P and R
 - F-score can be generalized with a parameter to control the balance
 
-### F-score behaviour
+### F-score behavior
 
-![F-score behaviour](assets/evaluating-classifiers_2022-05-05-10-52-47.png){ width="60%" align="center"}
+![F-score behaviour](assets/evaluating-classifiers_2022-05-05-10-52-47.png)
+{ style="display:block;margin-left:auto;margin-right:auto;width:60%"}
 
 ### Micro-averaging
 

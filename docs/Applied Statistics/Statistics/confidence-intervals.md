@@ -66,11 +66,9 @@ $$
 
 For example, $z_{0.975} = -z_{0.025} = -1.96$
 
-<figure>
-<p align="center">
-    <img src="assets/critical_values.png" width=100%>
-</p>
-<figcaption align="center">Critical values of the standard normal distribution</figcaption>
+<figure markdown>
+  ![Critical Values](assets/critical_values.png)
+  <figcaption align="center">Critical values of the standard normal distribution</figcaption>
 </figure>
 
 ### Variance known
@@ -141,7 +139,7 @@ $$
 $$
 
 has a distribution that only depends on $n$ and *not* on $\mu$ or $\sigma$.  
-This random variable has a *$t$-distribution* ([Types of distributions](../Types of distributions.md#t-distribution))
+This random variable has a *$t$-distribution* ([Types of distributions](../types-of-distributions.md#t-distribution))
 
 !!! note ""
     For a random sample $\Xn$ from an $N(\mu, \sigma^2)$ distribution, the
@@ -179,9 +177,9 @@ the best thing to do is to bootstrap.
     1. Generate a bootstrap dataset $x_1^*, x_2^*, \ldots, x_n^*$ from $F_n$
     2. Compute the studentized mean for the bootstrap dataset:
 
-       $$
-       t^* = \frac{\mean{x}_n^* - \mean{x}_n}{s_n^* / \sqrt{n}}
-       $$
+    $$
+    t^* = \frac{\mean{x}_n^* - \mean{x}_n}{s_n^* / \sqrt{n}}
+    $$
 
        where $\mean{x}_n^*$ and $s_n^*$ are the sample mean and sample standard deviation
        of $x_1^*, x_2^*, \ldots, x_n^*$

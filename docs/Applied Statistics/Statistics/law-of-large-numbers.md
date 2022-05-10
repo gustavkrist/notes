@@ -9,7 +9,6 @@ Let $\overline{X}_n$ be the average of n independent random variables with the s
 expectation $\mu$ and variance $\sigma^2$. Then,
 
 $$
-\def\mean#1{\overline{#1}}
 \def\var{\operatorname{Var}}
 E[\mean{X}_n] = \mu \quad \text{and} \quad \var(\mean{X}_n) = \frac{\sigma^2}{n} 
 $$
@@ -36,14 +35,12 @@ then for any $\epsilon > 0$
 
 $$
 \def\abs#1{\lvert #1 \rvert}
-\def\mean#1{\overline{#1}}
 \lim_{n \to \infty} P(\abs{\mean{X}_n - \mu} > \epsilon) = 0
 $$
 
 ### The (strong) law of large numbers
 
 $$
-\def\mean#1{\overline{#1}}
 P \left( \lim_{n \to \infty} \mean{X}_n = \mu \right) = 1
 $$
 
@@ -56,7 +53,6 @@ Let $X_1, \ldots, X_n$ be any sequence of i.i.d. random variables with finite po
 For $n \geq 1$, let $Z_n$ be defined by
 
 $$
-\def\mean#1{\overline{#1}}
 \begin{align*}
     &Z_n = \sqrt{n}\frac{\mean{X}_n - \mu}{\sigma} \\
     &\text{then for any number } a \\

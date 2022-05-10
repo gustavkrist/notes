@@ -95,9 +95,9 @@ $$
       That is, if $T_n = h(X_1, X_2, \ldots, X_n)$ is the maximum likelihood estimator for
       $\theta$, then
 
-      $$
-      \lim_{n\to\infty} E[T_n] = \theta
-      $$
+    $$
+    \lim_{n\to\infty} E[T_n] = \theta
+    $$
 
 - **Asymptotic minimum variance**
     - The variance of an unbiased estimator for $\theta$ is always larger than or equal

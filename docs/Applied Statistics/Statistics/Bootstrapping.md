@@ -49,11 +49,11 @@ Empirical bootstrap for the mean:
 - $t_{ks}$ itself is a random variable
 - How likely is it to see $t_{ks}$ if the random sample were truly distributed as we hypothesize?
 
-<figure>
-<p align="center">
-  <img src="assets/kolmogorov.png" width=80%>
-</p>
-<figcaption align="center">Kolmogorov-Smirnov distance</figcaption>
+<figure markdown>
+  ![Kolmogorov distance](assets/kolmogorov.png)
+  { style="display:block;margin-left:auto;margin-right:auto;width:80%" }
+
+  <figcaption align="center">Kolmogorov-Smirnov distance</figcaption>
 </figure>
 
 !!! example "KS distance in R"
