@@ -1,0 +1,220 @@
+---
+output: pdf_document
+---
+# Exercise 13
+
+```{r, message=FALSE, include=FALSE} 
+require(UsingR)
+```
+
+## 1. One sample *t*-test (T)
+
+We perform a t-test for the null hypothesis $H_0 : \mu = 10$ by means of a dataset consisting of $n=16$ elements with sample mean 11 and sample variance 4. We use significance level 0.05. 
+
+a. Should we reject the null hypothesis in favor of $H_1: \mu \neq 10$?
+
+$$
+\begin{aligned}
+  t &= \frac{11 - 10}{\sqrt{4} / \sqrt{16}} \\
+  &= \frac{1}{2 / 4} = 2
+\end{aligned}
+$$
+
+```{r}
+qt(0.025, df = 15)
+qt(1 - 0.025, df = 15)
+```
+
+The value $t=2$ is inside the two-sided significance threshold, so there is not
+not enough evidence to reject $H_0$ in favor of $H_1$.
+
+b. What if we test against $H_1: \mu > 10$?
+
+```{r}
+qt(1 - 0.05, df = 15)
+```
+
+Now the higher bound of the significance threshold is below $t=2$, so we
+reject $H_0$ in favor of $H_1$.
+
+We should still reject the null hypothesis if we test against $H_1 : \mu > 10$.
+
+## 2. Easter Eggs (T)
+
+Assume that you got six similar Easter eggs with 20g of chocolate reported in each. After taking one more lecture in Applied Statistics, you want to further investigate whether it is plausible that the eggs really contain 20g chocolate or if the egg producer is cheating.
+You weight the eggs and obtain the
+following six observations for the chocolate weight:
+
+<table>
+  <tr>
+    <th colspan=6>Chocolate contents (g)</th>
+  </tr>
+  <tr>
+    <td>20.1</td>
+    <td>19.1</td>
+    <td>18.2</td>
+    <td>20.2</td>
+    <td>19.6</td>
+    <td>19.1</td>
+  </tr>
+</table>
+
+You may assume that your measurement is a
+realization of a random sample from a normal distribution $N(\mu,
+\sigma^2)$, where $\mu$ represents the true average contents.
+
+(a) Formulate the appropriate null hypothesis and alternative hypothesis.
+
+$H_0 : \mu = 20$
+
+$H_1 : \mu < 20$
+
+(b) Which test is appropriate for testing the hypothesis? Explain why.
+
+One-sample t test for normally distributed data. We are told that we can
+assume the data is normally distributed.
+
+(c) Compute the value of the test statistic and report your conclusion at significance level $\alpha = 0.05$.
+
+```{r}
+x <- c(20.1, 19.1, 18.2, 20.2, 19.6, 19.1)
+t.test(x, mu = 20, alternative="less")
+t <- (mean(x) - 20) / (sd(x) / sqrt(length(x))); t
+qt(0.05, df = 5)
+```
+
+The value of t is just outside the 95% one-sided confidence interval, so we
+reject $H_0$ in favor of $H_1$.
+
+(d) Compute the corresponding left tail $p$-value. Is it likely to
+observe these measurements under the null hypothesis?
+
+$$
+p = P(T \leq t \;|\; H_0) \qquad H_A : \mu < \mu_0
+$$
+
+```{r}
+pt(t, df = 5)
+```
+
+The p-value is 0.0495, which is less than 0.05, so we reject $H_0$ in favor of
+$H_1$.
+
+## 3. Two-sample $t$-test (T)
+
+The data in Table 28.3  represents salaries (in pounds Sterling) in 72 randomly selected advertisements in The Guardian (April 6, 1992). When the range was given in the advertisement, the midpoint of the range is reproduced in the table. The data are salaries corresponding to two kinds of occupations ($n=m=72$): (1) Creative, media, and marketing and (2) education. The sample mean and sample variance of the two datasets are, respectively: 
+
+\begin{equation*}
+\begin{split}
+    (1)\ \bar{x}_{72} = 17 410 \textrm{ and } s_x^2= 41 258 741,\\
+    (2)\ \bar{y}_{72} = 19 818 \textrm{ and } s_y^2= 50 744 521,
+\end{split}
+\end{equation*}
+
+Suppose that the datasets are modeled as realizations of normal distributions with expectations $\mu_1$ and $\mu_2$, which represent the salaries for occupations (1) and (2).
+
+a. Test the null hypothesis that the salary for both occupations is the same at level $\alpha = 0.05$ under the assumption of equal variances. Formulate the proper null and alternative hypotheses, compute the value of the test statistic, and report your conclusion. 
+
+$H_0 : \mu_x = \mu_y$
+
+$H_1 : \mu_x \neq \mu_y$
+
+```{r}
+x_mean <- 17410
+x_var <- 41258741
+y_mean <- 19818
+y_var <- 50744521
+s_p <- sqrt(((71 * x_var + 71 * y_var) / (72 + 72 - 2)) * (1 / 72 + 1 / 72))
+t_p <- (x_mean - y_mean) / s_p
+c(qt(0.025, df = (72 + 72 - 2)), qt(1 - 0.025, df = (72 + 72 - 2)))
+t_p
+p <- pt(t_p, df = 142, lower.tail = T) + pt(1 - t_p, df = 142, lower.tail = F)
+p
+```
+
+The p-value is significant, so we should reject $H_0$ in favor of $H_1$.
+
+b. Do the same without the assumption of equal variances. 
+
+```{r}
+x_mean <- 17410
+x_var <- 41258741
+y_mean <- 19818
+y_var <- 50744521
+s_d <- sqrt(x_var / 72 + y_var / 72)
+t_d <- (x_mean - y_mean) / s_d
+t_d
+v <- ((x_var + y_var) / 72)^2 / ((x_var^2 + y_var^2) / (72^2 * 71))
+qt(0.025, df = v)
+```
+
+The t value is lower than $c_u = -1.977$, so we reject $H_0$ in favor of $H_1$.
+
+c. As a comparison, one carries out an empirical bootstrap simulation for the nonpooled studentized mean difference. The bootstrap approximations for the critical values are $c_l^* = -2.004$ and $c_u^*=2.133$. Report your conclusions about the salaries on the basis of the bootstrap results. 
+
+The nonpooled studentized mean difference for the dataset is lower than
+$c_l^*$, so we reject the null hypothesis that the salaries are equal, in
+favor of the alternate hypothesis that they are different.
+
+## 4. Significance test for the mean (R)
+
+The United States Department of Energy conducts weekly phone surveys on the
+price of gasoline sold in the United States. Suppose one week the sample
+average was \$4.03, the sample standard deviation was \$0.42, and the sample
+size was 800. Perform a one-sided significance test of $H_0:\mu=4.00$ against the
+alternative $H_\mathrm{A}:\mu>4.00$.
+
+```{r}
+t <- (4.03 - 4) / (0.42 / sqrt(800))
+t
+qt(0.05, df = 799, lower.tail = F)
+```
+
+$t^*$ is higher than $c_u = 1.64$, so we reject $H_0$.
+
+## 5. Two-sample tests of centre (R)
+
+The data set `normtemp (UsingR)` contains body measurements for 130 healthy,
+randomly selected individuals. The variable `temperature` contains normal body
+temperature data and the variable `gender contains gender information, with male coded
+as 1 and female as 2. Can you assume that the groups have similar standard deviation? Is the sample difference across two groups statistically significant? Is the conclusion the same if you made a different assumption of the standard deviation?
+
+```{r}
+male <- subset(normtemp, gender == 1)$temperature
+female <- subset(normtemp, gender == 2)$temperature
+t.test(x = male, y = female, var.equal = T, alternative = "two.sided")
+t.test(x = male, y = female, var.equal = F, alternative = "two.sided")
+```
+
+The p-values are lower than 0.05 in either case, so there is substantial evidence
+to reject $H_0$ in favor of $H_1$.
+
+## 6. Bootstrapping in two-sample tests (R)
+
+For the `babies (UsingR)` data set, the variable `age` contains the recorded mom's age and `dage` contains the dad´s age for several different cases in the sample. Do a significance test of the null hypothesis of equal age against a one-sided alternative that dads are older in the sample population. Use a non-normal model with bootstrapping.
+
+$H_0 : \mu_1 = \mu_2$ where $\mu_1$ is the actual mean of the mom's age and 
+$\mu_2$ is the actual age of the dad's age.
+
+$H_1 : \mu_1 < \mu_2$
+
+```{r}
+age <- babies$age
+dage <- babies$dage
+
+s_d <- sqrt(var(age) / length(age) + var(dage) / length(dage))
+t_d <- (mean(age) - mean(dage)) / s_d; t_d
+
+alpha <- 0.05
+
+t_d_s_samples <- c()
+for (. in 0:10000) {
+  age_boot <- sample(age, length(age), replace = T)
+  dage_boot <- sample(dage, length(dage), replace = T)
+  s_d_s <- sqrt(var(age_boot) / length(age) + var(dage_boot) / length(dage))
+  t_d_s <- ((mean(age_boot) - mean(dage_boot)) - (mean(age) - mean(dage))) / s_d_s
+  t_d_s_samples <- c(t_d_s_samples, t_d_s)
+}
+quantile(t_d_s_samples, 1 - alpha)
+mean(t_d_s_samples > t_d)
+```

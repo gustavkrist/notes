@@ -1,0 +1,241 @@
+---
+title: "Mock Exam"
+subtitle: "Applied Statistics 2022, IT University of Copenhagen"
+date: 11th May 2022
+output:
+  pdf_document: default
+documentclass: article
+classoption: a4paper
+header-includes:
+  - \newcommand{\P}{\operatorname{P}}
+---
+
+*This was the real exam in Applied Statistics in the Spring 2021.*
+
+## Instructions
+
+This mock exam is divided into five parts and each part have sub-questions. A number of points (pts) are assigned to each question and the total number of points in this exam is 32. If this was a real exam, you would have to hand in both a PDF document (`.pdf`) generated using R Markdown and the corresponding R Markdown code file (`.Rmd`). To simulate a real exam situation, please hand in both files in through [LearnIT](https://learnit.itu.dk/). When answering the questions, you must explain how you obtained the answers and use correct mathematical notation.
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## 1. Probability Theory (6 pts)
+
+Consider an experiment where you flip a fair coin four times. 
+
+(a) (1 pt) Define a natural sample space $\Omega$ for this experiment. 
+
+$$
+\begin{gather}
+\Omega = \left\{ HHHH, HHHT, HHTT, HTTT, TTTT, TTTH, TTHH, THHH, \\
+HTHT, THTH, HTHH, HHTH, THTT, THHT, HTTH, TTHT \right\}
+\end{gather}
+$$
+
+(b) (2 pts) Write down the set of outcomes corresponding to each of the following events
+
+  - A: "We get exactly one tails"
+    
+$\left\{ THHH, HTHH, HHTH, HHHT \right\}$
+
+  - B: "The coin always comes with the same side up."
+    
+$\left\{ HHHH, TTTT \right\}$
+  
+(c) (1 pt) Summarise in words the meaning of the event $A \cup B$.
+
+The meaning of the event $A \cup B$ is the event where both A and B happen.
+As B constitutes the coin always coming with the same side up, and A constitutes
+always getting exactly one tails, this set of outcomes corresponding to the event
+$A \cup B$ is empty. It is not possible to get exactly one tails, but also have
+the coin always come with the same side up.
+
+(d) (2 pts) Compute the probability for the event $C=(A \cup B)^c$.
+
+The sum of probabilities of the events in $\Omega$ occurring is 1. In this case
+of a fair coin toss, there is a 0.5 probability of either a heads or tail throw
+occurring. This means that each outcome is equally likely. There are four possible
+outcomes in the set of outcomes corresponding to the event A and 16 in the sample
+space $\Omega$, so the probability of A occurring is:
+
+$$
+\begin{align*}
+  \P(A) &= \frac{4}{16} \cdot 1 = 0.25 \\
+  \P(B) &= \frac{2}{16} \cdot 1 = 0.125
+\end{align*}
+$$
+
+The calculation is the same for the probability of B.
+
+Using Demorgan's law and the rule $\P(A \cap B) = \P(A)\P(B)$, we have
+
+$$
+\begin{align*}
+  \P(C) &= \P((A \cup B)^C) \\
+  &= \P(A^C \cap B^C) \\
+  &= \P(A^C) \cdot \P(B^C) \\
+  &= (1 - \P(A)) \cdot (1 - \P(B)) \\
+  &= (1 - 0.25) \cdot (1 - 0.125) \\
+  &= 0.75 \cdot 0.875 = 0.65625
+\end{align*}
+$$
+
+The probability for the event $C = (A \cup B)^C$ is $\P(C) = 0.656$.
+
+## 2. Expectation, Variance, Discrete Distributions (6 pts)
+
+Let us consider the experiment of independently throwing two fair dice characterised by the discrete random variables $X$ and $Y$, respectively. The discrete random variables $X$ and $Y$ take the values $a=1,2,3,\ldots,6$ and $b=1,2,3,\ldots,6$, respectively.
+
+(a) Compute the expected value for the product $Z=XY$. (2pts)
+
+```{r}
+counts <- hashtab()
+for (i in 1:6) {
+  for (j in 1:6) {
+    sethash(counts, i * j, gethash(counts, i * j, nomatch = 0) + 1)
+  }
+}
+hashkeys <- function(h) {
+  val <- vector("list", numhash(h))
+  idx <- 0
+  maphash(h, function(k, v) { idx <<- idx + 1
+                              val[idx] <<- list(k) })
+  val
+}
+keys <- hashkeys(counts)
+vals <- vector("list", length(keys))
+for (i in 1:length(keys)) {
+  vals[i] <- counts[[keys[i][[1]]]]
+}
+pdf <- data.frame(outcomes = unlist(keys), prob = unlist(vals))
+pdf$prob <- pdf$prob / sum(pdf$prob)
+expected <- 0
+for (i in 1:length(pdf$outcomes)) {
+  expected <- expected + pdf$outcomes[i] * pdf$prob[i]
+}
+expected
+```
+
+The expected value of $Z$ is $E[Z] = 12.25$.
+
+(b) Write down the probability mass function for the the discrete random variable $Z$ defined by the product $Z=XY$. (2pts)
+
+```{r}
+suppressMessages(library(kableExtra))
+pdf <- pdf[order(pdf$outcomes), ]
+table <- data.frame(Z = pdf$outcomes, P = round(cumsum(pdf$prob), digits = 2))
+kbl(table, digits = 2) %>%
+  kable_styling(full_width = F)
+```
+
+The probability mass function for the discrete random variable $Z$ is
+
+(c) Compute the variance of the product $Z=XY$. (2pts)
+
+## 3. Maximum likelihood (4pts)
+
+Let $x_1$, $x_2$, $\ldots$, $x_n$ be a dataset that is a realisation of a random sample from a $U(\alpha,\beta)$ distribution, where $\alpha$ and $\beta$ are the unknown parameters. 
+
+(a) Write down the likelihood function of the parameters. (2pts)
+
+(b) Determine the maximum likelihood estimates for the parameters $\alpha$ and $\beta$. (2pts)
+
+## 4. Small R Problems (8 pts)
+
+(a) The data set `firstchi (UsingR)` contains the age of the mother at birth of the first child. Investigate the data set by computing several simple statistics on this data set. Summarise your findings.  (2 pts)
+
+```{r}
+suppressMessages(library(UsingR))
+summary(firstchi)
+mean(firstchi)
+IQR(firstchi)
+mad(firstchi)
+```
+
+The minimum value is 14, and the maximum value is 42. The 1st quantile is 20,
+the median is 23 and the mean is 23.98. The IQR is 6, which means that most of
+the data is centered around the median, as the difference from the minimum to the
+maximum value is 28. The MAD is 4.4, so the absolute deviation from the median is
+also quite low.
+
+(b) The data set `rat (Using R)` contains the survival times of 20 rats exposed to radiation. Visualise the data in appropriate means and discuss in the light of the data and your knowledge, what kind of parametric model would you choose for the distribution of the survival times. (2 pts)
+
+```{r}
+histogram(rat, breaks = seq(min(rat), max(rat), length.out = 10))
+plot(density(rat))
+```
+
+There seems to be too little data to get a good idea of the distribution from the
+histogram. However from the KDE plot, we see that a normal distribution could
+be chosen to model the distribution of the survival times. With a higher number of
+samples, it is likely that the distribution will be normal and get rid of the skewedness.
+
+(c) Consider the dataset `kid.weights (UsingR)`, that reports information about a sample of 250 kids. Select the kids up until 9 years old (i.e. with an age strictly less than 108 months). Plot a scatter plot of the weight versus the height. Compute a linear regression model and add the regression line to the plot. What conclusions can you derive? (2 pts)
+
+```{r}
+nine_years <- subset(kid.weights, age < 108)
+plot(height ~ weight, data = nine_years)
+model <- lm(height ~ weight, data = nine_years)
+abline(model, col = 2)
+```
+
+There seems to be some amount of correlation between the weight and height of the
+children. The line does somewhat fit the data points.
+
+(d) Assume that you have implemented a scientific method that you compare to the state-of-the-art published elsewhere. You use the evaluation metric $G$ where a bigger value refers to a better outcome. Using independent experiments you get five scores for the state-of-the-art (0.908,0.915,0.908,0.905,0.904) and five for your method (0.910,0.914,0.909,0.914,0.910). State the null and alternative hypothesis and test if there is statistical evidence that your method is better than the state-of-the-art. (2 pts)
+
+The null hypothesis is $H_0: \mu_1 = \mu_2$, where $\mu_1$ is the actual mean of
+my method and $\mu_2$ is the actual mean of the state-of-the-art method.
+
+The alternative hypothesis is $H_1: \mu_1 > \mu_2$.
+
+```{r}
+sota <- c(0.908, 0.915, 0.908, 0.905, 0.904)
+mine <- c(0.910, 0.914, 0.909, 0.914, 0.910)
+t.test(mine, sota, var.equal = F, alternative = "greater")
+t.test(mine, sota, var.equal = T, alternative = "greater")
+```
+
+Whether or not we assume equal variance for the two datasets, the p-value is
+0.08, so with a 0.05 alpha significance threshold, there is not enough evidence
+to reject $H_0$ in favor of $H_1$.
+
+## 5. Bootstrapping and confidence intervals (8 pts)
+
+Let us look at the datasets `female.inc` `(UsingR)` that contain income distribution for females in 2001. You may ignore the information about the race of the individuals. Your goal is to estimate the mean female income together with its 95% confidence intervals. 
+
+(a) Why is bootstrapping a good strategy for finding the confidence intervals for the mean female income? (1pt)
+
+We do not know the distribution of the female income, so bootstrapping is a good
+method to find an approximation for the distribution function and use that to
+estimate the mean female income. 
+
+(b) Write a computer program that computes the bootstrap estimates for the 95% confidence intervals for the mean income of all the females in the dataset. (5pts)
+
+```{r}
+incomes <- female.inc$income
+mean_samples <- c()
+for (. in 0:10000) {
+  incomes_boot <- sample(incomes, length(incomes), replace = T)
+  mean_samples <- c(mean_samples, mean(incomes_boot))
+}
+alpha <- 0.05
+conf_interval <- quantile(mean_samples, probs = c(alpha / 2, 1 - alpha / 2))
+conf_interval
+```
+
+The bootstrap estimates for the 95% confidence intervals for the mean income of
+all the females in the dataset are $(`r conf_interval[1]`, `r conf_interval[2]`)$.
+
+(c) Report your numerical results for the mean and confidence interval together with a graphic illustrating the bootstrapped sample. (2pts)
+
+```{r}
+mean(mean_samples)
+plot(density(mean_samples))
+histogram(mean_samples)
+```
+
+The mean of the bootstrap sample means is 21057.21, and the bootstrap estimate for
+the 95% confidence intervals are $(`r conf_interval[1]`, `r conf_interval[2]`)$.

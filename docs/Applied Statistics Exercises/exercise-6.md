@@ -49,21 +49,21 @@ To investigate the relations between hair color and eye colour, the hair color a
 | Light \| 1 | $\frac{1168}{5383}$ | $\frac{825}{5383}$  | $\frac{305}{5383}$  |
 | Dark \| 2  | $\frac{573}{5383}$  | $\frac{1312}{5383}$ | $\frac{1200}{5383}$ |
 
-\begin{center}
+<!-- $$
 \begin{tabular}{c | c c c | c}
   & & \textbf{Hair color} \\
-  & Fair/Red | 1 & Medium | 2 & Dark/Black | 3 & $P_Y$\\
+  & Fair/Red | 1 & Medium | 2 & Dark/Black | 3 & P_Y \\
   \textbf{Eye color} \\
   \hline
   \rule{0pt}{1.2em}
-  Light | 1 & $0.217$ & $0.153$ & $0.057$ & $0.427$ \\
+  Light | 1 & 0.217 & $0.153$ & $0.057$ & $0.427$ \\
   \rule{0pt}{1.2em}
   Dark | 2 & $0.106$ & $0.245$ & $0.223$ & $0.574$ \\
   \hline
   \rule{0pt}{1.2em}
   $P_X$ & $0.323$ & $0.398$ & $0.280$ 
 \end{tabular}
-\end{center}
+$$ -->
 
 
 |            |               | **Hair color** |                 |         |

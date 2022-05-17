@@ -148,8 +148,19 @@ $$
 \frac{(\mean{X}_n - \mean{Y}_m) - (\mu_1 - \mu_2)}{S_d}
 $$
 
-The distribution is *not* a $t$-distribution, not even in the case of normal
-samples. We have to approximate this distribution.
+### Normal data - Welsch's test
+
+The distribution of $T_d$ can be approximated by a $t(v)$-distribution, where
+
+$$
+\begin{align*}
+v = \frac{\left( \frac{S_X^2}{n} + \frac{S_Y^2}{m} \right)^2}{\frac{S_X^4}{n^2(n-1)} + \frac{S_Y^4}{m^2(m-1)}}
+\end{align*}
+$$
+
+### Nonnormal data
+
+Must approximate distribution with bootstrap.
 
 Same steps as the process for same variance, except substitute
 

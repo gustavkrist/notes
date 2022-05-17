@@ -35,7 +35,7 @@ provided that $P(C) > 0$.
 For any events $A$ and $C$
 
 $$
-P(A \cap C) = P(A \,   \, C) \cdot P(C)
+P(A \cap C) = P(A \given C) \cdot P(C)
 $$
 
 ??? example "Example"
