@@ -327,7 +327,7 @@
 	},
 	"math beta": {
 		"prefix": "!b",
-		"body": ["$\\beta$$"],
+		"body": ["$\\beta$"],
 		"description": "Inline math beta"
 	},
 	"chi": {

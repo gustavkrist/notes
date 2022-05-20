@@ -44,13 +44,15 @@ $\left\{ THHH, HTHH, HHTH, HHHT \right\}$
     
 $\left\{ HHHH, TTTT \right\}$
   
-(c) (1 pt) Summarise in words the meaning of the event $A \cup B$.
+(c) (1 pt) Summarize in words the meaning of the event $A \cup B$.
 
-The meaning of the event $A \cup B$ is the event where both A and B happen.
+~~The meaning of the event $A \cup B$ is the event where both A and B happen.
 As B constitutes the coin always coming with the same side up, and A constitutes
 always getting exactly one tails, this set of outcomes corresponding to the event
 $A \cup B$ is empty. It is not possible to get exactly one tails, but also have
-the coin always come with the same side up.
+the coin always come with the same side up.~~
+
+We get either exactly one tails or the coin always comes the same side up.
 
 (d) (2 pts) Compute the probability for the event $C=(A \cup B)^c$.
 
@@ -84,6 +86,15 @@ $$
 
 The probability for the event $C = (A \cup B)^C$ is $\P(C) = 0.656$.
 
+**Solution from exam**
+
+The events A and B are disjoint so
+
+$$
+P(C) =1- P(A) - P(B) = 1-4\cdot\frac{1}{16}+2\cdot\frac{1}{16}=\frac{5}{8}.
+$$
+
+
 ## 2. Expectation, Variance, Discrete Distributions (6 pts)
 
 Let us consider the experiment of independently throwing two fair dice characterised by the discrete random variables $X$ and $Y$, respectively. The discrete random variables $X$ and $Y$ take the values $a=1,2,3,\ldots,6$ and $b=1,2,3,\ldots,6$, respectively.
@@ -106,41 +117,101 @@ hashkeys <- function(h) {
 }
 keys <- hashkeys(counts)
 vals <- vector("list", length(keys))
-for (i in 1:length(keys)) {
+for (i in seq_len(length(keys))) {
   vals[i] <- counts[[keys[i][[1]]]]
 }
-pdf <- data.frame(outcomes = unlist(keys), prob = unlist(vals))
-pdf$prob <- pdf$prob / sum(pdf$prob)
+pdf <- data.frame(Z = unlist(keys), P = unlist(vals))
+pdf$P <- pdf$P / sum(pdf$P)
 expected <- 0
-for (i in 1:length(pdf$outcomes)) {
-  expected <- expected + pdf$outcomes[i] * pdf$prob[i]
+for (i in seq_len(length(pdf$Z))) {
+  expected <- expected + pdf$Z[i] * pdf$P[i]
 }
 expected
 ```
 
 The expected value of $Z$ is $E[Z] = 12.25$.
 
-(b) Write down the probability mass function for the the discrete random variable $Z$ defined by the product $Z=XY$. (2pts)
+One-liner:
 
 ```{r}
-suppressMessages(library(kableExtra))
-pdf <- pdf[order(pdf$outcomes), ]
-table <- data.frame(Z = pdf$outcomes, P = round(cumsum(pdf$prob), digits = 2))
-kbl(table, digits = 2) %>%
-  kable_styling(full_width = F)
+weighted.mean(1:6 %o% 1:6)
 ```
+
+(b) Write down the probability mass function for the the discrete random variable $Z$ defined by the product $Z=XY$. (2pts)
 
 The probability mass function for the discrete random variable $Z$ is
 
+```{r eval=F}
+suppressMessages(library(kableExtra))
+pdf <- pdf[order(pdf$Z), ]
+data.frame(Z = pdf$Z, P = round(cumsum(pdf$P), digits = 2)) %>%
+  kbl(digits = 2) %>%
+  kable_styling(full_width = F)
+```
+
+Or with frequency table function:
+
+```{r eval=F}
+tab <- table(1:6 %o% 1:6)
+ptab <- prop.table(tab)
+data.frame(Z = row.names(tab), P = cumsum(unname(ptab))) %>%
+  kbl(digits = 2) %>%
+  kable_styling(full_width = F)
+```
+
+**Probability mass is not the cumulative probabilities.**
+
+Written nice from the solutions:
+
+$$
+p(c) =P(Z=c) = \begin{cases} \frac{1}{36} & \text{when } c=1,9,16,25,36\\
+                             \frac{1}{18} & \text{when } c=2,3,5,8,10,15,18,20,24,30\\
+                             \frac{1}{12} & \text{when } c=4\\
+                             \frac{1}{9} & \text{when } c=6,12\\
+                             0 & \text{otherwise.}
+       \end{cases}.
+$$
+
 (c) Compute the variance of the product $Z=XY$. (2pts)
+
+```{r}
+weighted.mean(sapply(1:6 %o% 1:6, \(x) (x - 12.25)^2))
+```
 
 ## 3. Maximum likelihood (4pts)
 
-Let $x_1$, $x_2$, $\ldots$, $x_n$ be a dataset that is a realisation of a random sample from a $U(\alpha,\beta)$ distribution, where $\alpha$ and $\beta$ are the unknown parameters. 
+Let $x_1$, $x_2$, $\ldots$, $x_n$ be a dataset that is a realization of a random sample from a $U(\alpha,\beta)$ distribution, where $\alpha$ and $\beta$ are the unknown parameters. 
 
 (a) Write down the likelihood function of the parameters. (2pts)
 
+$$
+L(\theta) = \int_{\alpha}^{\beta} f_{\theta}(x) \; dx
+$$
+
+**Solution**
+
+$$L(\alpha,\beta)=\prod_{i=1}^n f(x_i;\alpha,\beta)$$
+where probability density of the data is
+$$ f(x;\alpha,\beta) = 
+\begin{cases}
+  \frac{1}{{\beta-\alpha}} & \textrm{if } \alpha \leq x \leq \beta\\
+  0 & \textrm{otherwise.}
+\end{cases}$$
+
 (b) Determine the maximum likelihood estimates for the parameters $\alpha$ and $\beta$. (2pts)
+
+The maximum likelihood estimator for $\alpha$ is $\min(x1, x2, \ldots, x_n)$ and
+the maximum likelihood estimator for $\beta$ is $\max(x1, x2, \ldots, x_n)$.
+
+**Solution:**
+
+We first observe that $L$ is always non-negative. We can also see that if we set
+$\alpha$ so that any observation would be smaller than it, the likelihood
+function will be zero. Similarly if any of the observations is larger than $\beta$
+the likelihood will be likewise zero. The likelihood function hence yields the
+largest value when the interval is the smallest as long as these two conditions
+are met. Therefore, we conclude that the maximum likelihood estimate for the
+parameters is $\hat{\alpha}=\min_i {x_i}$ and $\hat{\beta}=\max_i {x_i}$.
 
 ## 4. Small R Problems (8 pts)
 
@@ -163,7 +234,8 @@ also quite low.
 (b) The data set `rat (Using R)` contains the survival times of 20 rats exposed to radiation. Visualise the data in appropriate means and discuss in the light of the data and your knowledge, what kind of parametric model would you choose for the distribution of the survival times. (2 pts)
 
 ```{r}
-histogram(rat, breaks = seq(min(rat), max(rat), length.out = 10))
+histogram(rat, breaks = seq(min(rat), max(rat), length.out = 7))
+hist(rat)
 plot(density(rat))
 ```
 
@@ -171,6 +243,11 @@ There seems to be too little data to get a good idea of the distribution from th
 histogram. However from the KDE plot, we see that a normal distribution could
 be chosen to model the distribution of the survival times. With a higher number of
 samples, it is likely that the distribution will be normal and get rid of the skewedness.
+
+**Solution:**
+
+From the visual shape of the histogram/KDE, we conclude that a normal distribution
+model seems appropriate for the survival times.
 
 (c) Consider the dataset `kid.weights (UsingR)`, that reports information about a sample of 250 kids. Select the kids up until 9 years old (i.e. with an age strictly less than 108 months). Plot a scatter plot of the weight versus the height. Compute a linear regression model and add the regression line to the plot. What conclusions can you derive? (2 pts)
 
@@ -202,6 +279,15 @@ Whether or not we assume equal variance for the two datasets, the p-value is
 0.08, so with a 0.05 alpha significance threshold, there is not enough evidence
 to reject $H_0$ in favor of $H_1$.
 
+**COMMENT:**
+
+Check for equal variance first
+
+```{r}
+var(sota)
+var(mine)
+```
+
 ## 5. Bootstrapping and confidence intervals (8 pts)
 
 Let us look at the datasets `female.inc` `(UsingR)` that contain income distribution for females in 2001. You may ignore the information about the race of the individuals. Your goal is to estimate the mean female income together with its 95% confidence intervals. 
@@ -211,6 +297,15 @@ Let us look at the datasets `female.inc` `(UsingR)` that contain income distribu
 We do not know the distribution of the female income, so bootstrapping is a good
 method to find an approximation for the distribution function and use that to
 estimate the mean female income. 
+
+**COMMENT:**
+
+Look at the distribution to determine that a normal distribution model is not the
+right fit
+
+```{r}
+hist(female.inc$income)
+```
 
 (b) Write a computer program that computes the bootstrap estimates for the 95% confidence intervals for the mean income of all the females in the dataset. (5pts)
 
@@ -224,6 +319,26 @@ for (. in 0:10000) {
 alpha <- 0.05
 conf_interval <- quantile(mean_samples, probs = c(alpha / 2, 1 - alpha / 2))
 conf_interval
+```
+
+**Solution:**
+Compute studentized mean, not just normal mean
+
+```{r}
+mean_income <- mean(female.inc$income)
+n <- length(female.inc$income)
+studentized_means <- c()
+for (i in 1:10000) {
+income_star <- sample(female.inc$income, n, replace = TRUE)
+studentized_mean <- (mean(income_star) - mean_income) /
+                     (sd(income_star) / sqrt(n))
+studentized_means <- c(studentized_means, studentized_mean)
+}
+c_lu <- quantile(studentized_means, probs = c(0.025, 0.975))
+interval <- c(mean_income - c_lu[2] * sd(female.inc$income) / sqrt(n),
+              mean_income - c_lu[1] * sd(female.inc$income) / sqrt(n))
+mean_income
+unname(interval)
 ```
 
 The bootstrap estimates for the 95% confidence intervals for the mean income of

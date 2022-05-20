@@ -65,7 +65,7 @@ $$
     L(\theta) &= P_{\theta}(x_1) \dots P_{\theta}(x_i) \\
     L(p) &= p^3 (1-p)^7 \\
     \Leftrightarrow \log L(p) &= 3 \log p + 7\log (1-p) \\
-    P(\text{"seq"} \given \text{fair}) &= \left( \frac{1}{2} \right)^10 \approx 0.0010 \\
+    P(\text{"seq"} \given \text{fair}) &= \left( \frac{1}{2} \right)^{10} \approx 0.0010 \\
     P(\text{"seq"} \given \text{biased}) &= (0.2)^3 \cdot (0.8)^7 \approx 0.0017
     \end{align*}
     $$
