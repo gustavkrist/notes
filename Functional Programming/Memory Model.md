@@ -1,10 +1,16 @@
+---
+id: Memory Model
+aliases: []
+tags: []
+---
+
 Primitive values are allocated on the stack.
 
 Composite values are allocated on the heap.
 
 ```fsharp
-let xs = [5; 6; 7]
-let ys = 3::4::xs
+let xs = [ 5; 6; 7 ]
+let ys = 3 :: 4 :: xs
 let zs = xs @ ys
 let n = 27
 ```

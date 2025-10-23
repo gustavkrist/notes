@@ -16,7 +16,9 @@
                 "file": "Functional Programming/ADT.md",
                 "mode": "source",
                 "source": true
-              }
+              },
+              "icon": "lucide-file",
+              "title": "ADT"
             }
           },
           {
@@ -28,7 +30,9 @@
                 "file": "Functional Programming/ADT.md",
                 "mode": "source",
                 "source": false
-              }
+              },
+              "icon": "lucide-file",
+              "title": "ADT"
             }
           },
           {
@@ -40,7 +44,9 @@
                 "file": "Bachelor/FK thresholds.md",
                 "mode": "source",
                 "source": false
-              }
+              },
+              "icon": "lucide-file",
+              "title": "FK thresholds"
             }
           },
           {
@@ -52,7 +58,9 @@
                 "file": "Functional Programming/Modules.md",
                 "mode": "source",
                 "source": false
-              }
+              },
+              "icon": "lucide-file",
+              "title": "Modules"
             }
           },
           {
@@ -61,26 +69,68 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Bachelor/Meeting Notes 23-09-2024.md",
+                "file": "Functional Programming/Memory Model.md",
                 "mode": "source",
                 "source": false
-              }
+              },
+              "icon": "lucide-file",
+              "title": "Memory Model"
             }
           },
           {
-            "id": "5fc7574853ae9aa9",
+            "id": "35a571348c911645",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.8.7"
+              },
+              "icon": "lucide-book-up",
+              "title": "Release Notes 1.8.7"
+            }
+          },
+          {
+            "id": "79d3ae2fcecac865",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.9.10"
+              },
+              "icon": "lucide-book-up",
+              "title": "Release Notes 1.9.10"
+            }
+          },
+          {
+            "id": "e95651c7159a8f9c",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Bachelor/Meeting notes 9-9-2024.md",
+                "file": "Bachelor/FK thresholds.md",
                 "mode": "source",
                 "source": false
-              }
+              },
+              "icon": "lucide-file",
+              "title": "FK thresholds"
+            }
+          },
+          {
+            "id": "21ca68adcd4f91f9",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Bachelor/Meeting notes 11-11-2024.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Meeting notes 11-11-2024"
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 6
       }
     ],
     "direction": "vertical"
@@ -99,8 +149,11 @@
             "state": {
               "type": "file-explorer",
               "state": {
-                "sortOrder": "alphabetical"
-              }
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
             }
           },
           {
@@ -115,7 +168,9 @@
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical"
-              }
+              },
+              "icon": "lucide-search",
+              "title": "Search"
             }
           },
           {
@@ -123,7 +178,9 @@
             "type": "leaf",
             "state": {
               "type": "starred",
-              "state": {}
+              "state": {},
+              "icon": "lucide-ghost",
+              "title": "starred"
             }
           },
           {
@@ -131,7 +188,9 @@
             "type": "leaf",
             "state": {
               "type": "bookmarks",
-              "state": {}
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
             }
           }
         ]
@@ -154,7 +213,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Bachelor/FK thresholds.md",
+                "file": "Bachelor/Meeting notes 11-11-2024.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -162,7 +221,9 @@
                 "searchQuery": "",
                 "backlinkCollapsed": false,
                 "unlinkedCollapsed": true
-              }
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Meeting notes 11-11-2024"
             }
           },
           {
@@ -171,10 +232,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Bachelor/FK thresholds.md",
+                "file": "Bachelor/Meeting notes 11-11-2024.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
-              }
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Meeting notes 11-11-2024"
             }
           },
           {
@@ -185,7 +248,9 @@
               "state": {
                 "sortOrder": "frequency",
                 "useHierarchy": true
-              }
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
             }
           },
           {
@@ -194,8 +259,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Bachelor/FK thresholds.md"
-              }
+                "file": "Bachelor/Meeting notes 11-11-2024.md"
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Meeting notes 11-11-2024"
             }
           },
           {
@@ -203,7 +270,9 @@
             "type": "leaf",
             "state": {
               "type": "advanced-tables-toolbar",
-              "state": {}
+              "state": {},
+              "icon": "spreadsheet",
+              "title": "Advanced Tables"
             }
           },
           {
@@ -215,7 +284,9 @@
                 "sortOrder": "frequency",
                 "showSearch": false,
                 "searchQuery": ""
-              }
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
             }
           },
           {
@@ -223,18 +294,22 @@
             "type": "leaf",
             "state": {
               "type": "git-view",
-              "state": {}
+              "state": {},
+              "icon": "git-pull-request",
+              "title": "Source Control"
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
+      "bases:Create new base": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
@@ -244,24 +319,26 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "111c78a820663d68",
+  "active": "79d3ae2fcecac865",
   "lastOpenFiles": [
-    "Bachelor/Meeting notes 2-9-2024.md",
-    "Bachelor/Meeting notes 9-9-2024.md",
-    "Bachelor/Meeting Notes 23-09-2024.md",
-    "Bachelor/attachments/Pasted image 20240909122901.png",
-    "Bachelor/attachments/Pasted image 20240929002236.png",
-    "Bachelor/FK thresholds.md",
     "Functional Programming/Builtin Types.md",
+    "Functional Programming/ADT.md",
+    "Bachelor/Datasets.md",
+    "Bachelor/FK thresholds.md",
+    "Bachelor/Meeting Notes 23-09-2024.md",
+    "Bachelor/Meeting notes 11-11-2024.md",
+    "Bachelor/Meeting notes 21-10-2024.md",
+    "Bachelor/Meeting notes 9-9-2024.md",
+    "Bachelor/attachments/Pasted image 20241001182937.png",
     "Functional Programming/Modules.md",
     "Bachelor/().md",
-    "Bachelor/Datasets.md",
+    "Bachelor/Meeting notes 2-9-2024.md",
+    "Bachelor/attachments/Pasted image 20240909122901.png",
     "Bachelor/attachments",
     "Snippets.md",
     "Functional Programming/Memory Model.md",
     "Bachelor.md",
     "Bachelor",
-    "Functional Programming/ADT.md",
     "Functional Programming/attachments/Pasted image 20240228082722.png",
     "Functional Programming/attachments",
     "Functional Programming/Sets.md",
@@ -289,7 +366,6 @@
     "notes_old/Machine Learning/Exam/Support Vector Machines.md",
     "notes_old/Machine Learning/Exam/Linear Regression.md",
     "notes_old/Machine Learning/Exam/Logistic or Softmax Regression.md",
-    "notes_old/Machine Learning/Exam/Generative models for classification.md",
-    "notes_old/Machine Learning/Exam/Dimensionality Reduction.md"
+    "notes_old/Machine Learning/Exam/Generative models for classification.md"
   ]
 }

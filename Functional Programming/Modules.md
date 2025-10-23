@@ -1,3 +1,9 @@
+---
+id: Modules
+aliases: []
+tags: []
+---
+
 Characterized by:
 - A signature (.fsi file)
 - A matching implementation (.fs file)

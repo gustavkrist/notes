@@ -1,0 +1,5 @@
+- Try training a model using sentence length/text length to see how accurately the level can be predicted using that measure. If we get high accuracy using that predictor, BERT will almost certainly be relying highly on that feature.
+- Could try sliding window over words/sentences or sentence level
+  - Train on less data - maybe drop a lot of the A1, A2 and B2 data, would make the split more even
+  - Window should be a number of word - base window length on max sentence length or median sentence length or something along those lines - maybe google average sentence length in english and use that
+- Try adjusting (optimizing) FK->CEFR buckets
