@@ -1,9 +1,7 @@
 {
-  "minimal-advanced@@styled-scrollbars": false,
   "minimal-style@@active-line-on": true,
   "minimal-style@@image-muted": 0.85,
-  "minimal-style@@sidebar-lines-off": false,
-  "CodeMirror Options@@cm-font-monospace": "Fira Code, Jetbrains Mono, SFMono-Regular, Consolas, \"Roboto Mono\", monospace",
+  "CodeMirror Options@@cm-font-monospace": "Jetbrains Mono, SFMono-Regular, Consolas, \"Roboto Mono\", monospace",
   "CodeMirror Options@@cm-wrap-lines": "pre",
   "CodeMirror Options@@cm-atom@@light": "#81A1C1",
   "CodeMirror Options@@cm-atom@@dark": "#81A1C1",
@@ -70,5 +68,5 @@
   "CodeMirror Options@@cm-active-line-background-color@@dark": "#FFFFFFFF",
   "minimal-style@@line-number-color@@dark": "#70788A",
   "minimal-style@@line-number-color-active@@dark": "#70788A",
-  "minimal-style@@folding-offset": 28
+  "minimal-style@@folding-offset": 8
 }

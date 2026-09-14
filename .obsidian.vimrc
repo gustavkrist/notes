@@ -30,55 +30,56 @@ exmap surround_backticks surround ` `
 exmap surround_stars surround * *
 exmap surround_dollars surround $ $
 
+nunmap S
 vunmap S
-vmap S" :surround_double_quotes
-vmap S' :surround_single_quotes
-vmap S' :surround_single_quotes
-vmap Sb :surround_brackets
-vmap S) :surround_brackets
-vmap S] :surround_square_brackets
-vmap S} :surround_curly_brackets
-vmap S> :surround_angle_brackets
-vmap S| :surround_bars
-vmap S` :surround_backticks
-vmap S* :surround_stars
-vmap S$ :surround_dollars
+map S" :surround_double_quotes<CR>
+map S' :surround_single_quotes<CR>
+map S' :surround_single_quotes<CR>
+map Sb :surround_brackets<CR>
+map S) :surround_brackets<CR>
+map S] :surround_square_brackets<CR>
+map S} :surround_curly_brackets<CR>
+map S> :surround_angle_brackets<CR>
+map S| :surround_bars<CR>
+map S` :surround_backticks<CR>
+map S* :surround_stars<CR>
+map S$ :surround_dollars<CR>
 
 " Emulate Folding https://vimhelp.org/fold.txt.html#fold-commands
 exmap togglefold obcommand editor:toggle-fold
-nmap zo :togglefold
-nmap zc :togglefold
-nmap za :togglefold
+nmap zo :togglefold<CR>
+nmap zc :togglefold<CR>
+nmap za :togglefold<CR>
 
 exmap unfoldall obcommand editor:unfold-all
-nmap zR :unfoldall
+nmap zR :unfoldall<CR>
 
 exmap foldall obcommand editor:fold-all
-nmap zM :foldall
+nmap zM :foldall<CR>
 
 " Leader mappings
 " Toggle focus mode
 exmap togglefocus obcommand obsidian-minimal-settings:toggle-minimal-focus-mode
-nmap <Space>z :togglefocus
+nmap <Space>z :togglefocus<CR>
 exmap togglefiletree obcommand app:toggle-left-sidebar
-nmap <Space>e :togglefiletree
+nmap <Space>e :togglefiletree<CR>
 " Vertical/horizontal splits
 exmap vsplit obcommand workspace:split-vertical
-nmap <Space>v :vsplit
+nmap <Space>v :vsplit<CR>
 exmap hsplit obcommand workspace:split-horizontal
-nmap <Space>h :hsplit
+nmap <Space>h :hsplit<CR>
 exmap togglesource obcommand editor:toggle-source
-nmap <Space>s :togglesource
+nmap <Space>s :togglesource<CR>
 
 " Pane movement
 exmap focusright obcommand editor:focus-right
-nmap <C-l> :focusright
+nmap <C-l> :focusright<CR>
 exmap focusleft obcommand editor:focus-left
-nmap <C-h> :focusleft
+nmap <C-h> :focusleft<CR>
 exmap focustop obcommand editor:focus-top
-nmap <C-k> :focustop
+nmap <C-k> :focustop<CR>
 exmap focusbottom obcommand editor:focus-bottom
-nmap <C-j> :focusbottom
+nmap <C-j> :focusbottom<CR>
 
 " Commands
 exmap q obcommand workspace:close
@@ -87,3 +88,4 @@ imap <C-h> <left>
 imap <C-j> <down>
 imap <C-k> <up>
 imap <C-l> <right>
+nmap ZZ :q<CR>

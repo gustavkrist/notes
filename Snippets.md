@@ -1,3 +1,8 @@
+---
+id: Snippets
+aliases: []
+tags: []
+---
 ```js
     // Text elements
     {trigger: "conote", replacement: "> [!NOTE]\n> ", options: "tA", priority: -1},
@@ -19,7 +24,7 @@
     // Neural Networks
     {trigger: "OL", replacement: "^{(o)}", options: "mA"},
     {trigger: "HL", replacement: "^{(h)}", options: "mA"},
-    
+
     // Bold, italic, underline, etc.
     {trigger: "U", replacement: "<u>${VISUAL}</u>", options: "tA"},
     {trigger: "B", replacement: "**${VISUAL}**", options: "tA"},

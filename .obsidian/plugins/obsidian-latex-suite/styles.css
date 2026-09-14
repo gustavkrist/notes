@@ -93,16 +93,12 @@
 }
 
 .snippets-editor-validity-indicator.valid {
-    background-color: #7dc535;
+    background-color: var(--color-green);
     visibility: visible;
 }
 
-.theme-dark .snippets-editor-validity-indicator.valid {
-    background-color: #588b24;
-}
-
 .snippets-editor-validity-indicator.invalid {
-    background-color: #ea5555;
+    background-color: var(--color-red);
     visibility: visible;
 }
 
@@ -115,6 +111,9 @@
     border: none;
 }
 
+.search-input-container input.latex-suite-location-input-el {
+    width: initial;
+}
 
 /*
 Snippet color classes.
@@ -124,36 +123,36 @@ Snippet color classes.
 nesting multiple decorations. */
 
 .latex-suite-snippet-placeholder {
-    border-width: 1px 0 1px 0;
-    border-style: solid;
+    border-radius: 2px;
+    background-color: var(--placeholder-bg);
+    outline: var(--placeholder-outline) solid 1px;
 }
 
 .latex-suite-snippet-placeholder-0, span.latex-suite-snippet-placeholder-0 span {
-    border-color: lightskyblue;
+    --placeholder-bg: #87cefa2e;
+    --placeholder-outline: #87cefa6e;
+}
+
+.theme-dark .latex-suite-snippet-placeholder-0, span.latex-suite-snippet-placeholder-0 span {
+    --placeholder-outline: #87cefa43;
 }
 
 .latex-suite-snippet-placeholder-1, span.latex-suite-snippet-placeholder-1 span {
-    border-color: orange;
+    --placeholder-bg: #ffa50033;
+    --placeholder-outline: #ffa5006b;
+}
+
+.theme-dark .latex-suite-snippet-placeholder-1, span.latex-suite-snippet-placeholder-1 span {
+    --placeholder-outline: #ffa5004d;
 }
 
 .latex-suite-snippet-placeholder-2, span.latex-suite-snippet-placeholder-2 span {
-    border-color: lime;
+    --placeholder-bg: #00ff0022;
+    --placeholder-outline: #00ff0060;
 }
 
-.latex-suite-snippet-placeholder-3, span.latex-suite-snippet-placeholder-3 span {
-    border-color: pink;
-}
-
-.latex-suite-snippet-placeholder-4, span.latex-suite-snippet-placeholder-4 span {
-    border-color: cornsilk;
-}
-
-.latex-suite-snippet-placeholder-5, span.latex-suite-snippet-placeholder-5 span {
-    border-color: magenta;
-}
-
-.latex-suite-snippet-placeholder-6, span.latex-suite-snippet-placeholder-6 span {
-    border-color: navajowhite;
+.theme-dark .latex-suite-snippet-placeholder-2, span.latex-suite-snippet-placeholder-2 span {
+    --placeholder-outline: #00ff003d;
 }
 
 
@@ -193,15 +192,32 @@ sup.cm-math, sub.cm-math {
     0px 3.4px 6.7px rgba(0, 0, 0, 0.15),
     0px 0px 30px rgba(0, 0, 0, 0.27);
 }
+/* CM6 puts the top of the tooltip higher than what's viewable (negative top value),
+so to compensate for this, we align the content to the bottom of the tooltip container,
+and limit the height.
+*/
+.cm-tooltip.cm-tooltip-cursor.cm-tooltip-above {
+	display: flex;
+}
 
+.cm-tooltip.cm-tooltip-cursor.cm-tooltip-above > .MathJax {
+	overflow-y: auto;
+	max-height: 70%;
+	display: inline-block;
+	align-self: flex-end;
+}
 
+.cm-tooltip.cm-tooltip-cursor.cm-tooltip-below > .MathJax {
+	overflow-y: auto;
+	max-height: 90%;
+}
 /* Highlight brackets */
 .theme-light .latex-suite-highlighted-bracket, .theme-light .latex-suite-highlighted-bracket [class^="latex-suite-color-bracket-"] {
-    background-color: hsl(var(--accent-h), var(--accent-s), var(--accent-l), 0.25);
+    background-color: hsl(var(--accent-h), var(--accent-s), 40%, 0.3);
 }
 
 .theme-dark .latex-suite-highlighted-bracket, .theme-dark .latex-suite-highlighted-bracket [class^="latex-suite-color-bracket-"] {
-    background-color: hsl(var(--accent-h), var(--accent-s), calc(var(--accent-l) - 7%), 0.3);
+    background-color: hsl(var(--accent-h), var(--accent-s), 70%, 0.6);
 }
 
 
@@ -234,3 +250,15 @@ sup.cm-math, sub.cm-math {
 /* .latex-suite-color-bracket-3 {
     color: #8de15c;
 } */
+
+.latex-suite-math-preview-highlight {
+	background-color: var(--text-selection);
+}
+.cm-snippetFieldPosition {
+    vertical-align: text-top;
+    width: 0;
+    height: 1.15em;
+    display: inline-block;
+    margin: 0 -0.7px -.7em;
+    border-left: 1.4px dotted #888;
+  }
