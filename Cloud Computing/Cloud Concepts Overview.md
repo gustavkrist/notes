@@ -3,7 +3,6 @@ id: "Cloud Concepts Overview"
 aliases: []
 tags: []
 ---
-
 ## Cloud Computing Intro
 
 Traditional computing model
