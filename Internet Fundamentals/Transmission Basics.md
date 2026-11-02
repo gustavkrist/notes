@@ -23,7 +23,7 @@ Can have noise (measured in dB). Common sources include:
   - Far end cross-talk (FEXT) at far end
 
 **Attenuation** is the loss of signal strength as it travels away from the source.
-Can be boosted using a **repeater**, whcih regenerates a digital signal in its original form.
+Can be boosted using a **repeater**, which regenerates a digital signal in its original form.
 
 **Latency is the delay between the signal sent and received
 - May cause network transmission errors

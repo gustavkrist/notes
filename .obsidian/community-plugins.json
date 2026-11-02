@@ -10,5 +10,6 @@
   "find-unlinked-files",
   "obsidian-vimrc-support",
   "obsidian-relative-line-numbers",
-  "obsidian-git"
+  "obsidian-git",
+  "toggle-dropdown"
 ]

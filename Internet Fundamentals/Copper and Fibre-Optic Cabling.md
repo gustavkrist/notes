@@ -130,7 +130,7 @@ Drawbacks:
 - Common uses:
   - Cables connecting routers, switches, and servers on network backbone
   - Cables connecting a desktop workstation to the network
-- Transmission between SMF and MMF can ocur at an FDP (fibre distribution pane)
+- Transmission between SMF and MMF can occur at an FDP (fibre distribution pane)
 
 ![[Pasted image 20260918171051.png]]
 
